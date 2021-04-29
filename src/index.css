@@ -33,7 +33,7 @@
 }
 
 .scrollmenu {
-  overflow: hidden;
+  overflow: auto;
   white-space: nowrap;
   overscroll-behavior: contain;
   scroll-snap-type: both mandatory;
