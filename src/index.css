@@ -1,13 +1,51 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+.card {
+  @apply rounded bg-white border-gray-200 shadow-md overflow-hidden relative;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.badge {
+  @apply absolute w-2/5 top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-medium rounded-full flex justify-between items-center ;
 }
+
+.btn {
+  @apply rounded-full py-2 px-3 uppercase text-xs font-bold tracking-wider cursor-pointer;
+}
+
+.single-meal-p {
+  @apply m-0 tracking-wide leading-normal max-w-4xl my-8;
+}
+
+.single-meal-ul {
+  @apply pl-0;
+}
+
+.single-meal-ul-li {
+  @apply border-2 border-solid border-gray-200 rounded bg-gray-500 inline-block text-white text-xs font-bold p-1 mt-0 mr-1 mb-1 ml-0;
+}
+
+.meal-img {
+  @apply  rounded-full;
+}
+
+.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  overscroll-behavior: contain;
+  scroll-snap-type: both mandatory;
+}
+
+.scrollmenu-item {
+  font-size:10em;
+  width:200px;
+  scroll-snap-align: start; 
+  display: inline-block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
