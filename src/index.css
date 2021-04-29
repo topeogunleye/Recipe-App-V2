@@ -9,7 +9,7 @@
 }
 
 .badge {
-  @apply absolute w-2/5 top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-medium rounded-full flex justify-between items-center ;
+  @apply absolute w-2/5 top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-medium rounded-full flex justify-between items-center;
 }
 
 .btn {
@@ -29,23 +29,29 @@
 }
 
 .meal-img {
-  @apply  rounded-full;
+  @apply rounded-full;
 }
 
 .scrollmenu {
-  overflow: auto;
-  white-space: nowrap;
-  overscroll-behavior: contain;
-  scroll-snap-type: both mandatory;
+  max-width: 70vw;
+}
+
+.scrollmenu {
+  @apply overflow-x-scroll whitespace-nowrap relative;
 }
 
 .scrollmenu-item {
-  font-size:10em;
-  width:200px;
-  scroll-snap-align: start; 
-  display: inline-block;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
+  @apply text-xs h-1/4 align-middle inline-block mx-3 text-center;
 }
 
+.arrow-left {
+  position: absolute;
+  top: 50%;
+  left: -7%;
+}
+
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  right: -7%;
+}

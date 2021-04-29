@@ -6,7 +6,7 @@ import chicken from './chicken.jpg';
 import CategoryInfo from './CategoryInfo';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 
-const Categories = () => {
+const Categories = ({ ref = 'scroller' }) => {
   const [
     { data, isLoading, isError },
     doFetch,
@@ -19,13 +19,16 @@ const Categories = () => {
     console.log(data);
   }
 
+  // const scroll = (scrollOffset) => {
+  //   ref.current.scrollLeft += scrollOffset;
+  // };
 
   return (
     <div className="relative">
-      <div className="wrapper scrollmenu">
+      <div className="scrollmenu">
         {data.categories &&
           data.categories.map((category) => (
-            <span className="scrollmenu-item box" key={category.idCategory}>
+            <span className="scrollmenu-item " key={category.idCategory}>
               <Link
                 to={`/CategoryInfo/${category.strCategory}`}
                 className="lozenge btn-lozenge"
@@ -48,7 +51,7 @@ const Categories = () => {
           ))}
       </div>
       <svg
-        className="w-6 h-6"
+        className="w-6 h-6 inline-block arrow-left"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -62,7 +65,7 @@ const Categories = () => {
         />
       </svg>
       <svg
-        className="w-6 h-6"
+        className="w-6 h-6 inline-block arrow-right"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

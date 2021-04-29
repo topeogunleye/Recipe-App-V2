@@ -142,13 +142,10 @@ const Home = () => {
             <h3 className="text-2xl font-semibold tracking-wider">
               For Ninjas
             </h3>
-
-            <Categories />
           </header>
-
+          <h1 className="text-center m-5 font-bold">Filter by Category</h1>
+          <Categories />
           <div>
-            
-
             <h4 className="font-bold pb-2 mt-12 border-b border-gray-200">
               Latest Recipes
             </h4>

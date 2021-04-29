@@ -8,15 +8,20 @@ module.exports = {
         secondary: {
           100: '#E2E2D5',
           200: '#888883',
-        }
+        },
+      },
+      maxWidth: {
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
       },
       fontFamily: {
-        body: ['Nunito']
-      }
+        body: ['Nunito'],
+      },
     },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};
