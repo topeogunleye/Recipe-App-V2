@@ -17,11 +17,11 @@ html {
 }
 
 .meals {
-  @apply grid grid-cols-1	gap-5 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3;
+  @apply grid grid-cols-1	gap-5 mt-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4;
 }
 
 .badge {
-  @apply absolute w-2/5 top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-medium rounded-full flex justify-between items-center;
+  @apply absolute w-24 top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-medium rounded-full flex items-center;
 }
 
 .btn {

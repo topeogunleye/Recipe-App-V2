@@ -21,10 +21,10 @@ const Home = () => {
 
   return (
     <div className="body text-white max-w-5xl mx-auto">
-      <div className="grid md:grid-cols-5">
-        <div className="md:col-span-1 md:flex bg-gray-900">
+      <div className="grid md:grid-cols-4">
+        {/* <div className="md:col-span-1 md:flex bg-gray-900">
           <Categories />
-        </div>
+        </div> */}
         <main className="px-16 py-6 md:col-span-4">
           <div className="flex justify-center md:justify-end">
             <button
@@ -87,7 +87,7 @@ const Home = () => {
             <h4 className="font-bold pb-2 mt-12 border-b border-gray-200">
               Latest Recipes
             </h4>
-            <div className="meals">
+            <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
               {data.meals &&
                 data.meals.map((meal) => (
                   <div className="card hover:shadow-lg" key={meal.idMeal}>
@@ -95,7 +95,7 @@ const Home = () => {
                       <img
                         src={meal.strMealThumb}
                         alt="stew"
-                        className="h-32 sm:h-48 w-full object-cover"
+                        className="h-48  w-full object-cover"
                       />
                     </Link>
                     <div className="m-4">
