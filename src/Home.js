@@ -99,7 +99,7 @@ const Home = () => {
                   </Link>
                   <div className="m-4">
                     <span className="font-bold">{meal.strMeal}</span>
-                    <span className="block text-sm">Recipe by Mario</span>
+                    <span className="block text-sm">{meal.strCategory}</span>
                   </div>
                   <div className="badge">
                     <svg
