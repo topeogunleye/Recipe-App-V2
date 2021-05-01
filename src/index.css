@@ -30,6 +30,19 @@ html {
   }
 }
 
+@media screen and (max-width: 767px) and (min-width: 321px) {
+  .mobile {
+    max-width: 80%;
+    align-self: center;
+    border-radius: 0.625rem /* 8px */;
+  }
+
+  .mobile-div {
+    display: grid;
+    place-items: center;
+    margin-top: 2rem;
+  }
+}
 .btn {
   @apply rounded-full py-2 px-3 uppercase text-xs font-bold tracking-wider cursor-pointer;
 }

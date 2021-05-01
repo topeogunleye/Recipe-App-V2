@@ -96,11 +96,11 @@ const MealInfo = () => {
                     </ul>
                   </div>
                 </div>
-                <div className="recipe-details-image w-full">
+                <div className="recipe-details-image w-full mobile-div">
                   <img
                     alt="Cranberry Orange Muffins"
                     src={data.meals[0].strMealThumb}
-                    className="recipe-image max-w-full rounded-b-lg md:rounded-lg"
+                    className="recipe-image max-w-full rounded-b-lg md:rounded-lg mobile"
                   />
                 </div>
               </div>
