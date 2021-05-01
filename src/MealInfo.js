@@ -98,7 +98,7 @@ const MealInfo = () => {
                 </div>
                 <div className="recipe-details-image w-full mobile-div">
                   <img
-                    alt="Cranberry Orange Muffins"
+                    alt={data.meals.strMeal}
                     src={data.meals[0].strMealThumb}
                     className="recipe-image max-w-full rounded-b-lg md:rounded-lg mobile"
                   />
@@ -109,7 +109,7 @@ const MealInfo = () => {
               </p>
             </div>
             <button
-              className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4 md:hidden xl:block"
+              className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4 md:hidden xl:block mobile-btn"
               onClick={() => {
                 history.go(-1);
               }}
@@ -118,7 +118,7 @@ const MealInfo = () => {
             </button>
             <div className="grid place-items-center my-8">
               <button
-                className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-800 py-1 px-1 sm:py-2 sm:px-4"
+                className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-800 py-1 px-1 sm:py-2 sm:px-4 mb-8"
                 onClick={() => {
                   history.go(-1);
                 }}
