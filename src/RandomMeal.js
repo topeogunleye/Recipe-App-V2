@@ -116,7 +116,7 @@ const RandomMeal = () => {
             </button>
             <div className="grid place-items-center my-8">
               <button
-                className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-800 py-1 px-1 sm:py-2 sm:px-4 mb-8"
+                className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-900 py-1 px-1 sm:py-2 sm:px-4 mb-8"
                 onClick={() => {
                   history.go(-1);
                 }}

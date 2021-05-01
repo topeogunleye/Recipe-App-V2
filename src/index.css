@@ -40,7 +40,7 @@ html {
   .mobile-div {
     display: grid;
     place-items: center;
-    margin: 1rem;
+    margin: 1rem 0;
   }
 
   .mobile-btn {
