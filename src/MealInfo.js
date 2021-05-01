@@ -41,7 +41,7 @@ const MealInfo = () => {
   }
 
   return (
-    <div id="single-meal">
+    <div id="single-meal relative">
       {isLoading ? (
         <div>Loading...</div>
       ) : (
@@ -113,7 +113,7 @@ const MealInfo = () => {
       )}
       <div className="grid place-items-center my-8"></div>
       <button
-        className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-800 py-1 px-1 sm:py-2 sm:px-4"
+        className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-700 py-1 px-1 sm:py-2 sm:px-4"
         onClick={() => {
           history.go(-1);
         }}

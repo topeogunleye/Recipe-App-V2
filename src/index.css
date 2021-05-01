@@ -10,10 +10,10 @@
 }
 
 html {
-  @apply bg-gray-900;
+  @apply bg-gray-600;
 }
 .card {
-  @apply rounded border-gray-200 shadow-md overflow-hidden relative;
+  @apply rounded border-gray-200 bg-gray-700 shadow-md overflow-hidden relative;
 }
 
 .meals {
