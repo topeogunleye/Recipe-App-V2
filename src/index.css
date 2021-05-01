@@ -24,6 +24,12 @@ html {
   @apply absolute w-24 top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-medium rounded-full flex items-center;
 }
 
+@media screen and (max-width: 767px) and (min-width: 425px) {
+  .tab-small {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .btn {
   @apply rounded-full py-2 px-3 uppercase text-xs font-bold tracking-wider cursor-pointer;
 }
