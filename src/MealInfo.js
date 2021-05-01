@@ -41,60 +41,85 @@ const MealInfo = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto my-8">
-      <div className="recipe-summary wrapper mt-8 flex w-full align-center justify-between">
-        <div className="recipe-details ">
-          <div className="primary-info-text">
-            <div className="primary-info-left-wrapper">
-              <h1 className="recipe-title font-bold text-4xl text-gray-900 mt-0 mx-0 mb-20 font-sans">
-                {data && data.meals[0].strMeal}
-              </h1>
-            </div>
-          </div>
-          <div className="summary-item-wrapper flex relative justify-start">
-            <div className="recipe-summary-item  text-4xl flex flex-col w-28 border-r border-gray-400  justify-center items-center">
-              <span className="value font-light text-4xl h-12">{ingredients && ingredients.length}</span>
-              <span className="unit font-normal text-sm leading-3">
-                Ingredients
-              </span>
-            </div>
-            <div className="recipe-summary-item unit text-4xl flex flex-col w-36 border-r border-gray-400 justify-center items-center">
-              <span className="value font-light text-4xl h-12">25</span>
-              <span className="unit font-normal text-sm leading-3">
-                Minutes
-              </span>
-            </div>
-            <div className="recipe-summary-item nutrition text-4xl flex flex-col w-36 justify-center items-center">
-              <span className="value font-light text-4xl h-12">210</span>
-              <span className="unit font-normal text-sm leading-3">
-                Calories
-              </span>
-            </div>
-          </div>
+    <div id="single-meal">
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        ingredients &&
+        data && (
+          <div className="w-screen h-screen">
+            <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto md:my-8 text-white">
+              <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
+                <div className="recipe-details">
+                  <div className="primary-info-text">
+                    <div className="primary-info-left-wrapper">
+                      <h1 className="recipe-title font-bold text-xl md:text-4xl text-white mt-0 ml-2 mb-4 max-w-min md:mb-8 font-sans">
+                        {data.meals[0].strMeal}
+                      </h1>
+                    </div>
+                  </div>
+                  <div className="summary-item-wrapper flex relative justify-center md:justify-start">
+                    <div className="recipe-summary-item  text-4xl flex flex-col w-28 border-r border-gray-400  justify-center items-center">
+                      <span className="value font-light text-4xl h-12">
+                        {ingredients.length}
+                      </span>
+                      <span className="unit font-normal text-sm leading-3">
+                        Ingredients
+                      </span>
+                    </div>
+                    <div className="recipe-summary-item unit text-4xl flex flex-col w-36 border-r border-gray-400 justify-center items-center">
+                      <span className="value font-light text-4xl h-12">25</span>
+                      <span className="unit font-normal text-sm leading-3">
+                        Minutes
+                      </span>
+                    </div>
+                    <div className="recipe-summary-item nutrition text-4xl flex flex-col w-36 justify-center items-center">
+                      <span className="value font-light text-4xl h-12">
+                        210
+                      </span>
+                      <span className="unit font-normal text-sm leading-3">
+                        Calories
+                      </span>
+                    </div>
+                  </div>
 
-          <div className="main mt-6">
-            <h2 className="h-8">Ingredients</h2>
-            <ul className="single-meal-ul">
-              {ingredients &&
-                ingredients.map((ing) => (
-                  <li className="single-meal-ul-li" key={uuidv4()}>
-                    {ing}
-                  </li>
-                ))}
-            </ul>
+                  <div className="main mt-6 text-center md:text-justify m-8">
+                    <h2 className="h-8 text-center md:text-justify font-bold">
+                      Ingredients
+                    </h2>
+                    <ul className="single-meal-ul w-11/12 mx-auto md:mx-0">
+                      {ingredients.map((ing) => (
+                        <li className="single-meal-ul-li" key={uuidv4()}>
+                          {ing}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="recipe-details-image w-full">
+                  <img
+                    alt="Cranberry Orange Muffins"
+                    src={data.meals[0].strMealThumb}
+                    className="recipe-image max-w-full rounded-b-lg md:rounded-lg"
+                  />
+                </div>
+              </div>
+              <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none">
+                {data.meals[0].strInstructions}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="recipe-details-image">
-          <img
-            alt="Cranberry Orange Muffins"
-            src={data && data.meals[0].strMealThumb}
-            className="recipe-image max-w-md rounded-lg"
-          />
-        </div>
-      </div>
-      <p className="single-meal-p">
-        {ingredients && data && data.meals[0].strInstructions}
-      </p>
+        )
+      )}
+      <div className="grid place-items-center my-8"></div>
+      <button
+        className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-800 py-1 px-1 sm:py-2 sm:px-4"
+        onClick={() => {
+          history.go(-1);
+        }}
+      >
+        &laquo; Go Back
+      </button>
     </div>
   );
 };

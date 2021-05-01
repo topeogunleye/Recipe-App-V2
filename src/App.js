@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MealInfo from './MealInfo';
 import Categories from './Categories';
 import CategoryInfo from './CategoryInfo';
+import RandomMeal from './RandomMeal';
 
 function App() {
   return (
@@ -14,15 +15,17 @@ function App() {
               <Home />
             </Route>
             <Route exact path="/MealInfo/:mealID">
-              <MealInfo/>
+              <MealInfo />
             </Route>
             <Route exact path="/Categories">
-              <Categories/>
+              <Categories />
             </Route>
             <Route exact path="/CategoryInfo/:strCategory">
-              <CategoryInfo/>
+              <CategoryInfo />
             </Route>
-            
+            <Route exact path="/RandomMeal/">
+              <RandomMeal />
+            </Route>
           </Switch>
         </div>
       </div>

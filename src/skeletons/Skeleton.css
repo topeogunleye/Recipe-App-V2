@@ -1,0 +1,152 @@
+/* basic styles */
+.skeleton {
+  background: #ddd;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.skeleton.title {
+  width: 50%;
+  height: 24px;
+  margin-bottom: 15px;
+}
+
+.imageBig {
+  width: 240px;
+  height: 240px;
+}
+
+.mealInfo {
+  width: 176px;
+  height: 24px;
+}
+
+.textBig {
+  width: 240px;
+  height: 1152px;
+}
+
+.liText {
+  width: 140px;
+  height: 16px;
+}
+
+.imageSmall {
+  width: 288px;
+  height: 288px;
+}
+
+@media screen and (min-width: 640px) {
+  .imageSmall {
+    width: 176px;
+    height: 176px;
+  }
+
+  .title {
+    width: 50%;
+    height: 24px;
+  }
+
+  .imageBig {
+    width: 320px;
+    height: 320px;
+  }
+
+  .mealInfo {
+    width: 512px;
+    height: 24px;
+  }
+
+  .textBig {
+    width: 576px;
+    height: 456px;
+  }
+
+  .liText {
+    width: 100px;
+    height: 16px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .imageBig {
+    width: 312px;
+    height: 312px;
+  }
+
+  .textBig {
+    width: 318.750px;
+    height: 840px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .imageBig {
+    width: 281.25px;
+    height: 281.25px;
+  }
+
+  .textBig {
+    width: 281.250px;
+    height: 960px;
+  }
+}
+/* skeleton profile */
+.skeleton-wrapper {
+  /* margin: 20px auto; */
+  padding: 10px 15px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.wrapper {
+  border-radius: 4px;
+  position: relative;
+}
+
+/* themes */
+.light {
+  background: #f2f2f2;
+}
+
+.dark {
+  background: #444;
+}
+
+.dark .skeleton {
+  background: #777;
+}
+
+/* animation effects */
+.shimmer-wrapper {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  animation: loading 2.5s infinite;
+}
+
+.shimmer {
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
+}
+
+.dark .shimmer {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
