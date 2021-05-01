@@ -53,9 +53,9 @@ const MealInfo = () => {
                 <div className="recipe-details">
                   <div className="primary-info-text">
                     <div className="primary-info-left-wrapper">
-                      <h1 className="recipe-title font-bold text-xl md:text-4xl text-white mt-0 ml-2 mb-4 sm:w-full md:mb-8 font-sans">
+                      <h2 className="recipe-title font-bold text-xl md:text-4xl text-white mt-0 ml-2 mb-4 sm:w-full md:mb-8 font-sans">
                         {data.meals[0].strMeal}
-                      </h1>
+                      </h2>
                     </div>
                   </div>
                   <div className="summary-item-wrapper flex relative justify-center md:justify-start">
@@ -109,7 +109,7 @@ const MealInfo = () => {
               </p>
             </div>
             <button
-              className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4 md:hidden xl:block mobile-btn"
+              className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4 md:hidden xl:block"
               onClick={() => {
                 history.go(-1);
               }}
@@ -118,7 +118,7 @@ const MealInfo = () => {
             </button>
             <div className="grid place-items-center my-8">
               <button
-                className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-900 py-1 px-1 sm:py-2 sm:px-4 mb-8"
+                className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-900 md:bg-gray-700 py-1 px-1 sm:py-2 sm:px-4 mb-8"
                 onClick={() => {
                   history.go(-1);
                 }}
