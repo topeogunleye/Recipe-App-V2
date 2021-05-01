@@ -47,13 +47,13 @@ const MealInfo = () => {
       ) : (
         ingredients &&
         data && (
-          <div className="w-screen h-screen relative">
+          <div className="max-w-7xl mx-auto h-screen relative">
             <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto md:my-8 text-white">
               <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
                 <div className="recipe-details">
                   <div className="primary-info-text">
                     <div className="primary-info-left-wrapper">
-                      <h1 className="recipe-title font-bold text-xl md:text-4xl text-white mt-0 ml-2 mb-4 max-w-min md:mb-8 font-sans">
+                      <h1 className="recipe-title font-bold text-xl md:text-4xl text-white mt-0 ml-2 mb-4 sm:w-full md:mb-8 font-sans">
                         {data.meals[0].strMeal}
                       </h1>
                     </div>
@@ -109,7 +109,7 @@ const MealInfo = () => {
               </p>
             </div>
             <button
-              className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4"
+              className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4 md:hidden"
               onClick={() => {
                 history.go(-1);
               }}
