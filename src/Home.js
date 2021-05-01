@@ -94,7 +94,7 @@ const Home = () => {
                     <img
                       src={meal.strMealThumb}
                       alt="stew"
-                      className="h-40 sm:h-44 w-full object-cover"
+                      className="h-40 sm:h-40 w-full object-cover"
                     />
                   </Link>
                   <div className="m-4">

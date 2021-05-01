@@ -102,19 +102,27 @@ const RandomMeal = () => {
             <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none">
               {data.meals[0].strInstructions}
             </p>
+            <button
+              className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4"
+              onClick={() => {
+                history.go(-1);
+              }}
+            >
+              &laquo; Go Back
+            </button>
+            <div className="grid place-items-center my-8">
+              <button
+                className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-800 py-1 px-1 sm:py-2 sm:px-4"
+                onClick={() => {
+                  history.go(-1);
+                }}
+              >
+                &laquo; Go Back
+              </button>
+            </div>
           </div>
         )
       )}
-      <div className="grid place-items-center my-8">
-        <button
-          className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-800 py-1 px-1 sm:py-2 sm:px-4"
-          onClick={() => {
-            history.go(-1);
-          }}
-        >
-          &laquo; Go Back
-        </button>
-      </div>
     </div>
   );
 };
