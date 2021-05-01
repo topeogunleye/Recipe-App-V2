@@ -21,7 +21,7 @@ html {
 }
 
 .badge {
-  @apply absolute w-24 top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-medium rounded-full flex items-center;
+  @apply absolute w-24 top-0 ml-2 p-2 mt-2 bg-transparent text-gray-800 text-xs uppercase font-medium rounded-full flex items-center;
 }
 
 @media screen and (max-width: 767px) and (min-width: 425px) {
