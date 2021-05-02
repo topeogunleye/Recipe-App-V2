@@ -18,7 +18,7 @@ html {
 }
 
 .meal {
-  @apply cursor-pointer relative h-60 w-72 sm:h-56 sm:w-52 lg:h-56 lg:w-44 text-left bg-gray-900 sm:bg-gray-700;
+  @apply rounded shadow-md cursor-pointer relative h-60 w-72 sm:h-56 sm:w-52 lg:h-56 lg:w-44 text-left bg-gray-900 sm:bg-gray-700;
 }
 
 .meal-img {

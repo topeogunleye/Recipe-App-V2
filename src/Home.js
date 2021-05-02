@@ -77,32 +77,38 @@ const Home = () => {
                         alt="stew"
                         className="h-40 sm:h-40 w-full object-cover"
                       />
+                      <div className="m-4">
+                        <span className="font-bold">{meal.strMeal}</span>
+                        <span className="block text-sm">
+                          {meal.strCategory}
+                        </span>
+                      </div>
+                      <div className="badge">
+                        <svg
+                          className="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        <span>25 mins</span>
+                      </div>
                     </Link>
-                    <div className="m-4">
-                      <span className="font-bold">{meal.strMeal}</span>
-                      <span className="block text-sm">{meal.strCategory}</span>
-                    </div>
-                    <div className="badge">
-                      <svg
-                        className="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <span>25 mins</span>
-                    </div>
                   </div>
                 ))}
             </div>
           )}
+
+          <div class="btn my-12 bg-secondary-100 text-secondary-200 inline-block hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300">
+            Load more
+          </div>
         </div>
       </div>
     </Fragment>
