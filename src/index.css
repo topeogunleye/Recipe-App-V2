@@ -12,25 +12,21 @@
 html {
   @apply bg-gray-800 sm:bg-gray-600;
 }
-.card {
-  @apply rounded border-gray-200 bg-gray-900 sm:bg-gray-700 shadow-md overflow-hidden relative;
-}
 
 .meals {
-  @apply grid grid-cols-1	gap-5 mt-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4;
+  @apply grid grid-cols-1	gap-5 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+.meal {
+  @apply cursor-pointer relative h-60 w-72 sm:h-56 sm:w-52 lg:h-56 lg:w-44 text-left bg-gray-900 sm:bg-gray-700;
+}
+
+.meal-img {
+  @apply w-full h-full border-solid border-4 border-white rounded-sm;
 }
 
 .badge {
-  @apply absolute w-24 top-0 ml-2 p-2 mt-2 bg-transparent text-gray-800 text-xs uppercase font-medium rounded-full flex items-center;
-}
-
-@media screen and (max-width: 767px) and (min-width: 425px) {
-  .tab-small {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media screen and (max-width: 767px) and (min-width: 321px) {
+  @apply absolute w-24 top-0 ml-2 p-2 mt-2 bg-transparent text-gray-400 text-xs uppercase font-medium rounded-full flex items-center;
 }
 
 .btn {
@@ -47,30 +43,6 @@ html {
 
 .single-meal-ul-li {
   @apply border-2 border-solid border-gray-200 rounded bg-white inline-block text-gray-900 text-xs font-bold p-1 mt-0 mr-1 mb-1 ml-0;
-}
-
-.meal-img {
-  @apply rounded-full;
-}
-
-.scrollmenu {
-  @apply whitespace-nowrap relative;
-}
-
-.scrollmenu-item {
-  @apply text-xs h-1/4 align-middle inline-block mx-3 text-center;
-}
-
-.arrow-left {
-  position: absolute;
-  top: 50%;
-  left: -7%;
-}
-
-.arrow-right {
-  position: absolute;
-  top: 50%;
-  right: -7%;
 }
 
 /* Categories */
