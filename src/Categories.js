@@ -44,6 +44,16 @@ const Categories = ({ ref = 'scroller' }) => {
       >
         &laquo; Go Back
       </button>
+      <div className="grid place-items-center my-8">
+        <button
+          className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-900 md:bg-gray-700 py-1 px-1 sm:py-2 sm:px-4 mb-8"
+          onClick={() => {
+            history.go(-1);
+          }}
+        >
+          &laquo; Go Back
+        </button>
+      </div>
     </div>
   );
 };
