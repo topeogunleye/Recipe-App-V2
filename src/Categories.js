@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Categories = ({ ref = 'scroller' }) => {
+  const history = useHistory();
+
   const [
     { data, isLoading, isError },
     doFetch,
@@ -16,30 +19,31 @@ const Categories = ({ ref = 'scroller' }) => {
   }
 
   return (
-    <div className="relative grid items-baseline">
-      <div className="scrollmenu flex md:flex-col w-screen md:w-full overflow-auto">
-        <h3 className="text-3xl font-bold text-center md:mt-32 mb-2 border-b border-gray-200 pb-2 hidden md:block">
-          Categories
-        </h3>
+    <div className="max-w-3xl mx-auto text-center my-2">
+      <h3 className="text-lg text-gray-800">Categories</h3>
+      <div className="category">
         {data.categories &&
           data.categories.map((category) => (
-            <span className="scrollmenu-item " key={category.idCategory}>
-              <Link
-                to={`/CategoryInfo/${category.strCategory}`}
-                className="lozenge btn-lozenge"
-              >
+            <span className="mx-auto" key={category.idCategory}>
+              <Link to={`/CategoryInfo/${category.strCategory}`} className="">
                 <img
-                  className="meal-img-cat-list"
+                  className="cat-img"
                   src={category.strCategoryThumb}
                   alt={category.strMeal}
                 />
-                <h2 className="font-regular text-base">
-                  {category.strCategory}
-                </h2>
+                <h2 className="categories">{category.strCategory}</h2>
               </Link>
             </span>
           ))}
       </div>
+      <button
+        className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4 md:hidden xl:block"
+        onClick={() => {
+          history.go(-1);
+        }}
+      >
+        &laquo; Go Back
+      </button>
     </div>
   );
 };

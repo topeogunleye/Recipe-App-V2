@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import React, { Fragment, useState } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import Categories from './Categories';
-import { SearchIcon, RefreshIcon } from '@heroicons/react/solid';
+import {
+  SearchIcon,
+  RefreshIcon,
+  CollectionIcon,
+} from '@heroicons/react/solid';
 import SkeletonHeader from './skeletons/SkeletonHeader';
 
 const Home = () => {
@@ -21,7 +25,7 @@ const Home = () => {
   return (
     <Fragment>
       <div className="bg-gray-800 sm:bg-gray-500 text-white min-h-screen">
-        <div className="m-auto max-w-3xl flex flex-col items-center justify-center text-center">
+        <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center">
           <h1 className="font-black text-2xl">Meal Finder</h1>
           <div className="flex mt-2">
             <form
@@ -56,6 +60,20 @@ const Home = () => {
                 }}
               >
                 <RefreshIcon className="h-5 w-5 text-gray-900" />
+              </button>
+            </Link>
+            <Link to={'/Categories/'}>
+              <button
+                className="random-btn border rounded cursor-pointer ml-2.5"
+                id="random"
+                onCLick={(event) => {
+                  doFetch(
+                    `https://www.themealdb.com/api/json/v1/1/random.php `
+                  );
+                  event.preventDefault();
+                }}
+              >
+                <CollectionIcon className="h-5 w-5 text-gray-900" />
               </button>
             </Link>
           </div>
