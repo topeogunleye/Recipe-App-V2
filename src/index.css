@@ -55,5 +55,5 @@ html {
 }
 
 .cat-img {
-  @apply w-52 lg:w-52;
+  @apply w-52 lg:w-52 mb-2;
 }

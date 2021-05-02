@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import SkeletonCategory from './skeletons/SkeletonCategory';
 
 const Categories = ({ ref = 'scroller' }) => {
   const history = useHistory();
@@ -22,19 +23,27 @@ const Categories = ({ ref = 'scroller' }) => {
     <div className="max-w-3xl mx-auto text-center my-2">
       <h3 className="text-lg text-gray-900">Categories</h3>
       <div className="category">
-        {data.categories &&
-          data.categories.map((category) => (
-            <span className="mx-auto" key={category.idCategory}>
-              <Link to={`/CategoryInfo/${category.strCategory}`} className="">
-                <img
-                  className="cat-img"
-                  src={category.strCategoryThumb}
-                  alt={category.strMeal}
-                />
-                <h2 className="categories">{category.strCategory}</h2>
-              </Link>
-            </span>
-          ))}
+        {isLoading
+          ? // <div>Loading ...</div>
+            [1, 2, 3, 4, 5].map((n) => (
+              <SkeletonCategory Key={n} theme="dark" />
+            ))
+          : data.categories &&
+            data.categories.map((category) => (
+              <span className="mx-auto" key={category.idCategory}>
+                <Link
+                  to={`/CategoryInfo/${category.strCategory}`}
+                  className="mx-0.5"
+                >
+                  <img
+                    className="cat-img"
+                    src={category.strCategoryThumb}
+                    alt={category.strMeal}
+                  />
+                  <h2 className="categories">{category.strCategory}</h2>
+                </Link>
+              </span>
+            ))}
       </div>
       <button
         className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4 md:hidden xl:block"

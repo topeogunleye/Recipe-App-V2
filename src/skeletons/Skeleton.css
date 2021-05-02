@@ -75,7 +75,7 @@
   }
 
   .textBig {
-    width: 318.750px;
+    width: 318.75px;
     height: 840px;
   }
 }
@@ -87,7 +87,7 @@
   }
 
   .textBig {
-    width: 281.250px;
+    width: 281.25px;
     height: 960px;
   }
 }
@@ -102,6 +102,17 @@
 .wrapper {
   border-radius: 4px;
   position: relative;
+}
+
+/* Category */
+.catImg {
+  width: 177px;
+  height: 110px;
+}
+
+.catName {
+  width: 75px;
+  height: 28px;
 }
 
 /* themes */
