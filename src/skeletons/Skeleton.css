@@ -40,8 +40,8 @@
 }
 
 .imageSmall {
-  width: 288px;
-  height: 288px;
+  width: 240px;
+  height: 240px;
 }
 
 @media screen and (min-width: 1080px) {
