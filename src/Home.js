@@ -27,44 +27,46 @@ const Home = () => {
       <div className="bg-gray-800 sm:bg-gray-500 text-white min-h-screen">
         <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center">
           <h1 className="font-black text-2xl">Meal Finder</h1>
-          <div className="flex mt-2">
-            <form
-              className="flex"
-              onSubmit={(event) => {
-                doFetch(
-                  `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
-                );
-
-                event.preventDefault();
-              }}
-            >
-              <input
-                type="text"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                className="border rounded-l sm:w-full text-black"
-              />
-              <button className="search-btn border rounded-r" type="submit">
-                <SearchIcon className="h-5 w-5 text-gray-900" />
-              </button>
-            </form>
-            <Link to={'/RandomMeal/'}>
-              <button
-                className="random-btn border rounded cursor-pointer ml-2.5"
-                id="random"
-                onCLick={(event) => {
+          <div className="flex flex-col sm:flex-row">
+            <div className="flex mt-2">
+              <form
+                className="flex"
+                onSubmit={(event) => {
                   doFetch(
-                    `https://www.themealdb.com/api/json/v1/1/random.php `
+                    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
                   );
+
                   event.preventDefault();
                 }}
               >
-                <RefreshIcon className="h-5 w-5 text-gray-900" />
-              </button>
-            </Link>
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  className="border rounded-l sm:w-full text-black"
+                />
+                <button className="search-btn border rounded-r" type="submit">
+                  <SearchIcon className="h-5 w-5 text-gray-900" />
+                </button>
+              </form>
+              <Link to={'/RandomMeal/'}>
+                <button
+                  className="random-btn border rounded cursor-pointer ml-2.5"
+                  id="random"
+                  onCLick={(event) => {
+                    doFetch(
+                      `https://www.themealdb.com/api/json/v1/1/random.php `
+                    );
+                    event.preventDefault();
+                  }}
+                >
+                  <RefreshIcon className="h-5 w-5 text-gray-900" />
+                </button>
+              </Link>
+            </div>
             <Link to={'/Categories/'}>
               <button
-                className="random-btn border rounded cursor-pointer ml-2.5"
+                className="random-btn border rounded cursor-pointer ml-2.5 mt-2"
                 id="random"
                 onCLick={(event) => {
                   doFetch(
