@@ -27,8 +27,9 @@
 }
 
 .liText {
-  width: 140px;
+  width: 100px;
   height: 16px;
+  margin: 4px 15px;
 }
 
 .imageSmall {
@@ -160,4 +161,27 @@
   100% {
     transform: translateX(150%);
   }
+}
+
+/* Meal Info */
+.imgMealInfo {
+  @apply w-80 h-80 rounded-b-lg md:rounded-lg;
+}
+
+.Ingredients,
+.Minutes,
+.Calories {
+  @apply border-r mx-auto w-24 h-12;
+}
+
+.Ing-title {
+  @apply w-24 h-4 mt-6 ml-8;
+}
+
+.li-el {
+  @apply w-20 h-7;
+}
+
+.Meal-Info-p {
+  @apply w-9/12 h-56 mx-auto;
 }

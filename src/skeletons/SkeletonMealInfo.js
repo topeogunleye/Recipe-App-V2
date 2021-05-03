@@ -6,49 +6,42 @@ const SkeletonMealInfo = ({ theme }) => {
 
   return (
     <div className={`skeleton-wrapper ${themeClass}`}>
-      <div className="skeleton-article flex flex-col items-center justify-center text-center">
-        <SkeletonElement type="title" />
+      <div className=" max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto skeleton-article items-center md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
+        <div className="recipe-details flex flex-col">
+          <SkeletonElement
+            type="title"
+            className="mt-0 ml-2 mb-4 sm:w-full md:mb-8"
+          />
+
+          <div className="recipe-summary-item flex w-full justify-center items-center md:justify-start">
+            <SkeletonElement type="Ingredients" />
+
+            <SkeletonElement type="Minutes" />
+
+            <SkeletonElement type="Calories" />
+          </div>
+          <SkeletonElement type="Ing-title" />
+          <div className="mt-0 text-center md:text-justify m-8 single-meal-ul-skel grid grid-cols-4 w-96">
+            <SkeletonElement type="li-el" className="mx-px" />
+            <SkeletonElement type="li-el" className="mx-px" />
+            <SkeletonElement type="li-el" className="mx-px" />
+            <SkeletonElement type="li-el" className="mx-px" />
+            <SkeletonElement type="li-el" className="mx-px" />
+            <SkeletonElement type="li-el" className="mx-px" />
+            <SkeletonElement type="li-el" className="mx-px" />
+            <SkeletonElement type="li-el" className="mx-px" />
+            <SkeletonElement type="li-el" className="mx-px" />
+          </div>
+        </div>
         <SkeletonElement type="imageBig" />
-        <SkeletonElement type="mealInfo" />
-        <SkeletonElement type="mealInfo" />
-        <SkeletonElement type="textBig" />
-        <ul className="single-meal-ul">
-      
-            <SkeletonElement type="liText" class="single-meal-ul-li" />
-        
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-         
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-         
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-          
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-         
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-        
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-         
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-         
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-          
-          
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-       
-        
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-      
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-         
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-        
-            <SkeletonElement type="liText" class="single-meal-ul-li"/>
-          
-        </ul>
       </div>
-      <Shimmer />
+      <SkeletonElement type="Meal-Info-p" />
     </div>
   );
 };
 
 export default SkeletonMealInfo;
+/* <SkeletonElement type="mealInfo" />
+        <SkeletonElement type="mealInfo" />
+        <SkeletonElement type="textBig" />
+        < */
