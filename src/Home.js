@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <Fragment>
       <div className="bg-gray-500 text-white min-h-screen">
-        <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center">
+        <div className="m-auto max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center">
           <h1 className="font-black text-2xl">Meal Finder</h1>
           <div className="flex flex-col sm:flex-row">
             <div className="flex mt-2">
