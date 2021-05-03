@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <div className="bg-gray-700 sm:bg-gray-500 text-white min-h-screen">
+      <div className="bg-gray-500 text-white min-h-screen">
         <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center">
           <h1 className="font-black text-2xl">Meal Finder</h1>
           <div className="flex flex-col sm:flex-row">

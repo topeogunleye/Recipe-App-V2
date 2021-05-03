@@ -10,7 +10,7 @@
 }
 
 html {
-  @apply bg-gray-700 sm:bg-gray-600;
+  @apply bg-gray-600;
 }
 
 .meals {
@@ -18,7 +18,7 @@ html {
 }
 
 .meal {
-  @apply rounded overflow-hidden shadow-md cursor-pointer relative h-60 w-60 sm:h-56 sm:w-52 lg:h-56 lg:w-52 text-left bg-gray-900 sm:bg-gray-600;
+  @apply rounded overflow-hidden shadow-md cursor-pointer relative h-60 w-60 sm:h-56 sm:w-52 lg:h-56 lg:w-52 text-left bg-gray-600;
 }
 
 .meal-img {
