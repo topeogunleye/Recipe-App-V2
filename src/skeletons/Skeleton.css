@@ -16,6 +16,13 @@
   height: 240px;
 }
 
+.imageMealInfo {
+  width: 100vw;
+  height: 280px;
+  padding-top: 0;
+  margin-top: 0;
+}
+
 .mealInfo {
   width: 176px;
   height: 24px;
@@ -37,7 +44,13 @@
   height: 288px;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1080px) {
+  .imageMealInfo {
+    max-width: 320px;
+    max-height: 320px;
+  }
+}
+@media screen and (min-width: 767px) {
   .imageSmall {
     width: 176px;
     height: 176px;
@@ -49,8 +62,14 @@
   }
 
   .imageBig {
-    width: 320px;
-    height: 320px;
+    min-width: 100vw;
+    min-height: 320px;
+  }
+
+  .imageMealInfo {
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 8rem;
   }
 
   .mealInfo {
@@ -164,22 +183,19 @@
 }
 
 /* Meal Info */
-.imgMealInfo {
-  @apply w-80 h-80 rounded-b-lg md:rounded-lg;
-}
 
 .Ingredients,
 .Minutes,
 .Calories {
-  @apply border-r mx-auto w-24 h-12;
+  @apply border-r mx-2.5 w-20 h-10 md:mx-auto sm:w-24 sm:h-12;
 }
 
 .Ing-title {
-  @apply w-24 h-4 mt-6 ml-8;
+  @apply w-24 h-4 mt-6 ml-8 text-center mx-auto md:text-justify;
 }
 
 .li-el {
-  @apply w-20 h-7;
+  @apply w-12 h-4 sm:w-20 md:h-7;
 }
 
 .Meal-Info-p {
