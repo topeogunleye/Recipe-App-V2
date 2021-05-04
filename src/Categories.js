@@ -47,7 +47,7 @@ const Categories = ({ ref = 'scroller' }) => {
             ))}
       </div>
       <Link to="/">
-        <button className="home-btn absolute top-1 right-1 sm:right-1 xl:top-2 xl:right-2  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-800 sm:bg-gray-700 rounded-sm">
+        <button className="home-btn absolute top-1 left-1 sm:left-1 xl:top-2 xl:left-2  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-800 sm:bg-gray-700 rounded-sm">
           <HomeIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
         </button>
       </Link>

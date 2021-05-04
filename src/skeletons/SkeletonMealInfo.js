@@ -45,6 +45,7 @@ const SkeletonMealInfo = ({ theme }) => {
       <div className="">
         <SkeletonElement type="Meal-Info-p" />
       </div>
+      <Shimmer />
     </div>
   );
 };
