@@ -24,6 +24,7 @@ const Categories = ({ ref = 'scroller' }) => {
     <div className="max-w-3xl mx-auto text-center my-2">
       <h3 className="text-lg text-gray-400">Categories</h3>
       <div className="category">
+        {isError && <div>Something went wrong ...</div>}
         {isLoading
           ? // <div>Loading ...</div>
             [1, 2, 3, 4, 5].map((n) => (

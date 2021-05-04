@@ -31,6 +31,7 @@ const CategoryInfo = () => {
       <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center">
         <h3 className="text-2xl font-bold">{strCategory}</h3>
         <div id="meals" className="meals-cat">
+          {isError && <div>Something went wrong ...</div>}
           {isLoading
             ? // <div>Loading ...</div>
               [1, 2, 3, 4, 5].map((n) => (
