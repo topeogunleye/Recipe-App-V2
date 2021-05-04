@@ -57,3 +57,7 @@ html {
 .cat-img {
   @apply w-52 lg:w-52 mb-2;
 }
+
+.home-btn:hover > .home-icon {
+  @apply text-black;
+}

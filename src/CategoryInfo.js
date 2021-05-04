@@ -4,6 +4,7 @@ import useFetchMealDbApi from './useFetchMealDbApi';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import SkeletonHeader from './skeletons/SkeletonHeader';
+import { HomeIcon } from '@heroicons/react/solid';
 
 const CategoryInfo = () => {
   const history = useHistory();
@@ -84,6 +85,11 @@ const CategoryInfo = () => {
         >
           &laquo; Go Back
         </button>
+        <Link to="/">
+          <button className="home-btn absolute top-1 right-1 sm:top-2 sm:right-4  hover:bg-white  py-2 px-4 bg-gray-900 sm:bg-gray-700">
+            <HomeIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
+          </button>
+        </Link>
         <div className="grid place-items-center my-8">
           <button
             className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-900 md:bg-gray-700 py-1 px-1 sm:py-2 sm:px-4 mb-8"

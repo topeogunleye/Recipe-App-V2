@@ -18,7 +18,7 @@
 
 .imageMealInfo {
   width: 100vw;
-  height: 280px;
+  height: 65vh;
   padding-top: 0;
   margin-top: 0;
 }
@@ -52,8 +52,8 @@
 }
 @media screen and (min-width: 767px) {
   .imageSmall {
-    width: 176px;
-    height: 176px;
+    width: 208px;
+    height: 224px;
   }
 
   .title {
