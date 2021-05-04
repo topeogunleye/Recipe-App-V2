@@ -22,7 +22,7 @@ const Categories = ({ ref = 'scroller' }) => {
 
   return (
     <div className="max-w-3xl mx-auto text-center my-2">
-      <h3 className="text-lg text-gray-900">Categories</h3>
+      <h3 className="text-lg text-gray-400">Categories</h3>
       <div className="category">
         {isLoading
           ? // <div>Loading ...</div>
