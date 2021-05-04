@@ -79,7 +79,7 @@ const CategoryInfo = () => {
         </div>
 
         <Link to="/">
-          <button className="home-btn absolute top-1 right-1 sm:top-2 sm:right-4  hover:bg-white  py-2 px-4 bg-gray-900 sm:bg-gray-700">
+          <button className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-600 sm:bg-gray-500">
             <HomeIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
           </button>
         </Link>
