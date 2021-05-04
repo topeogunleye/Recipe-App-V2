@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from './skeletons/SkeletonMealInfo';
+import { Link } from 'react-router-dom';
+import { HomeIcon } from '@heroicons/react/solid';
 
 const MealInfo = () => {
   const { mealID } = useParams();
@@ -110,24 +112,11 @@ const MealInfo = () => {
                   {data.meals[0].strInstructions}
                 </p>
               </div>
-              <button
-                className="absolute top-1 left-1 sm:top-4 sm:left-4 text-white hover:bg-white hover:text-black bg-gray-900 sm:bg-gray-700  py-1 px-1 sm:py-2 sm:px-4 md:hidden xl:block"
-                onClick={() => {
-                  history.go(-1);
-                }}
-              >
-                &laquo; Go Back
-              </button>
-              <div className="grid place-items-center my-8">
-                <button
-                  className="flex justify-center hover:bg-white text-white hover:text-black bg-gray-900 md:bg-gray-700 py-1 px-1 sm:py-2 sm:px-4 mb-8"
-                  onClick={() => {
-                    history.go(-1);
-                  }}
-                >
-                  &laquo; Go Back
+              <Link to="/">
+                <button className="home-btn absolute top-1 right-1 sm:top-2 sm:right-4  hover:bg-white  py-2 px-4 bg-gray-900 sm:bg-gray-700">
+                  <HomeIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
                 </button>
-              </div>
+              </Link>
             </div>
           )}
     </div>
