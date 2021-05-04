@@ -4,7 +4,7 @@ import useFetchMealDbApi from './useFetchMealDbApi';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import SkeletonHeader from './skeletons/SkeletonHeader';
-import { HomeIcon } from '@heroicons/react/solid';
+import { HomeIcon, ChevronLeftIcon } from '@heroicons/react/solid';
 
 const CategoryInfo = () => {
   const history = useHistory();
@@ -77,9 +77,16 @@ const CategoryInfo = () => {
                 </div>
               ))}
         </div>
-
+        <button
+          className="home-btn absolute top-1 left-1 sm:left-1 xl:top-2 xl:right-2  hover:bg-white  py-2 px-2 bg-gray-600 sm:bg-gray-700 rounded-sm"
+          onClick={() => {
+            history.goBack(-1);
+          }}
+        >
+          <ChevronLeftIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
+        </button>
         <Link to="/">
-          <button className="home-btn absolute top-1 right-1 sm:right-1 xl:top-2 xl:right-2  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-800 sm:bg-gray-700 rounded-sm">
+          <button className="home-btn absolute top-1 right-1 sm:right-1 xl:top-2 xl:right-2  hover:bg-white  py-2 px-2 sm:px-2 lg:px-2 bg-gray-600 sm:bg-gray-700 rounded-sm">
             <HomeIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
           </button>
         </Link>
