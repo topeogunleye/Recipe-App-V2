@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import React, { Fragment, useState } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
-import Categories from './Categories';
+import Pagination from './components/Pagination';
+
 import {
   SearchIcon,
   RefreshIcon,
@@ -11,6 +12,11 @@ import SkeletonHeader from './skeletons/SkeletonHeader';
 
 const Home = () => {
   const [query, setQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
+  const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
   const [
     { data, isLoading, isError },
@@ -20,12 +26,40 @@ const Home = () => {
     { meals: [] }
   );
 
-  console.log(data.meals);
+  // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = data.meals.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const handleNextbtn = () => {
+    setCurrentPage(currentPage + 1);
+
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setmaxPageNumberLimit(maxPageNumberLimit + postsPerPage);
+      setminPageNumberLimit(minPageNumberLimit + postsPerPage);
+    }
+  };
+
+  const handlePrevbtn = () => {
+    setCurrentPage(currentPage - 1);
+
+    if ((currentPage - 1) % postsPerPage == 0) {
+      setmaxPageNumberLimit(maxPageNumberLimit - postsPerPage);
+      setminPageNumberLimit(minPageNumberLimit - postsPerPage);
+    }
+  };
+
+  const handleLoadMore = () => {
+    setPostsPerPage(postsPerPage + 5);
+  };
 
   return (
     <Fragment>
       <div className="bg-gray-500 text-white min-h-screen">
-        <div className="m-auto max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center">
+        <div className="m-auto max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8">
           <h1 className="font-black text-2xl">Meal Finder</h1>
           <div className="flex flex-col sm:flex-row">
             <div className="flex mt-2">
@@ -53,12 +87,6 @@ const Home = () => {
                 <button
                   className="random-btn border rounded cursor-pointer ml-2.5"
                   id="random"
-                  onCLick={(event) => {
-                    doFetch(
-                      `https://www.themealdb.com/api/json/v1/1/random.php `
-                    );
-                    event.preventDefault();
-                  }}
                 >
                   <RefreshIcon className="h-5 w-5 text-gray-900" />
                 </button>
@@ -68,12 +96,6 @@ const Home = () => {
               <button
                 className="random-btn border rounded cursor-pointer ml-2.5 mt-2"
                 id="random"
-                onCLick={(event) => {
-                  doFetch(
-                    `https://www.themealdb.com/api/json/v1/1/random.php `
-                  );
-                  event.preventDefault();
-                }}
               >
                 <CollectionIcon className="h-5 w-5 text-gray-900" />
               </button>
@@ -81,15 +103,14 @@ const Home = () => {
           </div>
 
           {isError && <div>Something went wrong ...</div>}
-          {!data.meals && <div>There is no result. Try again!</div>}
-          {/* {data.meals && <h1>{query}</h1> } */}
+          {!currentPosts && <div>There is no result. Try again!</div>}
+
           {isLoading ? (
-            // <div>Loading ...</div>
-            [1, 2, 3, 4, 5].map((n) => <SkeletonHeader Key={n} theme="dark" />)
+            [1, 2, 3, 4, 5].map((n) => <SkeletonHeader key={n} theme="dark" />)
           ) : (
             <div id="meals" className="meals">
-              {data.meals &&
-                data.meals.map((meal) => (
+              {currentPosts &&
+                currentPosts.map((meal) => (
                   <div className="meal hover:shadow-lg" key={meal.idMeal}>
                     <Link to={`/MealInfo/${meal.idMeal}`}>
                       <img
@@ -125,11 +146,18 @@ const Home = () => {
                 ))}
             </div>
           )}
-
-          <div class="btn my-12 bg-secondary-100 text-secondary-200 inline-block hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300">
-            Load more
-          </div>
         </div>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={data.meals.length}
+          paginate={paginate}
+          indexOfFirstPost={indexOfFirstPost}
+          indexOfLastPost={indexOfLastPost}
+          handleNextbtn={handleNextbtn}
+          handlePrevbtn={handlePrevbtn}
+          currentPage={currentPage}
+          handleLoadMore={handleLoadMore}
+        />
       </div>
     </Fragment>
   );
