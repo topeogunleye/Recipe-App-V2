@@ -32,7 +32,7 @@ const Pagination = ({
           <button
             onClick={handleLoadMore}
             disabled={postsPerPage === totalPosts ? true : false}
-            className="btn bg-secondary-100 text-secondary-200 inline-block hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300"
+            className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300"
           >
             Load more
           </button>
