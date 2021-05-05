@@ -20,14 +20,14 @@ const Pagination = ({
 
   return (
     <div className="px-4 py-3 flex items-center justify-between border-t border-gray-600 sm:px-6">
-      <div className="flex-1 flex justify-between sm:hidden">
-        <button
+      <div className="flex-1 flex justify-center sm:hidden">
+        {/* <button
           onClick={handlePrevbtn}
           disabled={currentPage === pageNumbers[0] ? true : false}
           className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
         >
           Previous
-        </button>
+        </button> */}
         <div className=" flex justify-self-center">
           <button
             onClick={handleLoadMore}
@@ -38,7 +38,7 @@ const Pagination = ({
           </button>
         </div>
 
-        <button
+        {/* <button
           onClick={handleNextbtn}
           disabled={
             currentPage === pageNumbers[pageNumbers.length - 1] ? true : false
@@ -47,7 +47,7 @@ const Pagination = ({
           className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
         >
           Next
-        </button>
+        </button> */}
       </div>
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div>
