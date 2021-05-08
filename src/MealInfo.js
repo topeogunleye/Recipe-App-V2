@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from './skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
-import { HomeIcon, ChevronLeftIcon } from '@heroicons/react/solid';
+import { HomeIcon, BookmarkIcon } from '@heroicons/react/solid';
 
 const MealInfo = () => {
   const { mealID } = useParams();
@@ -47,7 +47,7 @@ const MealInfo = () => {
     <div id="single-meal relative">
       {isError && <div>Something went wrong ...</div>}
       {isLoading
-        ? [1, 2, 3, 4, 5].map((n) => <SkeletonMealInfo Key={n} theme="dark" />)
+        ? [1, 2, 3, 4, 5].map((n) => <SkeletonMealInfo key={n} theme="dark" />)
         : ingredients &&
           data && (
             <div className="max-w-7xl mx-auto h-screen relative">
@@ -119,7 +119,7 @@ const MealInfo = () => {
                   history.goBack(-1);
                 }}
               >
-                <ChevronLeftIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
+                <BookmarkIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
               </button>
               <Link to="/">
                 <button className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-600 sm:bg-gray-500 rounded-sm">
