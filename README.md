@@ -1,6 +1,6 @@
 ## MealDB App
 
-Create a web page based on the design shown in recreate-this.png
+Meal Finder App for users to get Meal Recipes Recommendation, Recipe Instructions and Ingredients or Get random recipes.
 
 ## Project Specifications
 
