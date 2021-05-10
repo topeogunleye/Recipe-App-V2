@@ -63,6 +63,8 @@ const CategoryInfo = () => {
     <ThemeContext.Consumer>
       {(context) => {
         const { isLightTheme, light, dark } = context;
+        const theme2 = isLightTheme ? 'light' : 'dark';
+
         const theme = isLightTheme ? light : dark;
         return (
           <div
@@ -76,7 +78,7 @@ const CategoryInfo = () => {
                 {isLoading ? (
                   // <div>Loading ...</div>
                   [1, 2, 3, 4, 5].map((n) => (
-                    <SkeletonHeader Key={n} theme="dark" />
+                    <SkeletonHeader Key={n} theme={theme2} />
                   ))
                 ) : (
                   <div id="meals" className="meals">

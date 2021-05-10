@@ -49,6 +49,8 @@ const MealInfo = () => {
     <ThemeContext.Consumer>
       {(context) => {
         const { isLightTheme, light, dark } = context;
+        const theme2 = isLightTheme ? 'light' : 'dark';
+
         const theme = isLightTheme ? light : dark;
         return (
           <div
@@ -59,7 +61,7 @@ const MealInfo = () => {
             {isError && <div>Something went wrong ...</div>}
             {isLoading
               ? [1, 2, 3, 4, 5].map((n) => (
-                  <SkeletonMealInfo key={n} theme="dark" />
+                  <SkeletonMealInfo key={n} theme={theme2} />
                 ))
               : ingredients &&
                 data && (

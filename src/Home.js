@@ -65,6 +65,9 @@ const Home = () => {
       <ThemeContext.Consumer>
         {(context) => {
           const { isLightTheme, light, dark } = context;
+          const theme2 = isLightTheme ? 'light' : 'dark';
+
+          console.log(theme2);
           const theme = isLightTheme ? light : dark;
           return (
             <div
@@ -111,15 +114,16 @@ const Home = () => {
                     </Link>
                   </div>
                   <ThemeToggle
-                    className="cursor-pointer focus:outline-none "
+                    className="cursor-pointer focus:outline-none mt-2.5"
                     id="random"
                   />
                   <Link to={'/Categories/'}>
                     <button
                       className="random-btn border rounded cursor-pointer ml-2.5 mt-2"
                       id="random"
+                      style={{ background: theme.bg, color: theme.syntax }}
                     >
-                      <CollectionIcon className="h-5 w-5 text-gray-900" />
+                      <CollectionIcon className="h-5 w-5" />
                     </button>
                   </Link>
                 </div>
@@ -129,7 +133,7 @@ const Home = () => {
 
                 {isLoading ? (
                   [1, 2, 3, 4, 5].map((n) => (
-                    <SkeletonHeader key={n} theme="dark" />
+                    <SkeletonHeader key={n} theme={theme2} />
                   ))
                 ) : (
                   <div id="meals" className="meals">

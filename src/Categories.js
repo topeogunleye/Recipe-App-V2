@@ -26,6 +26,8 @@ const Categories = ({ ref = 'scroller' }) => {
     <ThemeContext.Consumer>
       {(context) => {
         const { isLightTheme, light, dark } = context;
+        const theme2 = isLightTheme ? 'light' : 'dark';
+
         const theme = isLightTheme ? light : dark;
         return (
           <div
@@ -39,7 +41,7 @@ const Categories = ({ ref = 'scroller' }) => {
                 {isLoading
                   ? // <div>Loading ...</div>
                     [1, 2, 3, 4, 5].map((n) => (
-                      <SkeletonCategory Key={n} theme="dark" />
+                      <SkeletonCategory Key={n} theme={theme2} />
                     ))
                   : data.categories &&
                     data.categories.map((category) => (
