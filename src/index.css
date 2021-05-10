@@ -10,7 +10,19 @@
 }
 
 html {
-  @apply bg-gray-600;
+  /* @apply bg-gray-600; */
+  /* bg-gray-500 */
+  /* color: #6b7280; */
+
+  /* bg-gray 600 */
+  /* color:  #4b5563 */
+
+  /* bg-gray 700 */
+  /* color: #374151 */
+
+  /* bg-gray-900 */
+  /* color: #111827 */
+  margin: 0;
 }
 
 .meals {
