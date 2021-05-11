@@ -61,6 +61,7 @@ const CategoryInfo = () => {
 
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
+  const loaderTheme = isLightTheme ? 'light' : 'dark';
 
   return (
     <div
@@ -73,7 +74,9 @@ const CategoryInfo = () => {
           {isError && <div>Something went wrong ...</div>}
           {isLoading ? (
             // <div>Loading ...</div>
-            [1, 2, 3, 4, 5].map((n) => <SkeletonHeader Key={n} theme={theme} />)
+            [1, 2, 3, 4, 5].map((n) => (
+              <SkeletonHeader Key={n} theme={loaderTheme} />
+            ))
           ) : (
             <div id="meals" className="meals">
               {data &&

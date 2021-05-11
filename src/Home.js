@@ -62,6 +62,7 @@ const Home = () => {
 
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
+  const loaderTheme = isLightTheme ? 'light' : 'dark';
 
   return (
     <Fragment>
@@ -127,7 +128,9 @@ const Home = () => {
           {!currentPosts && <div>There is no result. Try again!</div>}
 
           {isLoading ? (
-            [1, 2, 3, 4, 5].map((n) => <SkeletonHeader key={n} theme={theme} />)
+            [1, 2, 3, 4, 5].map((n) => (
+              <SkeletonHeader key={n} theme={loaderTheme} />
+            ))
           ) : (
             <div id="meals" className="meals">
               {currentPosts &&

@@ -44,6 +44,7 @@ const RandomMeal = () => {
 
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
+  const loaderTheme = isLightTheme ? 'light' : 'dark';
 
   return (
     <div
@@ -53,7 +54,9 @@ const RandomMeal = () => {
     >
       {isError && <div className="min-h-screen">Something went wrong ...</div>}
       {isLoading
-        ? [1, 2, 3, 4, 5].map((n) => <SkeletonMealInfo Key={n} theme="dark" />)
+        ? [1, 2, 3, 4, 5].map((n) => (
+            <SkeletonMealInfo Key={n} theme={loaderTheme} />
+          ))
         : ingredients &&
           data && (
             <div

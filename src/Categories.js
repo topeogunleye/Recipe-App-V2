@@ -21,6 +21,7 @@ const Categories = ({ ref = 'scroller' }) => {
 
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
+  const loaderTheme = isLightTheme ? 'light' : 'dark';
 
   return (
     <div
@@ -34,7 +35,7 @@ const Categories = ({ ref = 'scroller' }) => {
           {isLoading
             ? // <div>Loading ...</div>
               [1, 2, 3, 4, 5].map((n) => (
-                <SkeletonCategory Key={n} theme={theme} />
+                <SkeletonCategory Key={n} theme={loaderTheme} />
               ))
             : data.categories &&
               data.categories.map((category) => (

@@ -47,6 +47,7 @@ const MealInfo = () => {
 
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
+  const loaderTheme = isLightTheme ? 'light' : 'dark';
 
   return (
     <div
@@ -56,7 +57,9 @@ const MealInfo = () => {
     >
       {isError && <div>Something went wrong ...</div>}
       {isLoading
-        ? [1, 2, 3, 4, 5].map((n) => <SkeletonMealInfo key={n} theme={theme} />)
+        ? [1, 2, 3, 4, 5].map((n) => (
+            <SkeletonMealInfo key={n} theme={loaderTheme} />
+          ))
         : ingredients &&
           data && (
             <div className="max-w-7xl mx-auto relative min-h-screen">
