@@ -1,5 +1,5 @@
 import { useParams } from 'react-router';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
@@ -59,113 +59,102 @@ const CategoryInfo = () => {
     setPostsPerPage(postsPerPage + 5);
   };
 
-  return (
-    <ThemeContext.Consumer>
-      {(context) => {
-        const { isLightTheme, light, dark } = context;
-        const theme2 = isLightTheme ? 'light' : 'dark';
+  const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const theme = isLightTheme ? light : dark;
 
-        const theme = isLightTheme ? light : dark;
-        return (
-          <div
-            className="bg-gray-800 sm:bg-gray-500 text-white min-h-screen"
-            style={{ background: theme.ui, color: theme.syntax }}
-          >
-            <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center">
-              <h3 className="text-2xl font-bold">{strCategory}</h3>
-              <div id="meals" className="meals-cat">
-                {isError && <div>Something went wrong ...</div>}
-                {isLoading ? (
-                  // <div>Loading ...</div>
-                  [1, 2, 3, 4, 5].map((n) => (
-                    <SkeletonHeader Key={n} theme={theme2} />
-                  ))
-                ) : (
-                  <div id="meals" className="meals">
-                    {data &&
-                      data.meals
-                        .slice(indexOfFirstPost, indexOfLastPost)
-                        .map((meal) => (
-                          <div
-                            className="meal hover:shadow-lg"
-                            style={{
-                              background: theme.bg,
-                              color: theme.syntax,
-                            }}
-                            key={meal.idMeal}
+  return (
+    <div
+      className="bg-gray-800 sm:bg-gray-500 text-white min-h-screen"
+      style={{ background: theme.ui, color: theme.syntax }}
+    >
+      <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center">
+        <h3 className="text-2xl font-bold">{strCategory}</h3>
+        <div id="meals" className="meals-cat">
+          {isError && <div>Something went wrong ...</div>}
+          {isLoading ? (
+            // <div>Loading ...</div>
+            [1, 2, 3, 4, 5].map((n) => <SkeletonHeader Key={n} theme={theme} />)
+          ) : (
+            <div id="meals" className="meals">
+              {data &&
+                data.meals
+                  .slice(indexOfFirstPost, indexOfLastPost)
+                  .map((meal) => (
+                    <div
+                      className="meal hover:shadow-lg"
+                      style={{
+                        background: theme.bg,
+                        color: theme.syntax,
+                      }}
+                      key={meal.idMeal}
+                    >
+                      <Link to={`/MealInfo/${meal.idMeal}`}>
+                        <img
+                          src={meal.strMealThumb}
+                          alt="stew"
+                          className="h-40 sm:h-40 w-full object-cover"
+                        />
+                        <div className="m-4">
+                          <span className="font-bold">{meal.strMeal}</span>
+                          <span className="block text-sm">
+                            {meal.strCategory}
+                          </span>
+                        </div>
+                        <div className="badge">
+                          <svg
+                            className="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <Link to={`/MealInfo/${meal.idMeal}`}>
-                              <img
-                                src={meal.strMealThumb}
-                                alt="stew"
-                                className="h-40 sm:h-40 w-full object-cover"
-                              />
-                              <div className="m-4">
-                                <span className="font-bold">
-                                  {meal.strMeal}
-                                </span>
-                                <span className="block text-sm">
-                                  {meal.strCategory}
-                                </span>
-                              </div>
-                              <div className="badge">
-                                <svg
-                                  className="w-6 h-6"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                                  />
-                                </svg>
-                                <span>25 mins</span>
-                              </div>
-                            </Link>
-                          </div>
-                        ))}
-                  </div>
-                )}
-              </div>
-              <button
-                className="home-btn absolute top-1 left-1 sm:left-1 xl:top-2 xl:right-2  hover:bg-white  py-2 px-2 bg-gray-600 sm:bg-gray-700 rounded-sm"
-                onClick={() => {
-                  history.goBack(-1);
-                }}
-              >
-                <ChevronLeftIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
-              </button>
-              <Link to="/">
-                <button className="home-btn absolute top-1 right-1 sm:right-1 xl:top-2 xl:right-2  hover:bg-white  py-2 px-2 sm:px-2 lg:px-2 bg-gray-600 sm:bg-gray-700 rounded-sm">
-                  <HomeIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
-                </button>
-              </Link>
-              <div className="absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2">
-                <ThemeToggle
-                  className="cursor-pointer focus:outline-none"
-                  id="random"
-                />
-              </div>
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                          <span>25 mins</span>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
             </div>
-            <Pagination
-              postsPerPage={postsPerPage}
-              totalPosts={data && data.meals.length}
-              paginate={paginate}
-              indexOfFirstPost={indexOfFirstPost}
-              indexOfLastPost={indexOfLastPost}
-              handleNextbtn={handleNextbtn}
-              handlePrevbtn={handlePrevbtn}
-              currentPage={currentPage}
-              handleLoadMore={handleLoadMore}
-            />
-          </div>
-        );
-      }}
-    </ThemeContext.Consumer>
+          )}
+        </div>
+        <button
+          className="home-btn absolute top-1 left-1 sm:left-1 xl:top-2 xl:right-2  hover:bg-white  py-2 px-2 bg-gray-600 sm:bg-gray-700 rounded-sm"
+          onClick={() => {
+            history.goBack(-1);
+          }}
+        >
+          <ChevronLeftIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
+        </button>
+        <Link to="/">
+          <button className="home-btn absolute top-1 right-1 sm:right-1 xl:top-2 xl:right-2  hover:bg-white  py-2 px-2 sm:px-2 lg:px-2 bg-gray-600 sm:bg-gray-700 rounded-sm">
+            <HomeIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
+          </button>
+        </Link>
+        <div className="absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2">
+          <ThemeToggle
+            className="cursor-pointer focus:outline-none"
+            id="random"
+          />
+        </div>
+      </div>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={data && data.meals.length}
+        paginate={paginate}
+        indexOfFirstPost={indexOfFirstPost}
+        indexOfLastPost={indexOfLastPost}
+        handleNextbtn={handleNextbtn}
+        handlePrevbtn={handlePrevbtn}
+        currentPage={currentPage}
+        handleLoadMore={handleLoadMore}
+      />
+    </div>
   );
 };
 
