@@ -188,7 +188,6 @@ const Home = () => {
           handleLoadMore={handleLoadMore}
         />
       </div>
-      );
     </Fragment>
   );
 };
