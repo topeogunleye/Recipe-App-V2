@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import { useContext } from 'react';
-import SkeletonCategory from './skeletons/SkeletonCategory';
+import SkeletonCategory from '../skeletons/SkeletonCategory';
 import { HomeIcon } from '@heroicons/react/solid';
-import { ThemeContext } from './contexts/ThemeContext';
-import ThemeToggle from './components/ThemeToggle';
+import { ThemeContext } from '../contexts/ThemeContext';
+import ThemeToggle from '../components/ThemeToggle';
 
 const Categories = ({ ref = 'scroller' }) => {
   const [

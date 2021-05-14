@@ -20,7 +20,6 @@ const dataFetchReducer = (state, action) => {
 };
 
 const useFetchMealDbApi = (initialUrl, initialData) => {
-  // const [data, setData] = useState(initialData);
   const [url, setUrl] = useState(initialUrl);
 
   const [state, dispatch] = useReducer(dataFetchReducer, {
@@ -29,19 +28,13 @@ const useFetchMealDbApi = (initialUrl, initialData) => {
     data: initialData,
   });
 
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [isError, setIsError] = useState(false);
-
   useEffect(() => {
     let didCancel = false;
     const fetchMeals = async () => {
       dispatch({ type: 'FETCH_INIT' });
-      // setIsError(false);
-      // setIsLoading(true);
 
       try {
         const result = await axios(url);
-        // setData(result.data);
 
         if (!didCancel) {
           dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
@@ -49,10 +42,8 @@ const useFetchMealDbApi = (initialUrl, initialData) => {
       } catch (error) {
         if (!didCancel) {
           dispatch({ type: 'FETCH_FAILURE' });
-          // setIsError(true);
         }
       }
-      // setIsLoading(false);
     };
 
     fetchMeals();
@@ -62,7 +53,6 @@ const useFetchMealDbApi = (initialUrl, initialData) => {
     };
   }, [url]);
 
-  // return [{ data, isLoading, isError },state, setUrl, setUrl];
   return [state, setUrl];
 };
 

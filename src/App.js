@@ -1,9 +1,9 @@
-import Home from './Home';
+import Home from './components/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MealInfo from './MealInfo';
-import Categories from './Categories';
-import CategoryInfo from './CategoryInfo';
-import RandomMeal from './RandomMeal';
+import MealInfo from './components/MealInfo';
+import Categories from './components/Categories';
+import CategoryInfo from './components/CategoryInfo';
+import RandomMeal from './components/RandomMeal';
 import ThemeContextProvider from './contexts/ThemeContext';
 
 function App() {

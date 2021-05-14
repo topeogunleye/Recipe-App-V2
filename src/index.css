@@ -10,7 +10,7 @@
 }
 
 html {
-  /* @apply bg-gray-600; */
+  @apply max-h-screen;
   /* bg-gray-500 */
   /* color: #6b7280; */
 

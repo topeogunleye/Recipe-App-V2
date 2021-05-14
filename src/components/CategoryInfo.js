@@ -3,11 +3,11 @@ import { useState, useEffect, useContext } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import SkeletonHeader from './skeletons/SkeletonHeader';
+import SkeletonHeader from '../skeletons/SkeletonHeader';
 import { HomeIcon, ChevronLeftIcon } from '@heroicons/react/solid';
-import Pagination from './components/Pagination';
-import { ThemeContext } from './contexts/ThemeContext';
-import ThemeToggle from './components/ThemeToggle';
+import Pagination from '../components/Pagination';
+import { ThemeContext } from '../contexts/ThemeContext';
+import ThemeToggle from '../components/ThemeToggle';
 
 const CategoryInfo = () => {
   const history = useHistory();
@@ -49,7 +49,7 @@ const CategoryInfo = () => {
   const handlePrevbtn = () => {
     setCurrentPage(currentPage - 1);
 
-    if ((currentPage - 1) % postsPerPage == 0) {
+    if ((currentPage - 1) % postsPerPage === 0) {
       setmaxPageNumberLimit(maxPageNumberLimit - postsPerPage);
       setminPageNumberLimit(minPageNumberLimit - postsPerPage);
     }

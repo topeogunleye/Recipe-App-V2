@@ -1,22 +1,25 @@
+import { useParams } from 'react-router';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
-import SkeletonMealInfo from './skeletons/SkeletonMealInfo';
+import SkeletonMealInfo from '../skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
-import { HomeIcon, ChevronLeftIcon } from '@heroicons/react/solid';
-import { ThemeContext } from './contexts/ThemeContext';
-import ThemeToggle from './components/ThemeToggle';
+import { HomeIcon, BookmarkIcon } from '@heroicons/react/solid';
+import { ThemeContext } from '../contexts/ThemeContext';
+import ThemeToggle from '../components/ThemeToggle';
 
-const RandomMeal = () => {
+const MealInfo = () => {
+  const { mealID } = useParams();
   const [ingredients, setIngredients] = useState('');
   const history = useHistory();
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
   useEffect(
-    () => doFetch(`https://www.themealdb.com/api/json/v1/1/random.php`),
-    [doFetch, data]
+    () =>
+      doFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`),
+    [doFetch, mealID, data]
   );
 
   function createIngredientsArray(meal) {
@@ -48,29 +51,26 @@ const RandomMeal = () => {
 
   return (
     <div
-      id="single-meal"
+      id="single-meal relative"
+      className="min-h-screen pt-1"
       style={{ background: theme.ui, color: theme.syntax }}
-      className="pt-1"
     >
-      {isError && <div className="min-h-screen">Something went wrong ...</div>}
+      {isError && <div>Something went wrong ...</div>}
       {isLoading
         ? [1, 2, 3, 4, 5].map((n) => (
-            <SkeletonMealInfo Key={n} theme={loaderTheme} />
+            <SkeletonMealInfo key={n} theme={loaderTheme} />
           ))
         : ingredients &&
           data && (
-            <div
-              className="max-w-7xl mx-auto relative min-h-screen"
-              style={{ background: theme.ui, color: theme.syntax }}
-            >
-              <div className="max-w-full md:max-w-2xl lg:max-w-4xl mx-auto md:my-8 ">
+            <div className="max-w-7xl mx-auto relative min-h-screen">
+              <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto md:mb-8 mt-0">
                 <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
                   <div className="recipe-details">
                     <div className="primary-info-text">
                       <div className="primary-info-left-wrapper">
-                        <h1 className="recipe-title font-bold text-xl md:text-4xl  mt-0 ml-2 mb-4 max-w-min md:mb-8 font-sans">
+                        <h2 className="recipe-title font-bold text-xl md:text-4xl mt-0 ml-2 mb-4 sm:w-full md:mb-8 font-sans">
                           {data.meals[0].strMeal}
-                        </h1>
+                        </h2>
                       </div>
                     </div>
                     <div className="summary-item-wrapper flex relative justify-center md:justify-start">
@@ -113,33 +113,33 @@ const RandomMeal = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="recipe-details-image w-full">
+                  <div className="recipe-details-image w-full mobile-div">
                     <img
-                      alt="Cranberry Orange Muffins"
+                      alt={data.meals.strMeal}
                       src={data.meals[0].strMealThumb}
-                      className="recipe-image max-w-full rounded-b-lg md:rounded-lg"
+                      className="recipe-image max-w-full rounded-b-lg md:rounded-lg mobile"
                     />
                   </div>
                 </div>
-                <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none">
+                <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none pb-20">
                   {data.meals[0].strInstructions}
                 </p>
               </div>
               <button
-                className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 bg-gray-600 sm:bg-gray-500 rounded-sm"
+                className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
                 style={{ background: theme.bg, color: theme.syntax }}
                 onClick={() => {
                   history.goBack(-1);
                 }}
               >
-                <ChevronLeftIcon className="home-icon h-5 w-5  hover:text-black" />
+                <BookmarkIcon className="home-icon h-5 w-5  hover:text-black" />
               </button>
               <Link to="/">
                 <button
-                  className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-600 sm:bg-gray-500 rounded-sm"
+                  className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 rounded-sm"
                   style={{ background: theme.bg, color: theme.syntax }}
                 >
-                  <HomeIcon className="home-icon h-5 w-5  hover:text-black" />
+                  <HomeIcon className="home-icon h-5 w-5 hover:text-black" />
                 </button>
               </Link>
               <div className="absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2">
@@ -154,4 +154,4 @@ const RandomMeal = () => {
   );
 };
 
-export default RandomMeal;
+export default MealInfo;
