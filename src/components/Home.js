@@ -12,11 +12,8 @@ import {
 } from '@heroicons/react/solid';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import ThemeToggle from './ThemeToggle';
-import Favorites from './Favorites';
 
 const Home = () => {
-  const [favArray, setFavArray] = useState('');
-  const [favorites, setFavorites] = useState('');
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
@@ -65,14 +62,6 @@ const Home = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
   const loaderTheme = isLightTheme ? 'light' : 'dark';
-
-  const toggleFavAction = (meal) => {
-    setFavArray(favArray.concat(meal.idMeal));
-    // const favArray = [];
-    if (!favArray.includes(meal.idMeal)) {
-      console.log(favArray);
-    }
-  };
 
   return (
     <Fragment>
@@ -167,9 +156,6 @@ const Home = () => {
                     <button
                       className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
                       style={{ background: theme.bg, color: theme.syntax }}
-                      onClick={() => {
-                        toggleFavAction(meal);
-                      }}
                     >
                       <BookmarkIcon className="home-icon h-5 w-5  hover:text-black" />
                     </button>
