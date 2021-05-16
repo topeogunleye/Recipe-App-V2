@@ -5,6 +5,7 @@ import Categories from './components/Categories';
 import CategoryInfo from './components/CategoryInfo';
 import RandomMeal from './components/RandomMeal';
 import ThemeContextProvider from './contexts/ThemeContext';
+import Favorites from './components/Favorites';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
               </Route>
               <Route exact path="/Categories">
                 <Categories />
+              </Route>
+              <Route exact path="/Favorites">
+                <Favorites />
               </Route>
               <Route exact path="/CategoryInfo/:strCategory">
                 <CategoryInfo />

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { Fragment, useState, useContext } from 'react';
+import React, { Fragment, useState, useContext, useReducer } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import Pagination from './Pagination';
 import { ThemeContext } from '../contexts/ThemeContext';
@@ -8,11 +8,15 @@ import {
   SearchIcon,
   RefreshIcon,
   CollectionIcon,
+  BookmarkIcon,
 } from '@heroicons/react/solid';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import ThemeToggle from './ThemeToggle';
+import Favorites from './Favorites';
 
 const Home = () => {
+  const [favArray, setFavArray] = useState('');
+  const [favorites, setFavorites] = useState('');
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
@@ -32,8 +36,6 @@ const Home = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = data.meals.slice(indexOfFirstPost, indexOfLastPost);
-
-  console.log(indexOfLastPost);
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -63,6 +65,14 @@ const Home = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
   const loaderTheme = isLightTheme ? 'light' : 'dark';
+
+  const toggleFavAction = (meal) => {
+    setFavArray(favArray.concat(meal.idMeal));
+    // const favArray = [];
+    if (!favArray.includes(meal.idMeal)) {
+      console.log(favArray);
+    }
+  };
 
   return (
     <Fragment>
@@ -152,24 +162,17 @@ const Home = () => {
                           {meal.strCategory}
                         </span>
                       </div>
-                      <div className="badge">
-                        <svg
-                          className="w-6 h-6"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                        <span>25 mins</span>
-                      </div>
                     </Link>
+
+                    <button
+                      className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
+                      style={{ background: theme.bg, color: theme.syntax }}
+                      onClick={() => {
+                        toggleFavAction(meal);
+                      }}
+                    >
+                      <BookmarkIcon className="home-icon h-5 w-5  hover:text-black" />
+                    </button>
                   </div>
                 ))}
             </div>

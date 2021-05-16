@@ -37,10 +37,7 @@ const MealInfo = () => {
     setIngredients(ingredientsData);
   }
 
-  console.log(ingredients);
-
   if (data && ingredients === '') {
-    console.log(data);
     const meal = data.meals[0];
     createIngredientsArray(meal);
   }
@@ -127,7 +124,6 @@ const MealInfo = () => {
               </div>
               <button
                 className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
-                style={{ background: theme.bg, color: theme.syntax }}
                 onClick={() => {
                   history.goBack(-1);
                 }}

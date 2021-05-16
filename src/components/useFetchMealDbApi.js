@@ -12,6 +12,7 @@ const dataFetchReducer = (state, action) => {
         isError: false,
         data: action.payload,
       };
+
     case 'FETCH_FAILURE':
       return { ...state, isLoading: false, isError: true };
     default:
