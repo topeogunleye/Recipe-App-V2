@@ -49,7 +49,7 @@ const MealInfo = () => {
   return (
     <div
       id="single-meal relative"
-      className="min-h-screen pt-1"
+      className="min-h-screen"
       style={{ background: theme.ui, color: theme.syntax }}
     >
       {isError && <div>Something went wrong ...</div>}
@@ -122,14 +122,7 @@ const MealInfo = () => {
                   {data.meals[0].strInstructions}
                 </p>
               </div>
-              {/* <button
-                className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
-                onClick={() => {
-                  history.goBack(-1);
-                }}
-              >
-                <BookmarkIcon className="home-icon h-5 w-5  hover:text-black" />
-              </button> */}
+
               <Link to="/">
                 <button
                   className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 rounded-sm"
