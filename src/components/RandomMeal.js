@@ -48,9 +48,9 @@ const RandomMeal = () => {
 
   return (
     <div
-      id="single-meal"
+      id="single-meal relative"
       style={{ background: theme.ui, color: theme.syntax }}
-      className="pt-1"
+      className="min-h-screen"
     >
       {isError && <div className="min-h-screen">Something went wrong ...</div>}
       {isLoading
@@ -121,7 +121,7 @@ const RandomMeal = () => {
                     />
                   </div>
                 </div>
-                <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none">
+                <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none pb-20">
                   {data.meals[0].strInstructions}
                 </p>
               </div>
