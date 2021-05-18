@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
-import { HomeIcon, ChevronLeftIcon } from '@heroicons/react/solid';
+import { HomeIcon } from '@heroicons/react/solid';
 import { ThemeContext } from '../contexts/ThemeContext';
 import ThemeToggle from '../components/ThemeToggle';
 
@@ -125,15 +125,7 @@ const RandomMeal = () => {
                   {data.meals[0].strInstructions}
                 </p>
               </div>
-              <button
-                className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 bg-gray-600 sm:bg-gray-500 rounded-sm"
-                style={{ background: theme.bg, color: theme.syntax }}
-                onClick={() => {
-                  history.goBack(-1);
-                }}
-              >
-                <ChevronLeftIcon className="home-icon h-5 w-5  hover:text-black" />
-              </button>
+
               <Link to="/">
                 <button
                   className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-600 sm:bg-gray-500 rounded-sm"
