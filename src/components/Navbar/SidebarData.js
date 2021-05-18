@@ -19,7 +19,7 @@ export const SidebarData = [
   },
   {
     title: 'Add New Meals',
-    path: '/products',
+    path: '/NewMealForm/',
     icon: <FaIcons.FaEdit />,
     cName: 'nav-text',
   },

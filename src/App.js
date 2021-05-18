@@ -28,6 +28,9 @@ function App() {
               <Route exact path="/RandomMeal/">
                 <RandomMeal />
               </Route>
+              <Route exact path="/NewMealForm/">
+                <RandomMeal />
+              </Route>
             </Switch>
           </div>
         </ThemeContextProvider>
