@@ -50,7 +50,7 @@ const RandomMeal = () => {
     <div
       id="single-meal relative"
       style={{ background: theme.ui, color: theme.syntax }}
-      className="min-h-screen"
+      className="min-h-screen md:pt-1"
     >
       {isError && <div className="min-h-screen">Something went wrong ...</div>}
       {isLoading

@@ -49,7 +49,7 @@ const MealInfo = () => {
   return (
     <div
       id="single-meal relative"
-      className="min-h-screen"
+      className="min-h-screen md:pt-1"
       style={{ background: theme.ui, color: theme.syntax }}
     >
       {isError && <div>Something went wrong ...</div>}
