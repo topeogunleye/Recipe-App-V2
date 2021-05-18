@@ -4,12 +4,7 @@ import useFetchMealDbApi from './useFetchMealDbApi';
 import Pagination from './Pagination';
 import { ThemeContext } from '../contexts/ThemeContext';
 
-import {
-  SearchIcon,
-  RefreshIcon,
-  CollectionIcon,
-  BookmarkIcon,
-} from '@heroicons/react/solid';
+import { SearchIcon, RefreshIcon, BookmarkIcon } from '@heroicons/react/solid';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import ThemeToggle from './ThemeToggle';
 
@@ -70,6 +65,15 @@ const Home = () => {
         style={{ background: theme.ui, color: theme.syntax }}
       >
         <div className="m-auto max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8">
+          <div
+            className="absolute top-5 right-10
+          "
+          >
+            <ThemeToggle
+              className="cursor-pointer focus:outline-none"
+              id="random"
+            />
+          </div>
           <h1 className="font-black text-2xl">Meal Finder</h1>
           <div className="flex flex-col items-center sm:flex-row">
             <div className="flex mt-2">
@@ -108,11 +112,7 @@ const Home = () => {
                 </button>
               </Link>
             </div>
-            <ThemeToggle
-              className="cursor-pointer focus:outline-none mt-2.5"
-              id="random"
-            />
-            <Link to={'/Categories/'}>
+            {/* <Link to={'/Categories/'}>
               <button
                 className="random-btn border rounded cursor-pointer ml-2.5 mt-2"
                 id="random"
@@ -120,7 +120,7 @@ const Home = () => {
               >
                 <CollectionIcon className="h-5 w-5" />
               </button>
-            </Link>
+            </Link> */}
           </div>
 
           {isError && <div>Something went wrong ...</div>}
@@ -163,6 +163,10 @@ const Home = () => {
                 ))}
             </div>
           )}
+          {/* <ThemeToggle
+            className="cursor-pointer focus:outline-none mt-2.5 absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2"
+            id="random"
+          /> */}
         </div>
 
         <Pagination

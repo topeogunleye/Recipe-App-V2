@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import { useContext } from 'react';
 import SkeletonCategory from '../skeletons/SkeletonCategory';
-import { HomeIcon } from '@heroicons/react/solid';
 import { ThemeContext } from '../contexts/ThemeContext';
 import ThemeToggle from '../components/ThemeToggle';
 
@@ -54,12 +53,11 @@ const Categories = ({ ref = 'scroller' }) => {
                 </span>
               ))}
         </div>
-        <Link to="/">
-          <button className="home-btn absolute top-2 left-1 sm:left-1 xl:top-2 xl:left-2  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-800 sm:bg-gray-700 rounded-sm">
-            <HomeIcon className="home-icon h-5 w-5 text-white  hover:text-black" />
-          </button>
-        </Link>
-        <div className="absolute top-2 right-1 sm:right-1 xl:top-2 xl:right-2">
+
+        <div
+          className="absolute top-5 right-10
+          "
+        >
           <ThemeToggle
             className="cursor-pointer focus:outline-none"
             id="random"
