@@ -50,6 +50,56 @@ function Navbar() {
               );
             })}
           </ul>
+
+          <div className="dev-info absolute bottom-0">
+            <p className="text-xs ml-8 ">
+              <FaIcons.FaCopyright className="inline-block" /> 2021 by Temitope
+              Ogunleye
+            </p>
+
+            <div className="social-media">
+              <a
+                href="https://github.com/topeogunleye
+                    "
+                className="fa fa-github"
+                target="blank"
+              >
+                <FaIcons.FaGithub />
+              </a>
+              <a
+                href="https://web.facebook.com/topeogunleye21
+                "
+                className="fa fa-facebook"
+                target="blank"
+              >
+                <FaIcons.FaFacebook />
+              </a>
+              <a
+                href="https://twitter.com/temi_web
+                "
+                class="fa fa-twitter"
+                target="blank"
+              >
+                <FaIcons.FaTwitter />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ogunleye
+                "
+                className="fa fa-linkedin"
+                target="blank"
+              >
+                <FaIcons.FaLinkedin />
+              </a>
+              <a
+                href="https://www.instagram.com/topeogunleye1/
+                "
+                className="fa fa-instagram"
+                target="blank"
+              >
+                <FaIcons.FaInstagram />
+              </a>
+            </div>
+          </div>
         </nav>
       </IconContext.Provider>
     </>

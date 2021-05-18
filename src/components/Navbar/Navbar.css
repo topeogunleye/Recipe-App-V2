@@ -22,13 +22,14 @@
   top: 0;
   left: -100%;
   transition: 850ms;
+  display: inline-block;
 }
 
 .nav-menu.active {
   left: 0;
   transition: 350ms;
   z-index: 1;
-  /* position: absolute; */
+  display: inline-block;
 }
 
 .nav-text {
@@ -70,4 +71,21 @@
 
 .item-title {
   margin-left: 16px;
+}
+
+.social-media {
+  width: 100%;
+  /* background: #f2f2f2; */
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  padding: 10px;
+  bottom: 0;
+  justify-self: end;
+}
+
+.fa {
+  color: #333;
+  text-decoration: none;
+  padding: 8px;
 }
