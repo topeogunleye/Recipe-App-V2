@@ -165,10 +165,6 @@ const Home = () => {
                 ))}
             </div>
           )}
-          {/* <ThemeToggle
-            className="cursor-pointer focus:outline-none mt-2.5 absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2"
-            id="random"
-          /> */}
         </div>
 
         <Pagination
