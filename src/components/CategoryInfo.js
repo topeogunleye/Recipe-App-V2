@@ -8,6 +8,7 @@ import { HomeIcon } from '@heroicons/react/solid';
 import Pagination from '../components/Pagination';
 import { ThemeContext } from '../contexts/ThemeContext';
 import ThemeToggle from '../components/ThemeToggle';
+import Navbar from './Navbar/Navbar';
 
 const CategoryInfo = () => {
   const history = useHistory();
@@ -68,6 +69,7 @@ const CategoryInfo = () => {
       className="bg-gray-800 sm:bg-gray-500 text-white min-h-screen"
       style={{ background: theme.ui, color: theme.syntax }}
     >
+      <Navbar />
       <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center">
         <h3 className="text-2xl font-bold">{strCategory}</h3>
         <div id="meals" className="meals-cat">

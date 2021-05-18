@@ -7,6 +7,7 @@ import { ThemeContext } from '../contexts/ThemeContext';
 import { SearchIcon, RefreshIcon, BookmarkIcon } from '@heroicons/react/solid';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import ThemeToggle from './ThemeToggle';
+import Navbar from './Navbar/Navbar';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -64,6 +65,7 @@ const Home = () => {
         className="bg-gray-500 text-white min-h-screen"
         style={{ background: theme.ui, color: theme.syntax }}
       >
+        <Navbar />
         <div className="m-auto max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8">
           <div
             className="absolute top-5 right-10
