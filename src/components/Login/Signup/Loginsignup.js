@@ -1,7 +1,9 @@
 const Loginsignup = () => {
   return (
     <div className="login-splash grid place-items-center container">
-      {/* <h1 className="new-login">Your recipes are waiting</h1> */}
+      <h1 className="new-login text-4xl font-light">
+        Your recipes are waiting
+      </h1>
       <h2 className="login-splash-subheading">
         Connect to customize your recipe discovery.
       </h2>

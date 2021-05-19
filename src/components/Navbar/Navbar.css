@@ -119,9 +119,7 @@ a.btn-primary {
 
 /* Sign In / Sign Up */
 
-.login-splash,
-.registered-user,
-.new-registered-user {
+.login-splash {
   display: grid;
   place-items: center;
   text-align: center;
@@ -133,12 +131,18 @@ a.btn-primary {
   min-width: 615px;
   width: 90%;
 }
-
+/* h1 */
+.new-login {
+  color: #232323;
+}
 /* h2 */
 @media only screen and (max-width: 767px) {
   .login-splash-subheading {
     margin-bottom: 1em;
     color: #707070;
+  }
+  .login-splash {
+    min-width: 300px;
   }
 }
 
@@ -160,6 +164,7 @@ a.btn-primary {
   font-family: europa-regularregular, sans-serif;
   font-weight: 400;
   color: #707070;
+  margin-bottom: 36px;
 }
 
 /* ul class */
