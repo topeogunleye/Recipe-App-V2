@@ -39,6 +39,17 @@ function Navbar() {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
+            <div className="w-full grid place-items-start">
+              <a
+                className="btn-primary signin-button ml-4 my-12 "
+                id="nav-desktop-signin-button"
+                title="Sign Up / Log in"
+                aria-label="Sign Up / Log in"
+                href="/login#signup"
+              >
+                Sign Up / Log In
+              </a>
+            </div>
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>

@@ -6,6 +6,33 @@
   align-items: center;
 }
 
+.btn-primary {
+  padding: 0 18px;
+  height: 40px;
+  letter-spacing: 0;
+  display: inline-block;
+  outline: none;
+  border: none;
+  border-radius: 3em;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: capitalize;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+a.btn-primary {
+  line-height: 40px;
+}
+
+.btn-primary {
+  background-color: #3a9691;
+  color: #fff;
+}
+
 .menu-bars {
   margin-left: 2rem;
   font-size: 2rem;
