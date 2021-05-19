@@ -312,3 +312,29 @@ ul {
   line-height: 1.5;
   color: #707070;
 }
+
+.legalese a {
+  color: #3a9691;
+  border-bottom: 1px solid #3a9691;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+.close-link {
+  display: block;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 2em;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  cursor: pointer;
+}
+
+@media (max-width: 1023px), (max-height: 720px) {
+  .new-login .close-link {
+    padding: 2em 2em 3em;
+  }
+}
