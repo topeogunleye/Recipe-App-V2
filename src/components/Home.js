@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { Fragment, useState, useContext, useReducer } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import Pagination from './Pagination';
 import { ThemeContext } from '../contexts/ThemeContext';

@@ -5,6 +5,7 @@ import Categories from './components/Categories';
 import CategoryInfo from './components/CategoryInfo';
 import RandomMeal from './components/RandomMeal';
 import ThemeContextProvider from './contexts/ThemeContext';
+import NewMealForm from './components/NewMealForm';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
                 <RandomMeal />
               </Route>
               <Route exact path="/NewMealForm/">
-                <RandomMeal />
+                <NewMealForm />
               </Route>
             </Switch>
           </div>
