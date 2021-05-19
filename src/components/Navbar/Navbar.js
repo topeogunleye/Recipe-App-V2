@@ -40,7 +40,8 @@ function Navbar() {
               </Link>
             </li>
             <div className="w-full grid place-items-start">
-              <a
+              <Link
+                to="./Loginsignup"
                 className="btn-primary signin-button ml-8 my-12 "
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
@@ -48,7 +49,7 @@ function Navbar() {
                 href="/login#signup"
               >
                 Sign Up / Log In
-              </a>
+              </Link>
             </div>
             {SidebarData.map((item, index) => {
               return (

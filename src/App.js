@@ -6,6 +6,7 @@ import CategoryInfo from './components/CategoryInfo';
 import RandomMeal from './components/RandomMeal';
 import ThemeContextProvider from './contexts/ThemeContext';
 import NewMealForm from './components/NewMealForm';
+import Loginsignup from './components/Login/Signup/Loginsignup';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
               </Route>
               <Route exact path="/NewMealForm/">
                 <NewMealForm />
+              </Route>
+              <Route exact path="/loginsignup/">
+                <Loginsignup />
               </Route>
             </Switch>
           </div>

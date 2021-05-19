@@ -116,3 +116,194 @@ a.btn-primary {
   text-decoration: none;
   padding: 8px;
 }
+
+/* Sign In / Sign Up */
+
+.login-splash,
+.registered-user,
+.new-registered-user {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 16px;
+  min-width: 615px;
+  width: 90%;
+}
+
+/* h2 */
+@media only screen and (max-width: 767px) {
+  .login-splash-subheading {
+    margin-bottom: 1em;
+    color: #707070;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .new-login {
+    font-size: 1.5em;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .login-splash-subheading {
+    width: 100%;
+    font-size: 1em;
+    line-height: 21px;
+    margin: 7px 0;
+  }
+}
+.login-splash-subheading {
+  font-family: europa-regularregular, sans-serif;
+  font-weight: 400;
+  color: #707070;
+}
+
+/* ul class */
+.login-splash .login-buttons,
+.registered-user .login-buttons,
+.new-registered-user .login-buttons {
+  margin: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+/* li class pre button */
+.login-splash .login-buttons li:first-child,
+.registered-user .login-buttons li:first-child,
+.new-registered-user .login-buttons li:first-child {
+  margin-left: 0;
+}
+.login-splash .login-buttons li,
+.registered-user .login-buttons li,
+.new-registered-user .login-buttons li {
+  display: block;
+  margin: 0 0 10px;
+}
+/* Google Button */
+.button,
+[class^='btn-'],
+[class*=' btn-'] {
+  letter-spacing: 0;
+  display: inline-block;
+  outline: none;
+  border: none;
+  border-radius: 3em;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: capitalize;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  padding: 11px 24px;
+  /* background-color: #fff; */
+}
+
+.login-splash .login-buttons li .google,
+.registered-user .login-buttons li .google,
+.new-registered-user .login-buttons li .google {
+  background-image: url(https://x.yummlystatic.com/web/auth/google.png);
+  background-color: #fff;
+  color: #000;
+}
+
+.login-splash .login-buttons li .facebook,
+.registered-user .login-buttons li .facebook,
+.new-registered-user .login-buttons li .facebook,
+.login-splash .login-buttons li .google,
+.registered-user .login-buttons li .google,
+.new-registered-user .login-buttons li .google,
+.login-splash .login-buttons li .apple,
+.registered-user .login-buttons li .apple,
+.new-registered-user .login-buttons li .apple,
+.login-splash .login-buttons li .email,
+.registered-user .login-buttons li .email,
+.new-registered-user .login-buttons li .email {
+  background: url(https://x.yummlystatic.com/web/auth/email.png) 8px 50%
+    no-repeat;
+  background-size: 2em;
+  text-align: left;
+  padding: 12px 1.5em;
+  box-shadow: 0 0.125em 0.25em rgb(0 0 0 / 12%),
+    0 0 2px 0 rgb(0 0 0 / 27%) inset;
+}
+
+.login-splash .login-buttons li button,
+.registered-user .login-buttons li button,
+.new-registered-user .login-buttons li button {
+  min-width: 16.5em;
+  text-indent: 2em;
+}
+
+/* Facebook Button */
+.login-splash .login-buttons li .facebook,
+.registered-user .login-buttons li .facebook,
+.new-registered-user .login-buttons li .facebook {
+  background-image: url(https://x.yummlystatic.com/web/auth/facebook.png);
+  background-color: #3b5998;
+  color: #fff;
+}
+
+/* Google Button */
+.login-splash .login-buttons li .google,
+.registered-user .login-buttons li .google,
+.new-registered-user .login-buttons li .google {
+  background-image: url(https://x.yummlystatic.com/web/auth/google.png);
+  background-color: #fff;
+  color: #000;
+}
+
+/* Apple Button */
+
+.login-splash .login-buttons li .apple,
+.registered-user .login-buttons li .apple,
+.new-registered-user .login-buttons li .apple {
+  background-image: url(https://x.yummlystatic.com/web/auth/apple.png);
+  background-color: #000;
+  color: #fff;
+}
+
+/* Email Button */
+.login-splash .login-buttons li .email,
+.registered-user .login-buttons li .email,
+.new-registered-user .login-buttons li .email {
+  background-color: #3a9691;
+  color: #fff;
+}
+
+.legalese {
+  color: #707070;
+}
+
+@media (max-width: 1023px), (max-height: 720px) {
+  .new-login .legalese {
+    position: static;
+    margin-top: 2em;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .legalese {
+    width: 200px;
+  }
+}
+
+.legalese {
+  position: relative;
+  top: 3em;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #707070;
+}
