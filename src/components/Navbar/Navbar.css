@@ -164,7 +164,6 @@ a.btn-primary {
   font-family: europa-regularregular, sans-serif;
   font-weight: 400;
   color: #707070;
-  margin-bottom: 36px;
 }
 
 /* ul class */
@@ -216,7 +215,7 @@ ul {
 .registered-user .login-buttons li .google,
 .new-registered-user .login-buttons li .google {
   background-image: url(https://x.yummlystatic.com/web/auth/google.png);
-  background-color: #fff;
+  /* background-color: #fff; */
   color: #000;
 }
 

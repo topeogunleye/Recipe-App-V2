@@ -89,7 +89,7 @@ function Navbar() {
               <a
                 href="https://twitter.com/temi_web
                 "
-                class="fa fa-twitter"
+                className="fa fa-twitter"
                 target="blank"
               >
                 <FaIcons.FaTwitter />

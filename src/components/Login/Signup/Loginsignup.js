@@ -1,9 +1,30 @@
 import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../../contexts/ThemeContext';
+import ThemeToggle from '../../ThemeToggle';
 
 const Loginsignup = () => {
+  const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const theme = isLightTheme ? light : dark;
   return (
-    <div className="">
-      <div className="login-splash grid place-items-center container relative h-full">
+    <div
+      className="new-login h-screen w-full"
+      style={{ background: theme.ui, color: theme.syntax }}
+    >
+      <div
+        className="login-splash grid place-items-center container relative h-screen w-full"
+        style={{ background: theme.ui, color: theme.syntax }}
+      >
+        <div
+          className="absolute top-5 right-10
+          "
+          style={{ background: theme.ui, color: theme.syntax }}
+        >
+          <ThemeToggle
+            className="cursor-pointer focus:outline-none"
+            id="random"
+          />
+        </div>
         <div className="font-black text-2xl my-16">Meal Finder</div>
         <h1 className="new-login text-4xl font-light">
           Your recipes are waiting
@@ -73,16 +94,17 @@ const Loginsignup = () => {
             </a>
           </span>
         </div>
+        <Link
+          to="/"
+          className="close-link"
+          role="button"
+          href="#"
+          title="Close &amp; Use Yummly"
+          aria-label="Close &amp; Use Yummly"
+        >
+          Close &amp; Use Finder
+        </Link>
       </div>
-      <Link
-        className="close-link"
-        role="button"
-        href="#"
-        title="Close &amp; Use Yummly"
-        aria-label="Close &amp; Use Yummly"
-      >
-        Close &amp; Use Finder
-      </Link>
     </div>
   );
 };
