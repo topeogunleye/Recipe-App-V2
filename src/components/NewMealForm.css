@@ -136,6 +136,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px 60px;
+    grid-template-rows: 1fr;
   }
 }
 
