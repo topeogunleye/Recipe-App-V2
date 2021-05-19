@@ -41,7 +41,7 @@ function Navbar() {
             </li>
             <div className="w-full grid place-items-start">
               <a
-                className="btn-primary signin-button ml-4 my-12 "
+                className="btn-primary signin-button ml-8 my-12 "
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
                 aria-label="Sign Up / Log in"
