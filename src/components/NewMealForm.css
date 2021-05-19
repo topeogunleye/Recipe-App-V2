@@ -113,11 +113,6 @@
   transition: all 0.5s;
 }
 
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-}
-
 .upload {
   display: grid;
   grid-template-rows: 1fr 1fr;

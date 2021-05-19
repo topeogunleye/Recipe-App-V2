@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.btn-primary {
+.button-primary {
   padding: 0 18px;
   height: 40px;
   letter-spacing: 0;
@@ -24,11 +24,11 @@
   cursor: pointer;
   transition: all 200ms ease;
 }
-a.btn-primary {
+a.button-primary {
   line-height: 40px;
 }
 
-.btn-primary {
+.button-primary {
   background-color: #3a9691;
   color: #fff;
 }
@@ -133,7 +133,7 @@ a.btn-primary {
 }
 /* h1 */
 .new-login {
-  color: #232323;
+  color: #3a9691;
 }
 /* h2 */
 @media only screen and (max-width: 767px) {

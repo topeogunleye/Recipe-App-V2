@@ -29,7 +29,7 @@ const Loginsignup = () => {
         <h1 className="new-login text-4xl font-light">
           Your recipes are waiting
         </h1>
-        <h2 className="login-splash-subheading">
+        <h2 className="login-splash-subheading" style={{ color: theme.syntax }}>
           Connect to customize your recipe discovery.
         </h2>
         <ul className="login-buttons container">
@@ -101,6 +101,7 @@ const Loginsignup = () => {
           href="#"
           title="Close &amp; Use Yummly"
           aria-label="Close &amp; Use Yummly"
+          style={{ color: theme.syntax }}
         >
           Close &amp; Use Finder
         </Link>
