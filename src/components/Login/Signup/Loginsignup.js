@@ -16,7 +16,7 @@ const Loginsignup = () => {
         style={{ background: theme.ui, color: theme.syntax }}
       >
         <div
-          className="absolute top-5 right-10
+          className="absolute top-5 right-0
           "
           style={{ background: theme.ui, color: theme.syntax }}
         >
