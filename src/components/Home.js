@@ -75,7 +75,7 @@ const Home = () => {
               id="random"
             />
           </div>
-          <h1 className="font-black text-2xl">Meal Finder</h1>
+          <h1 className="font-black text-2xl">Recipa</h1>
           <div className="flex flex-col items-center sm:flex-row">
             <div className="flex mt-2">
               <form

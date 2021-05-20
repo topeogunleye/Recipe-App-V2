@@ -25,7 +25,7 @@ const Loginsignup = () => {
             id="random"
           />
         </div>
-        <div className="font-black text-2xl my-16">Meal Finder</div>
+        <div className="font-black text-2xl my-16">Recipa</div>
         <h1 className="new-login text-4xl font-light">
           Your recipes are waiting
         </h1>
