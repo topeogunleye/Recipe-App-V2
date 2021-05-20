@@ -4,11 +4,11 @@ import useFetchMealDbApi from './useFetchMealDbApi';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
-import { HomeIcon } from '@heroicons/react/solid';
 import Pagination from '../components/Pagination';
 import { ThemeContext } from '../contexts/ThemeContext';
 import ThemeToggle from '../components/ThemeToggle';
 import Navbar from './Navbar/Navbar';
+import * as HiIcons from 'react-icons/hi';
 
 const CategoryInfo = () => {
   const history = useHistory();
@@ -105,23 +105,10 @@ const CategoryInfo = () => {
                             {meal.strCategory}
                           </span>
                         </div>
-                        <div className="badge">
-                          <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
+                        {/* <div className="badge">
+                          <HiIcons.HiClock className="w-6 h-6" />
                           <span>25 mins</span>
-                        </div>
+                        </div> */}
                       </Link>
                     </div>
                   ))}

@@ -3,8 +3,6 @@ import React, { Fragment, useState, useContext } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import Pagination from './Pagination';
 import { ThemeContext } from '../contexts/ThemeContext';
-
-import { SearchIcon, RefreshIcon, BookmarkIcon } from '@heroicons/react/solid';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import ThemeToggle from './ThemeToggle';
 import Navbar from './Navbar/Navbar';
