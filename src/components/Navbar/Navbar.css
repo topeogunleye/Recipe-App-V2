@@ -332,6 +332,21 @@ ul {
   cursor: pointer;
 }
 
+@media (min-width: 1280px) {
+  .close-link {
+    display: block;
+    right: 100px;
+    bottom: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 2em;
+    position: absolute;
+    color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 1023px), (max-height: 720px) {
   .new-login .close-link {
     padding: 2em 2em 3em;
