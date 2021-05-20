@@ -99,8 +99,8 @@ const Loginsignup = () => {
           className="close-link"
           role="button"
           href="#"
-          title="Close &amp; Use Yummly"
-          aria-label="Close &amp; Use Yummly"
+          title="Close &amp; Use Finder"
+          aria-label="Close &amp; Use Finder"
           style={{ color: theme.syntax }}
         >
           Close &amp; Use Finder
