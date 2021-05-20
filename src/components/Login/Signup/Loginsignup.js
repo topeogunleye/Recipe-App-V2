@@ -8,11 +8,11 @@ const Loginsignup = () => {
   const theme = isLightTheme ? light : dark;
   return (
     <div
-      className="new-login h-screen w-full container"
+      className="new-login h-screen mx-auto container xl:w-screen"
       style={{ background: theme.ui, color: theme.syntax }}
     >
       <div
-        className="login-splash grid place-items-center relative w-full"
+        className="login-splash grid place-items-center relative"
         style={{ background: theme.ui, color: theme.syntax }}
       >
         <div
