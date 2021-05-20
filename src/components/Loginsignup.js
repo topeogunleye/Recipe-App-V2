@@ -100,11 +100,11 @@ const Loginsignup = () => {
         className="close-link"
         role="button"
         href="#"
-        title="Close &amp; Use Finder"
-        aria-label="Close &amp; Use Finder"
+        title="Close &amp; Use Recipa"
+        aria-label="Close &amp; Use Recipa"
         style={{ color: theme.syntax }}
       >
-        Close &amp; Use Finder
+        Close &amp; Use Recipa
       </Link>
     </div>
   );
