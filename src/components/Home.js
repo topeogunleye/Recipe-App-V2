@@ -156,12 +156,12 @@ const Home = () => {
                       </div>
                     </Link>
 
-                    <button
+                    {/* <button
                       className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
                       style={{ background: theme.bg, color: theme.syntax }}
                     >
                       <BookmarkIcon className="home-icon h-5 w-5  hover:text-black" />
-                    </button>
+                    </button> */}
                   </div>
                 ))}
             </div>
