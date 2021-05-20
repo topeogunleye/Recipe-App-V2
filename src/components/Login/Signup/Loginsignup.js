@@ -8,11 +8,11 @@ const Loginsignup = () => {
   const theme = isLightTheme ? light : dark;
   return (
     <div
-      className="new-login h-screen w-full"
+      className="new-login h-screen w-full container"
       style={{ background: theme.ui, color: theme.syntax }}
     >
       <div
-        className="login-splash grid place-items-center container relative h-screen w-full"
+        className="login-splash grid place-items-center relative w-full"
         style={{ background: theme.ui, color: theme.syntax }}
       >
         <div
@@ -94,18 +94,18 @@ const Loginsignup = () => {
             </a>
           </span>
         </div>
-        <Link
-          to="/"
-          className="close-link"
-          role="button"
-          href="#"
-          title="Close &amp; Use Finder"
-          aria-label="Close &amp; Use Finder"
-          style={{ color: theme.syntax }}
-        >
-          Close &amp; Use Finder
-        </Link>
       </div>
+      <Link
+        to="/"
+        className="close-link"
+        role="button"
+        href="#"
+        title="Close &amp; Use Finder"
+        aria-label="Close &amp; Use Finder"
+        style={{ color: theme.syntax }}
+      >
+        Close &amp; Use Finder
+      </Link>
     </div>
   );
 };
