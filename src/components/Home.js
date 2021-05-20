@@ -102,7 +102,7 @@ const Home = () => {
                   type="submit"
                   style={{ background: theme.bg, color: theme.syntax }}
                 >
-                  <SearchIcon className="h-5 w-5" />
+                  <FaIcons.FaSearch className="h-5 w-5" />
                 </button>
               </form>
               <Link to={'/RandomMeal/'}>
