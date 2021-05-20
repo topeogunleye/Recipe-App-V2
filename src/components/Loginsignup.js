@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../../contexts/ThemeContext';
-import ThemeToggle from '../../ThemeToggle';
+import { ThemeContext } from '../contexts/ThemeContext';
+import ThemeToggle from './ThemeToggle';
 
 const Loginsignup = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);

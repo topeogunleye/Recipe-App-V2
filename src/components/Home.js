@@ -8,6 +8,7 @@ import { SearchIcon, RefreshIcon, BookmarkIcon } from '@heroicons/react/solid';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import ThemeToggle from './ThemeToggle';
 import Navbar from './Navbar/Navbar';
+import * as FaIcons from 'react-icons/fa';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -110,7 +111,7 @@ const Home = () => {
                   id="random"
                   style={{ background: theme.bg, color: theme.syntax }}
                 >
-                  <RefreshIcon className="h-5 w-5" />
+                  <FaIcons.FaRandom className="h-5 w-5" />
                 </button>
               </Link>
             </div>

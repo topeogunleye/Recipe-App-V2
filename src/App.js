@@ -6,7 +6,7 @@ import CategoryInfo from './components/CategoryInfo';
 import RandomMeal from './components/RandomMeal';
 import ThemeContextProvider from './contexts/ThemeContext';
 import NewMealForm from './components/NewMealForm';
-import Loginsignup from './components/Login/Signup/Loginsignup';
+import Loginsignup from './components/Loginsignup';
 
 function App() {
   return (
