@@ -29,6 +29,16 @@ html {
   font-family: 'Rajdhani', sans-serif;
 }
 
+/* [aria-label='Click to Enable Dark Mode'] {
+  background-color: #fff;
+  color: #111827;
+}
+
+[aria-label='Click to Enable Light Mode'] {
+  background-color: #111827;
+  color: #fff;
+} */
+
 .meals {
   @apply grid grid-cols-1	gap-5 mt-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
 }

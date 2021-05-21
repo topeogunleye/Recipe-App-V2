@@ -108,6 +108,8 @@ const Home = () => {
                   className="random-btn border rounded cursor-pointer ml-2.5"
                   id="random"
                   style={{ background: theme.bg, color: theme.syntax }}
+                  title="Get Random Recipes"
+                  aria-label="Get Random Recipes"
                 >
                   <FaIcons.FaRandom className="h-5 w-5" />
                 </button>
