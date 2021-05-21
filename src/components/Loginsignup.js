@@ -12,6 +12,16 @@ const Loginsignup = () => {
       style={{ background: theme.ui, color: theme.syntax }}
     >
       <div
+        className="absolute top-5 right-10
+          "
+        style={{ background: theme.ui, color: theme.syntax }}
+      >
+        <ThemeToggle
+          className="cursor-pointer focus:outline-none"
+          id="random"
+        />
+      </div>
+      <div
         className="new-login h-screen mx-auto container xl:w-screen"
         style={{ background: theme.ui, color: theme.syntax }}
       >
@@ -19,16 +29,6 @@ const Loginsignup = () => {
           className="login-splash grid place-items-center relative"
           style={{ background: theme.ui, color: theme.syntax }}
         >
-          <div
-            className="absolute top-0 right-0
-          "
-            style={{ background: theme.ui, color: theme.syntax }}
-          >
-            <ThemeToggle
-              className="cursor-pointer focus:outline-none"
-              id="random"
-            />
-          </div>
           <div className="font-black text-2xl my-16 logo-signature">Recipa</div>
           <h1 className="new-login text-4xl font-light">
             Your recipes are waiting
