@@ -56,18 +56,18 @@ function Navbar() {
           style={{ background: theme.bg, color: theme.syntax }}
         >
           <ul className="nav-menu-items">
-            <li
+            {/* <li
               className="navbar-toggle"
               style={{ background: theme.bg, color: theme.syntax }}
             >
-              {/* <Link to="#" className="menu-bars">
+              <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
-              </Link> */}
-            </li>
+              </Link>
+            </li> */}
             <div className="w-full grid place-items-start">
               <Link
                 to="./loginsignup/"
-                className="button-primary signin-button ml-8 mb-12 "
+                className="button-primary signin-button ml-8 mb-12 mt-4"
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
                 aria-label="Sign Up / Log in"
