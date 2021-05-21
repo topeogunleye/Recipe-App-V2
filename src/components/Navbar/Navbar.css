@@ -332,7 +332,7 @@ ul {
   cursor: pointer;
 }
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .close-link {
     display: block;
     right: 100px;
@@ -345,7 +345,7 @@ ul {
     z-index: 10;
     cursor: pointer;
   }
-}
+} */
 
 @media (max-width: 1023px), (max-height: 720px) {
   .new-login .close-link {
