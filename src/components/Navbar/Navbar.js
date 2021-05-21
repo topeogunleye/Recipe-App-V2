@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,26 @@ import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 import { ThemeContext } from '../../contexts/ThemeContext';
+
+let useClickOutside = (handler) => {
+  let domNode = useRef();
+
+  useEffect(() => {
+    let maybeHandler = (event) => {
+      if (!domNode.current.contains(event.target)) {
+        handler();
+      }
+    };
+
+    document.addEventListener('mousedown', maybeHandler);
+
+    return () => {
+      document.removeEventListener('mousedown', maybeHandler);
+    };
+  });
+
+  return domNode;
+};
 
 function Navbar() {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
@@ -15,12 +35,17 @@ function Navbar() {
 
   const showSidebar = () => setSidebar(!sidebar);
 
+  let domNode = useClickOutside(() => {
+    setSidebar(false);
+  });
+
   return (
     <>
       <IconContext.Provider value={{ color: theme.syntax }}>
         <div
           className="navbar"
           style={{ background: theme.ui, color: theme.syntax }}
+          ref={domNode}
         >
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
@@ -30,19 +55,19 @@ function Navbar() {
           className={sidebar ? 'nav-menu active' : 'nav-menu'}
           style={{ background: theme.bg, color: theme.syntax }}
         >
-          <ul className="nav-menu-items" onClick={showSidebar}>
+          <ul className="nav-menu-items">
             <li
               className="navbar-toggle"
               style={{ background: theme.bg, color: theme.syntax }}
             >
-              <Link to="#" className="menu-bars">
+              {/* <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />
-              </Link>
+              </Link> */}
             </li>
             <div className="w-full grid place-items-start">
               <Link
                 to="./loginsignup/"
-                className="button-primary signin-button ml-8 my-12 "
+                className="button-primary signin-button ml-8 mb-12 "
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
                 aria-label="Sign Up / Log in"
