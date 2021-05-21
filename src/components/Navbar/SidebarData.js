@@ -18,7 +18,7 @@ export const SidebarData = [
     cName: 'nav-text',
   },
   {
-    title: 'Add New Meals',
+    title: 'Add Recipe',
     path: '/NewMealForm/',
     icon: <FaIcons.FaEdit />,
     cName: 'nav-text',
