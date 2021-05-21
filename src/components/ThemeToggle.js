@@ -12,6 +12,8 @@ const ThemeToggle = () => {
       onClick={toggleTheme}
       className="focus:outline-none my-auto rounded-full w-10 h-10 grid place-items-center ml-2.5"
       style={{ background: theme.bg, color: theme.syntax }}
+      title="Click to Change Theme"
+      aria-label="Close to Change Theme"
     >
       <MoonIcon className="h-5 w-5" />
     </button>
