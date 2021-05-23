@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
 import { HomeIcon, BookmarkIcon } from '@heroicons/react/solid';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { DarkModeContext } from '../contexts/DarkModeProvider';
 import ThemeToggle from '../components/ThemeToggle';
 
 const MealInfo = () => {
@@ -42,15 +42,15 @@ const MealInfo = () => {
     createIngredientsArray(meal);
   }
 
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
-  const loaderTheme = isLightTheme ? 'light' : 'dark';
+  const theme = useContext(DarkModeContext);
+  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
     <div
       id="single-meal relative"
       className="min-h-screen md:pt-1"
-      style={{ background: theme.ui, color: theme.syntax }}
+      style={{ background: ui, color: syntax }}
     >
       {isError && <div>Something went wrong ...</div>}
       {isLoading
@@ -126,7 +126,7 @@ const MealInfo = () => {
               <Link to="/">
                 <button
                   className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 rounded-sm"
-                  style={{ background: theme.bg, color: theme.syntax }}
+                  style={{ background: bg, color: syntax }}
                 >
                   <HomeIcon className="home-icon h-5 w-5 hover:text-black" />
                 </button>

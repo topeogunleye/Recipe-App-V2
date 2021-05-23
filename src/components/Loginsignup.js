@@ -1,20 +1,19 @@
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { DarkModeContext } from '../contexts/DarkModeProvider';
 import ThemeToggle from './ThemeToggle';
 
 const Loginsignup = () => {
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
+  const theme = useContext(DarkModeContext);
+  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const loaderTheme = isDark ? 'dark' : 'light';
+
   return (
-    <div
-      className="w-screen "
-      style={{ background: theme.ui, color: theme.syntax }}
-    >
+    <div className="w-screen " style={{ background: ui, color: syntax }}>
       <div
         className="absolute top-5 right-10
           "
-        style={{ background: theme.ui, color: theme.syntax }}
+        style={{ background: ui, color: syntax }}
       >
         <ThemeToggle
           className="cursor-pointer focus:outline-none"
@@ -23,20 +22,17 @@ const Loginsignup = () => {
       </div>
       <div
         className="new-login h-screen mx-auto container xl:w-screen"
-        style={{ background: theme.ui, color: theme.syntax }}
+        style={{ background: ui, color: syntax }}
       >
         <div
           className="login-splash grid place-items-center relative"
-          style={{ background: theme.ui, color: theme.syntax }}
+          style={{ background: ui, color: syntax }}
         >
           <div className="font-black text-2xl my-16 logo-signature">Recipa</div>
           <h1 className="new-login text-4xl font-light">
             Your recipes are waiting
           </h1>
-          <h2
-            className="login-splash-subheading"
-            style={{ color: theme.syntax }}
-          >
+          <h2 className="login-splash-subheading" style={{ color: syntax }}>
             Connect to customize your recipe discovery.
           </h2>
           <ul className="login-buttons container">
@@ -110,7 +106,7 @@ const Loginsignup = () => {
         href="#"
         title="Close &amp; Use Recipa"
         aria-label="Close &amp; Use Recipa"
-        style={{ color: theme.syntax }}
+        style={{ color: syntax }}
       >
         Close &amp; Use Recipa
       </Link>

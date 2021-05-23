@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import React, { Fragment, useState, useContext } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import Pagination from './Pagination';
-import { ThemeContext } from '../contexts/ThemeContext';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import ThemeToggle from './ThemeToggle';
 import Navbar from './Navbar/Navbar';
 import * as FaIcons from 'react-icons/fa';
+import { DarkModeContext } from '../contexts/DarkModeProvider';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -54,15 +54,15 @@ const Home = () => {
     setPostsPerPage(postsPerPage + 5);
   };
 
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
-  const loaderTheme = isLightTheme ? 'light' : 'dark';
+  const theme = useContext(DarkModeContext);
+  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
     <Fragment>
       <div
         className="bg-gray-500 text-white min-h-screen"
-        style={{ background: theme.ui, color: theme.syntax }}
+        style={{ background: ui, color: syntax }}
       >
         <Navbar />
         <div className="m-auto max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8">
@@ -75,6 +75,7 @@ const Home = () => {
               id="random"
             />
           </div>
+
           <h1 className="font-black text-2xl logo-signature">Recipa</h1>
           <div className="flex flex-col items-center sm:flex-row">
             <div className="flex mt-2">
@@ -93,12 +94,12 @@ const Home = () => {
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   className="border rounded-l sm:w-full text-black"
-                  style={{ background: theme.bg, color: theme.syntax }}
+                  style={{ background: bg, color: syntax }}
                 />
                 <button
                   className="search-btn border rounded-r"
                   type="submit"
-                  style={{ background: theme.bg, color: theme.syntax }}
+                  style={{ background: bg, color: syntax }}
                 >
                   <FaIcons.FaSearch className="h-5 w-5" />
                 </button>
@@ -107,7 +108,7 @@ const Home = () => {
                 <button
                   className="random-btn border rounded cursor-pointer ml-2.5"
                   id="random"
-                  style={{ background: theme.bg, color: theme.syntax }}
+                  style={{ background: bg, color: syntax }}
                   title="Get Random Recipes"
                   aria-label="Get Random Recipes"
                 >
@@ -119,7 +120,7 @@ const Home = () => {
               <button
                 className="random-btn border rounded cursor-pointer ml-2.5 mt-2"
                 id="random"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               >
                 <CollectionIcon className="h-5 w-5" />
               </button>
@@ -140,7 +141,7 @@ const Home = () => {
                   <div
                     className="meal hover:shadow-lg"
                     key={meal.idMeal}
-                    style={{ background: theme.bg, color: theme.syntax }}
+                    style={{ background: bg, color: syntax }}
                   >
                     <Link to={`/MealInfo/${meal.idMeal}`}>
                       <img
@@ -158,7 +159,7 @@ const Home = () => {
 
                     {/* <button
                       className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
-                      style={{ background: theme.bg, color: theme.syntax }}
+                      style={{ background: bg, color: syntax }}
                     >
                       <BookmarkIcon className="home-icon h-5 w-5  hover:text-black" />
                     </button> */}

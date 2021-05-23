@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import Pagination from '../components/Pagination';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { DarkModeContext } from '../contexts/DarkModeProvider';
 import ThemeToggle from '../components/ThemeToggle';
 import Navbar from './Navbar/Navbar';
 import * as HiIcons from 'react-icons/hi';
@@ -60,14 +60,14 @@ const CategoryInfo = () => {
     setPostsPerPage(postsPerPage + 5);
   };
 
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
-  const loaderTheme = isLightTheme ? 'light' : 'dark';
+  const theme = useContext(DarkModeContext);
+  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
     <div
       className="bg-gray-800 sm:bg-gray-500 text-white min-h-screen"
-      style={{ background: theme.ui, color: theme.syntax }}
+      style={{ background: ui, color: syntax }}
     >
       <Navbar />
       <div className="m-auto max-w-5xl flex flex-col items-center justify-center text-center mb-8">
@@ -88,8 +88,8 @@ const CategoryInfo = () => {
                     <div
                       className="meal hover:shadow-lg"
                       style={{
-                        background: theme.bg,
-                        color: theme.syntax,
+                        background: bg,
+                        color: syntax,
                       }}
                       key={meal.idMeal}
                     >

@@ -4,15 +4,15 @@ import MealInfo from './components/MealInfo';
 import Categories from './components/Categories';
 import CategoryInfo from './components/CategoryInfo';
 import RandomMeal from './components/RandomMeal';
-import ThemeContextProvider from './contexts/ThemeContext';
 import NewMealForm from './components/NewMealForm';
 import Loginsignup from './components/Loginsignup';
+import { DarkModeProvider } from './contexts/DarkModeProvider';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <ThemeContextProvider>
+        <DarkModeProvider>
           <div className="content">
             <Switch>
               <Route exact path="/">
@@ -38,7 +38,7 @@ function App() {
               </Route>
             </Switch>
           </div>
-        </ThemeContextProvider>
+        </DarkModeProvider>
       </div>
     </Router>
   );

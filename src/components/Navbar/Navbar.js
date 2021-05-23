@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { DarkModeContext } from '../../contexts/DarkModeProvider';
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -28,8 +28,9 @@ let useClickOutside = (handler) => {
 };
 
 function Navbar() {
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
+  const theme = useContext(DarkModeContext);
+  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const loaderTheme = isDark ? 'dark' : 'light';
 
   const [sidebar, setSidebar] = useState(false);
 
@@ -41,10 +42,10 @@ function Navbar() {
 
   return (
     <>
-      <IconContext.Provider value={{ color: theme.syntax }}>
+      <IconContext.Provider value={{ color: syntax }}>
         <div
           className="navbar"
-          style={{ background: theme.ui, color: theme.syntax }}
+          style={{ background: ui, color: syntax }}
           ref={domNode}
         >
           <Link to="#" className="menu-bars">
@@ -53,12 +54,12 @@ function Navbar() {
         </div>
         <nav
           className={sidebar ? 'nav-menu active' : 'nav-menu'}
-          style={{ background: theme.bg, color: theme.syntax }}
+          style={{ background: bg, color: syntax }}
         >
           <ul className="nav-menu-items">
             {/* <li
               className="navbar-toggle"
-              style={{ background: theme.bg, color: theme.syntax }}
+              style={{ background: bg, color: syntax }}
             >
               <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose />

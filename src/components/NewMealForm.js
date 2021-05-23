@@ -1,25 +1,25 @@
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import './NewMealForm.css';
 import Navbar from './Navbar/Navbar';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { DarkModeContext } from '../contexts/DarkModeProvider';
 import React, { useContext } from 'react';
 import ThemeToggle from './ThemeToggle';
 
 const NewMealForm = () => {
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
+  const theme = useContext(DarkModeContext);
+  const { syntax, ui, bg, icon, isDark } = theme.mode;
 
   return (
     <div>
       <Navbar />
       <div
         className="meal-form text-sm sm:text-base"
-        style={{ background: theme.ui, color: theme.syntax }}
+        style={{ background: ui, color: syntax }}
       >
         <div className="overlay hidden" />
         <div
           className="add-recipe-window "
-          style={{ background: theme.ui, color: theme.syntax }}
+          style={{ background: ui, color: syntax }}
         >
           <button className="btn--close-modal"></button>
           <form className="upload">
@@ -31,7 +31,7 @@ const NewMealForm = () => {
                 required
                 name="title"
                 type="text"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>URL</label>
               <input
@@ -39,7 +39,7 @@ const NewMealForm = () => {
                 required
                 name="sourceUrl"
                 type="text"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Image URL</label>
               <input
@@ -47,7 +47,7 @@ const NewMealForm = () => {
                 required
                 name="image"
                 type="text"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Publisher</label>
               <input
@@ -55,7 +55,7 @@ const NewMealForm = () => {
                 required
                 name="publisher"
                 type="text"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Prep time</label>
               <input
@@ -63,7 +63,7 @@ const NewMealForm = () => {
                 required
                 name="cookingTime"
                 type="number"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Servings</label>
               <input
@@ -71,7 +71,7 @@ const NewMealForm = () => {
                 required
                 name="servings"
                 type="number"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
             </div>
             <div className="upload__column">
@@ -83,7 +83,7 @@ const NewMealForm = () => {
                 required
                 name="ingredient-1"
                 placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Ingredient 2</label>
               <input
@@ -91,7 +91,7 @@ const NewMealForm = () => {
                 type="text"
                 name="ingredient-2"
                 placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Ingredient 3</label>
               <input
@@ -99,33 +99,33 @@ const NewMealForm = () => {
                 type="text"
                 name="ingredient-3"
                 placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Ingredient 4</label>
               <input
                 type="text"
                 name="ingredient-4"
                 placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Ingredient 5</label>
               <input
                 type="text"
                 name="ingredient-5"
                 placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
               <label>Ingredient 6</label>
               <input
                 type="text"
                 name="ingredient-6"
                 placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: theme.bg, color: theme.syntax }}
+                style={{ background: bg, color: syntax }}
               />
             </div>
             <button
               className="btn upload__btn"
-              style={{ background: theme.bg, color: theme.syntax }}
+              style={{ background: bg, color: syntax }}
             >
               <AiOutlineCloudUpload />
               <span>Upload</span>

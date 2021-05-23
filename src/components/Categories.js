@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import { useContext } from 'react';
 import SkeletonCategory from '../skeletons/SkeletonCategory';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { DarkModeContext } from '../contexts/DarkModeProvider';
 import ThemeToggle from '../components/ThemeToggle';
 import Navbar from './Navbar/Navbar';
 
@@ -19,15 +19,15 @@ const Categories = ({ ref = 'scroller' }) => {
     console.log(data);
   }
 
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
-  const loaderTheme = isLightTheme ? 'light' : 'dark';
+  const theme = useContext(DarkModeContext);
+  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
     <div className="">
       <Navbar />
       <div
-        style={{ background: theme.ui, color: theme.syntax }}
+        style={{ background: ui, color: syntax }}
         className="min-h-screen pb-1"
       >
         <div className="max-w-3xl mx-auto text-center mb-2">
