@@ -43,11 +43,7 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: syntax }}>
-        <div
-          className="navbar"
-          style={{ background: ui, color: syntax }}
-          ref={domNode}
-        >
+        <div className="navbar" style={{ background: ui, color: syntax }}>
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
@@ -55,6 +51,7 @@ function Navbar() {
         <nav
           className={sidebar ? 'nav-menu active' : 'nav-menu'}
           style={{ background: bg, color: syntax }}
+          ref={domNode}
         >
           <ul className="nav-menu-items">
             {/* <li
