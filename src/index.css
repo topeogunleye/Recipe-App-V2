@@ -44,7 +44,7 @@ html {
 }
 
 .meal {
-  @apply rounded overflow-hidden shadow-md cursor-pointer relative h-60 w-60 xs:h-56 xs:w-52 sm:h-56 sm:w-52 lg:h-56 lg:w-52 text-left bg-gray-600;
+  @apply rounded overflow-hidden shadow-md cursor-pointer relative h-60 w-60 xs:h-56 xs:w-52 sm:h-56 sm:w-52 lg:h-56 lg:w-52 text-left;
 }
 
 .meal-img {
