@@ -13,6 +13,10 @@ const dataFetchReducer = (state, action) => {
         data: action.payload,
       };
 
+    case 'ADD_FAV':
+      return {
+        favorites: [...state],
+      };
     case 'FETCH_FAILURE':
       return { ...state, isLoading: false, isError: true };
     default:
