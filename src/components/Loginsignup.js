@@ -6,7 +6,6 @@ import ThemeToggle from './ThemeToggle';
 const Loginsignup = () => {
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, icon, isDark } = theme.mode;
-  const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
     <div className="w-screen " style={{ background: ui, color: syntax }}>

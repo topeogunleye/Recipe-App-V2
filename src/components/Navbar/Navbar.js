@@ -67,7 +67,7 @@ function Navbar() {
             </li> */}
             <div className="w-full grid place-items-start">
               <Link
-                to="./loginsignup/"
+                to="/loginsignup/"
                 className="button-primary signin-button ml-8 mb-12 mt-4"
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
