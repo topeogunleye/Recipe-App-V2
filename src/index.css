@@ -40,11 +40,11 @@ html {
 } */
 
 .meals {
-  @apply grid grid-cols-1	gap-5 mt-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  @apply grid grid-cols-1	gap-5 mt-5 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
 }
 
 .meal {
-  @apply rounded overflow-hidden shadow-md cursor-pointer relative h-60 w-60 sm:h-56 sm:w-52 lg:h-56 lg:w-52 text-left bg-gray-600;
+  @apply rounded overflow-hidden shadow-md cursor-pointer relative h-60 w-60 xs:h-56 xs:w-52 sm:h-56 sm:w-52 lg:h-56 lg:w-52 text-left bg-gray-600;
 }
 
 .meal-img {
