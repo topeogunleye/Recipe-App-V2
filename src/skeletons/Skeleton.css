@@ -88,6 +88,13 @@
   }
 }
 
+@media screen and (min-width: 475px) {
+  .imageSmall {
+    width: 208px;
+    height: 212px;
+  }
+}
+
 @media screen and (min-width: 425px) {
   .imageBig {
     width: 312px;
