@@ -7,6 +7,8 @@ import RandomMeal from './components/RandomMeal';
 import NewMealForm from './components/NewMealForm';
 import Loginsignup from './components/Loginsignup';
 import { DarkModeProvider } from './contexts/DarkModeProvider';
+import firebase from 'firebase';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 function App() {
   return (

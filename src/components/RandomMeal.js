@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
 import { HomeIcon } from '@heroicons/react/solid';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import ThemeToggle from '../components/ThemeToggle';
 
 const RandomMeal = () => {
@@ -42,14 +42,14 @@ const RandomMeal = () => {
     createIngredientsArray(meal);
   }
 
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  const theme = isLightTheme ? light : dark;
-  const loaderTheme = isLightTheme ? 'light' : 'dark';
+  const theme = useContext(DarkModeContext);
+  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
     <div
       id="single-meal relative"
-      style={{ background: theme.ui, color: theme.syntax }}
+      style={{ background: ui, color: syntax }}
       className="min-h-screen md:pt-1"
     >
       {isError && <div className="min-h-screen">Something went wrong ...</div>}
@@ -61,7 +61,7 @@ const RandomMeal = () => {
           data && (
             <div
               className="max-w-7xl mx-auto relative min-h-screen"
-              style={{ background: theme.ui, color: theme.syntax }}
+              style={{ background: ui, color: syntax }}
             >
               <div className="max-w-full md:max-w-2xl lg:max-w-4xl mx-auto md:my-8 ">
                 <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
@@ -129,7 +129,7 @@ const RandomMeal = () => {
               <Link to="/">
                 <button
                   className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-600 sm:bg-gray-500 rounded-sm"
-                  style={{ background: theme.bg, color: theme.syntax }}
+                  style={{ background: bg, color: syntax }}
                 >
                   <HomeIcon className="home-icon h-5 w-5  hover:text-black" />
                 </button>
