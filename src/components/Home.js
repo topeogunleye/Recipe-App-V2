@@ -147,7 +147,7 @@ const Home = () => {
                       <img
                         src={meal.strMealThumb}
                         alt="stew"
-                        className="h-40 sm:h-40 w-full object-cover hover:opacity-30 transition-opacity duration-200 ease-in"
+                        className="h-40 sm:h-40 w-full object-cover hover:opacity-40 transition-opacity duration-200 ease-in"
                       />
                       <div className="m-4">
                         <span className="font-bold">{meal.strMeal}</span>
