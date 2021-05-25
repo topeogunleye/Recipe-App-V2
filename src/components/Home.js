@@ -55,7 +55,7 @@ const Home = () => {
   };
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const { syntax, ui, bg, opacity, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
@@ -77,6 +77,7 @@ const Home = () => {
           </div>
 
           <h1 className="font-black text-2xl logo-signature">Recipa</h1>
+
           <div className="flex flex-col items-center sm:flex-row">
             <div className="flex mt-2">
               <form
@@ -147,7 +148,7 @@ const Home = () => {
                       <img
                         src={meal.strMealThumb}
                         alt="stew"
-                        className="h-40 sm:h-40 w-full object-cover hover:opacity-40 transition-opacity duration-200 ease-in"
+                        className="h-40 sm:h-40 w-full object-cover hover:opacity-75 transition-opacity duration-200 ease-in"
                       />
                       <div className="m-4">
                         <span className="font-bold">{meal.strMeal}</span>

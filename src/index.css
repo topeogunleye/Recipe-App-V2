@@ -134,7 +134,7 @@ html {
 .login-splash-subheading {
   font-family: europa-regularregular, sans-serif;
   font-weight: 400;
-  color: #707070;
+  color: #707070 !important;
 }
 
 /* ul class */
@@ -196,9 +196,9 @@ ul {
 .login-splash .login-buttons li .google,
 .registered-user .login-buttons li .google,
 .new-registered-user .login-buttons li .google,
-.login-splash .login-buttons li .apple,
-.registered-user .login-buttons li .apple,
-.new-registered-user .login-buttons li .apple,
+.login-splash .login-buttons li .github,
+.registered-user .login-buttons li .github,
+.new-registered-user .login-buttons li .github,
 .login-splash .login-buttons li .email,
 .registered-user .login-buttons li .email,
 .new-registered-user .login-buttons li .email {
@@ -236,12 +236,12 @@ ul {
   color: #000;
 }
 
-/* Apple Button */
+/* github Button */
 
-.login-splash .login-buttons li .apple,
-.registered-user .login-buttons li .apple,
-.new-registered-user .login-buttons li .apple {
-  background-image: url(https://x.yummlystatic.com/web/auth/apple.png);
+.login-splash .login-buttons li .github,
+.registered-user .login-buttons li .github,
+.new-registered-user .login-buttons li .github {
+  background-image: url(./GitHub-Mark-Light-120px-plus.png);
   background-color: #000;
   color: #fff;
 }

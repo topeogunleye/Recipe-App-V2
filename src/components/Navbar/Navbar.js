@@ -6,6 +6,9 @@ import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
+import firebase from 'firebase';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { AuthContext } from '../../contexts/AuthContext';
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -31,6 +34,7 @@ function Navbar() {
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, icon, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
+  const { isAuthenticated, toggleAuth } = useContext(AuthContext);
 
   const [sidebar, setSidebar] = useState(false);
 
@@ -39,6 +43,8 @@ function Navbar() {
   let domNode = useClickOutside(() => {
     setSidebar(false);
   });
+
+  const [signedIn, setSignedIn] = useState(false);
 
   return (
     <>
@@ -62,7 +68,10 @@ function Navbar() {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li> */}
-            <div className="w-full grid place-items-start">
+            <div
+              className="w-full grid place-items-start"
+              onClick={() => toggleAuth()}
+            >
               <Link
                 to="/loginsignup/"
                 className="button-primary signin-button ml-8 mb-12 mt-4"
@@ -73,6 +82,9 @@ function Navbar() {
               >
                 Sign Up / Log In
               </Link>
+              <div className="w-60 text-center">
+                {isAuthenticated ? 'Logged in' : 'Logged out'}
+              </div>
             </div>
             {SidebarData.map((item, index) => {
               return (

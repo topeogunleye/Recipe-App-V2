@@ -55,11 +55,11 @@ const Loginsignup = () => {
             </li>
             <li className>
               <button
-                title="Connect with Apple"
-                aria-label="Connect with Apple"
-                className="button apple btn-apple"
+                title="Connect with Github"
+                aria-label="Connect with Github"
+                className="button github btn-github"
               >
-                <span>Connect with Apple</span>
+                <span>Connect with Github</span>
               </button>
             </li>
             <li className>

@@ -5,7 +5,7 @@ export const LIGHT_THEME = {
   ui: ' #fff',
   bg: ' #d1d5db',
   icon: '#374151',
-  background: '#fafafa',
+  opacity: '0.75',
   color: '#000000',
   isDark: false,
 };
@@ -15,7 +15,7 @@ export const DARK_THEME = {
   ui: ' #374151',
   bg: ' #111827',
   icon: '#111827',
-  background: '#374151',
+  opacity: '0.40',
   color: '#fafafa',
   isDark: true,
 };
