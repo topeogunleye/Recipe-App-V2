@@ -21,8 +21,9 @@ const SkeletonMealInfo = ({ theme }) => {
             <SkeletonElement type="Calories" />
           </div>
           <div className="text-center">
-            <SkeletonElement type="Ing-title" />
-
+            <div className="mx-16 sm:mx-0">
+              <SkeletonElement type="Ing-title" />
+            </div>
             <div className="mt-0 text-center sm:text-justify m-8 single-meal-ul-skel grid grid-cols-4 sm:w-96 place-items-center w-8/12 mx-auto">
               <SkeletonElement type="li-el" className="mx-px" />
               <SkeletonElement type="li-el" className="mx-px" />
