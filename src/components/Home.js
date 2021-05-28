@@ -3,7 +3,7 @@ import React, { Fragment, useState, useContext } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
 import Pagination from './pagination/Pagination';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from './theme-toggle/ThemeToggle';
 import Navbar from './Navbar/Navbar';
 import * as FaIcons from 'react-icons/fa';
 import { DarkModeContext } from '../contexts/DarkModeProvider';

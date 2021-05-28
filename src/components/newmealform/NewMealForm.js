@@ -3,7 +3,7 @@ import './NewMealForm.css';
 import Navbar from '../Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import React, { useContext } from 'react';
-import ThemeToggle from '../ThemeToggle';
+import ThemeToggle from '../theme-toggle/ThemeToggle';
 
 const NewMealForm = () => {
   const theme = useContext(DarkModeContext);

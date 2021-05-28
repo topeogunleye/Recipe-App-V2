@@ -7,7 +7,7 @@ import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
 import { HomeIcon, BookmarkIcon } from '@heroicons/react/solid';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import ThemeToggle from '../../components/ThemeToggle';
+import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import './mealinfo.css';
 
 const MealInfo = () => {

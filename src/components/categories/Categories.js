@@ -3,7 +3,7 @@ import useFetchMealDbApi from '../useFetchMealDbApi';
 import { useContext } from 'react';
 import SkeletonCategory from '../../skeletons/SkeletonCategory';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import ThemeToggle from '../../components/ThemeToggle';
+import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import Navbar from '../Navbar/Navbar';
 
 const Categories = ({ ref = 'scroller' }) => {

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DarkModeContext } from '../contexts/DarkModeProvider';
+import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import { MoonIcon } from '@heroicons/react/solid';
 
 const ThemeToggle = () => {

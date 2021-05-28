@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import ThemeToggle from '../ThemeToggle';
+import ThemeToggle from '../theme-toggle/ThemeToggle';
 import './loginsignup.css';
 
 const Loginsignup = () => {

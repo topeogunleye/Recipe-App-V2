@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
 import { HomeIcon } from '@heroicons/react/solid';
-import ThemeToggle from '../../components/ThemeToggle';
+import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 
 const RandomMeal = () => {
