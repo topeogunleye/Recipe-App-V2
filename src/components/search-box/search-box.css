@@ -1,0 +1,4 @@
+/* Search Bar */
+.border {
+  @apply border-solid border-2 border-white text-sm py-2 px-2.5 bg-white;
+}

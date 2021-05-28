@@ -1,11 +1,11 @@
 import Home from './components/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MealInfo from './components/MealInfo';
-import Categories from './components/Categories';
-import CategoryInfo from './components/CategoryInfo';
-import RandomMeal from './components/RandomMeal';
-import NewMealForm from './components/NewMealForm';
-import Loginsignup from './components/Loginsignup';
+import MealInfo from './components/mealinfo/MealInfo';
+import Categories from './components/categories/Categories';
+import CategoryInfo from './components/categoryinfo/CategoryInfo';
+import RandomMeal from './components/randommeal/RandomMeal';
+import NewMealForm from './components/newmealform/NewMealForm';
+import Loginsignup from './components/loginsignup/Loginsignup';
 import { DarkModeProvider } from './contexts/DarkModeProvider';
 import AuthContextProvider from './contexts/AuthContext';
 

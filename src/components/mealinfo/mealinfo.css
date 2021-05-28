@@ -1,0 +1,11 @@
+.single-meal-p {
+  @apply m-auto tracking-wide leading-normal max-w-4xl;
+}
+
+.single-meal-ul {
+  @apply pl-0;
+}
+
+.single-meal-ul-li {
+  @apply border-2 border-solid border-gray-200 rounded bg-white inline-block text-gray-900 text-xs font-bold p-1 mt-0 mr-1 mb-1 ml-0;
+}

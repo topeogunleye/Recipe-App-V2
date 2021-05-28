@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import React, { Fragment, useState, useContext } from 'react';
 import useFetchMealDbApi from './useFetchMealDbApi';
-import Pagination from './Pagination';
+import Pagination from './pagination/Pagination';
 import SkeletonHeader from '../skeletons/SkeletonHeader';
 import ThemeToggle from './ThemeToggle';
 import Navbar from './Navbar/Navbar';
 import * as FaIcons from 'react-icons/fa';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
+import SearchBox from './search-box/search-box';
+import MealItem from './meal/Meal';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -78,55 +80,17 @@ const Home = () => {
 
           <h1 className="font-black text-2xl logo-signature">Recipa</h1>
 
-          <div className="flex flex-col items-center sm:flex-row">
-            <div className="flex mt-2">
-              <form
-                className="flex"
-                onSubmit={(event) => {
-                  doFetch(
-                    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
-                  );
+          <SearchBox
+            query={query}
+            handleChange={(event) => setQuery(event.target.value)}
+            handleSubmit={(event) => {
+              doFetch(
+                `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+              );
 
-                  event.preventDefault();
-                }}
-              >
-                <input
-                  type="text"
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  className="border rounded-l sm:w-full text-black"
-                  style={{ background: bg, color: syntax }}
-                />
-                <button
-                  className="search-btn border rounded-r"
-                  type="submit"
-                  style={{ background: bg, color: syntax }}
-                >
-                  <FaIcons.FaSearch className="h-5 w-5" />
-                </button>
-              </form>
-              <Link to={'/RandomMeal/'}>
-                <button
-                  className="random-btn border rounded cursor-pointer ml-2.5"
-                  id="random"
-                  style={{ background: bg, color: syntax }}
-                  title="Get Random Recipes"
-                  aria-label="Get Random Recipes"
-                >
-                  <FaIcons.FaRandom className="h-5 w-5" />
-                </button>
-              </Link>
-            </div>
-            {/* <Link to={'/Categories/'}>
-              <button
-                className="random-btn border rounded cursor-pointer ml-2.5 mt-2"
-                id="random"
-                style={{ background: bg, color: syntax }}
-              >
-                <CollectionIcon className="h-5 w-5" />
-              </button>
-            </Link> */}
-          </div>
+              event.preventDefault();
+            }}
+          />
 
           {isError && <div>Something went wrong ...</div>}
           {!currentPosts && <div>There is no result. Try again!</div>}
@@ -138,34 +102,7 @@ const Home = () => {
           ) : (
             <div id="meals" className="meals">
               {currentPosts &&
-                currentPosts.map((meal) => (
-                  <div
-                    className="meal hover:shadow-lg"
-                    key={meal.idMeal}
-                    style={{ background: bg, color: syntax }}
-                  >
-                    <Link to={`/MealInfo/${meal.idMeal}`}>
-                      <img
-                        src={meal.strMealThumb}
-                        alt="stew"
-                        className="h-40 sm:h-40 w-full object-cover hover:opacity-75 transition-opacity duration-200 ease-in"
-                      />
-                      <div className="m-4">
-                        <span className="font-bold">{meal.strMeal}</span>
-                        <span className="block text-sm">
-                          {meal.strCategory}
-                        </span>
-                      </div>
-                    </Link>
-
-                    {/* <button
-                      className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
-                      style={{ background: bg, color: syntax }}
-                    >
-                      <BookmarkIcon className="home-icon h-5 w-5  hover:text-black" />
-                    </button> */}
-                  </div>
-                ))}
+                currentPosts.map((meal) => <MealItem meal={meal} />)}
             </div>
           )}
         </div>

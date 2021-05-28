@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
-import { DarkModeContext } from '../contexts/DarkModeProvider';
+import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import React, { useContext } from 'react';
 
 const Pagination = ({

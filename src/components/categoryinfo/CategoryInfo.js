@@ -1,14 +1,15 @@
 import { useParams } from 'react-router';
 import { useState, useEffect, useContext } from 'react';
-import useFetchMealDbApi from './useFetchMealDbApi';
+import useFetchMealDbApi from '../useFetchMealDbApi';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import SkeletonHeader from '../skeletons/SkeletonHeader';
-import Pagination from '../components/Pagination';
-import { DarkModeContext } from '../contexts/DarkModeProvider';
-import ThemeToggle from '../components/ThemeToggle';
-import Navbar from './Navbar/Navbar';
+import SkeletonHeader from '../../skeletons/SkeletonHeader';
+import Pagination from '../pagination/Pagination';
+import { DarkModeContext } from '../../contexts/DarkModeProvider';
+import ThemeToggle from '../../components/ThemeToggle';
+import Navbar from '../Navbar/Navbar';
 import * as HiIcons from 'react-icons/hi';
+import MealItem from '../meal/Meal';
 
 const CategoryInfo = () => {
   const history = useHistory();
@@ -84,34 +85,7 @@ const CategoryInfo = () => {
               {data &&
                 data.meals
                   .slice(indexOfFirstPost, indexOfLastPost)
-                  .map((meal) => (
-                    <div
-                      className="meal hover:shadow-lg"
-                      style={{
-                        background: bg,
-                        color: syntax,
-                      }}
-                      key={meal.idMeal}
-                    >
-                      <Link to={`/MealInfo/${meal.idMeal}`}>
-                        <img
-                          src={meal.strMealThumb}
-                          alt="stew"
-                          className="h-40 sm:h-40 w-full object-cover"
-                        />
-                        <div className="m-4">
-                          <span className="font-bold">{meal.strMeal}</span>
-                          <span className="block text-sm">
-                            {meal.strCategory}
-                          </span>
-                        </div>
-                        {/* <div className="badge">
-                          <HiIcons.HiClock className="w-6 h-6" />
-                          <span>25 mins</span>
-                        </div> */}
-                      </Link>
-                    </div>
-                  ))}
+                  .map((meal) => <MealItem meal={meal} />)}
             </div>
           )}
         </div>
@@ -126,6 +100,7 @@ const CategoryInfo = () => {
           />
         </div>
       </div>
+
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={data && data.meals.length}

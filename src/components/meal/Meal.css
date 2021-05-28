@@ -1,0 +1,11 @@
+.meal {
+  @apply rounded overflow-hidden shadow-md cursor-pointer relative h-60 w-60 xs:h-56 xs:w-52 sm:h-56 sm:w-52 lg:h-56 lg:w-52 text-left;
+}
+
+.meal-img {
+  @apply w-full h-full border-solid border-4 border-white;
+}
+
+.badge {
+  @apply absolute w-24 top-0 ml-2 p-2 mt-2 bg-transparent text-gray-400 text-xs uppercase font-medium rounded-full flex items-center;
+}
