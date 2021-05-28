@@ -29,7 +29,8 @@ const Home = () => {
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = data.meals.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts =
+    data.meals && data.meals.slice(indexOfFirstPost, indexOfLastPost);
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -113,7 +114,7 @@ const Home = () => {
 
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={data.meals.length}
+          totalPosts={data.meals && data.meals.length}
           paginate={paginate}
           indexOfFirstPost={indexOfFirstPost}
           indexOfLastPost={indexOfLastPost}

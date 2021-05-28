@@ -68,7 +68,7 @@ const RandomMeal = () => {
                   <div className="recipe-details">
                     <div className="primary-info-text">
                       <div className="primary-info-left-wrapper">
-                        <h1 className="recipe-title font-bold text-xl md:text-4xl  mt-0 ml-2 mb-4 max-w-min md:mb-8 font-sans">
+                        <h1 className="recipe-title font-bold text-xl md:text-4xl  mt-0 ml-2 mb-4 w-80 md:mb-8 font-sans">
                           {data.meals[0].strMeal}
                         </h1>
                       </div>

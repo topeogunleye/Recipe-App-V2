@@ -66,7 +66,7 @@ const MealInfo = () => {
                   <div className="recipe-details">
                     <div className="primary-info-text">
                       <div className="primary-info-left-wrapper">
-                        <h2 className="recipe-title font-bold text-xl md:text-4xl mt-0 ml-2 mb-4 sm:w-full md:mb-8 font-sans">
+                        <h2 className="recipe-title font-bold text-xl md:text-4xl mt-0 ml-2 mb-4 sm:w-full md:mb-8 font-sans w-80">
                           {data.meals[0].strMeal}
                         </h2>
                       </div>
