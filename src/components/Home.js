@@ -56,6 +56,16 @@ const Home = () => {
     setPostsPerPage(postsPerPage + 5);
   };
 
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    doFetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+
+    event.preventDefault();
+  };
+
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, opacity, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
@@ -82,14 +92,8 @@ const Home = () => {
 
           <SearchBox
             query={query}
-            handleChange={(event) => setQuery(event.target.value)}
-            handleSubmit={(event) => {
-              doFetch(
-                `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
-              );
-
-              event.preventDefault();
-            }}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
           />
 
           {isError && <div>Something went wrong ...</div>}
