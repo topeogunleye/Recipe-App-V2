@@ -1,4 +1,4 @@
-import Home from './components/Home';
+import Home from './pages/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MealInfo from './components/mealinfo/MealInfo';
 import Categories from './components/categories/Categories';
