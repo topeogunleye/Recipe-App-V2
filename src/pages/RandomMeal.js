@@ -1,12 +1,12 @@
-import useFetchMealDbApi from '../useFetchMealDbApi';
+import useFetchMealDbApi from '../components/useFetchMealDbApi';
 import { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
-import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
+import SkeletonMealInfo from '../skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
 import { HomeIcon } from '@heroicons/react/solid';
-import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
-import { DarkModeContext } from '../../contexts/DarkModeProvider';
+import ThemeToggle from '../components/theme-toggle/ThemeToggle';
+import { DarkModeContext } from '../contexts/DarkModeProvider';
 
 const RandomMeal = () => {
   const [ingredients, setIngredients] = useState('');

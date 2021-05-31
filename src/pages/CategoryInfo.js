@@ -1,15 +1,15 @@
 import { useParams } from 'react-router';
 import { useState, useEffect, useContext } from 'react';
-import useFetchMealDbApi from '../useFetchMealDbApi';
+import useFetchMealDbApi from '../components/useFetchMealDbApi';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import SkeletonHeader from '../../skeletons/SkeletonHeader';
-import Pagination from '../pagination/Pagination';
-import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
-import Navbar from '../Navbar/Navbar';
+import Pagination from '../components/pagination/Pagination';
+import Navbar from '../components/Navbar/Navbar';
 import * as HiIcons from 'react-icons/hi';
-import MealItem from '../meal/Meal';
+import MealItem from '../components/meal/Meal';
+import ThemeToggle from '../components/theme-toggle/ThemeToggle';
+import { DarkModeContext } from '../contexts/DarkModeProvider';
+import SkeletonHeader from '../skeletons/SkeletonHeader';
 
 const CategoryInfo = () => {
   const history = useHistory();

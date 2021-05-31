@@ -1,9 +1,9 @@
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import './NewMealForm.css';
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../../components/Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import React, { useContext } from 'react';
-import ThemeToggle from '../theme-toggle/ThemeToggle';
+import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 
 const NewMealForm = () => {
   const theme = useContext(DarkModeContext);
