@@ -9,7 +9,7 @@ Meal Finder App for users to get Meal Recipes Recommendation, Recipe Instruction
 - Use of [TheMealDB database](https://www.themealdb.com/api.php)
 - Clicking on Search button fetches & displays results from [TheMealDB database](https://www.themealdb.com/api.php)
 
-[live demo](https://recipesforninjas.netlify.app/)
+[live demo](https://recipa.netlify.app/)
 
 ## Available Scripts
 
