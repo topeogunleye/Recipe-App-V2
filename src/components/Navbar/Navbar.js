@@ -54,7 +54,7 @@ function Navbar() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <div className="font-black text-2xl logo-signature mx-auto">
+          <div className="font-black text-2xl logo-signature mx-auto logo">
             <img src={logo} alt="logo" className="w-20" />
           </div>
         </div>
@@ -73,15 +73,17 @@ function Navbar() {
               </Link>
             </li> */}
             <div
-              className="w-full grid place-items-start"
+              className="w-full grid place-items-start "
               onClick={() => toggleAuth()}
             >
-              <div className="font-black text-2xl logo-signature mx-auto mt-4">
-                <img src={logo} alt="logo" className="w-20" />
+              <div className="mt-4 mb-8">
+                <div className="font-black text-2xl logo-signature mx-auto mt-4 logo">
+                  <img src={logo} alt="logo" className="w-20" />
+                </div>
               </div>
               <Link
                 to="/loginsignup/"
-                className="button-primary signin-button ml-8 mb-12 mt-4"
+                className="button-primary signin-button ml-8 mb-12 mt-4 "
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
                 aria-label="Sign Up / Log in"

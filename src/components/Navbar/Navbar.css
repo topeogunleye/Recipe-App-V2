@@ -6,6 +6,19 @@
   align-items: center;
 }
 
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signupbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .button-primary {
   padding: 0 18px;
   height: 40px;
@@ -15,7 +28,7 @@
   border: none;
   border-radius: 3em;
   box-sizing: border-box;
-  position: relative;
+  /* position: relative; */
   font-size: 14px;
   text-decoration: none;
   text-transform: capitalize;
