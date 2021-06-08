@@ -9,6 +9,7 @@ import * as FaIcons from 'react-icons/fa';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
 import SearchBox from '../components/search-box/search-box';
 import MealItem from '../components/meal/Meal';
+import logo from '../logo.png';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -88,8 +89,6 @@ const Home = () => {
               id="random"
             />
           </div>
-
-          <h1 className="font-black text-2xl logo-signature">Recipa</h1>
 
           <SearchBox
             query={query}

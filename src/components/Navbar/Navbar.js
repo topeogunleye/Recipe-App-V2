@@ -9,6 +9,7 @@ import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { AuthContext } from '../../contexts/AuthContext';
+import logo from '../../logo.png';
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -53,6 +54,9 @@ function Navbar() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <div className="font-black text-2xl logo-signature mx-auto">
+            <img src={logo} alt="logo" className="w-20" />
+          </div>
         </div>
         <nav
           className={sidebar ? 'nav-menu active' : 'nav-menu'}
@@ -72,6 +76,9 @@ function Navbar() {
               className="w-full grid place-items-start"
               onClick={() => toggleAuth()}
             >
+              <div className="font-black text-2xl logo-signature mx-auto mt-4">
+                <img src={logo} alt="logo" className="w-20" />
+              </div>
               <Link
                 to="/loginsignup/"
                 className="button-primary signin-button ml-8 mb-12 mt-4"
