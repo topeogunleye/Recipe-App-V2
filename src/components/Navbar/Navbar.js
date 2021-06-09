@@ -83,7 +83,7 @@ function Navbar() {
               </div>
               <Link
                 to="/loginsignup/"
-                className="button-primary signin-button ml-8 mb-12 mt-4 "
+                className="button-primary signin-button mx-auto mb-12 mt-4 "
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
                 aria-label="Sign Up / Log in"
@@ -91,9 +91,6 @@ function Navbar() {
               >
                 Sign Up / Log In
               </Link>
-              <div className="w-60 text-center">
-                {isAuthenticated ? 'Logged in' : 'Logged out'}
-              </div>
             </div>
             {SidebarData.map((item, index) => {
               return (
@@ -108,6 +105,9 @@ function Navbar() {
           </ul>
 
           <div className="dev-info absolute bottom-0">
+            <div className="w-60 text-center my-6">
+              {isAuthenticated ? 'Logged in' : 'Logged out'}
+            </div>
             <p className="text-xs ml-8 ">
               <FaIcons.FaCopyright className="inline-block" /> 2021 by Temitope
               Ogunleye
