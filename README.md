@@ -1,4 +1,4 @@
-## MealDB App
+## Recipa | MealDB App
 
 Meal Finder App for users to get Meal Recipes Recommendation, Recipe Instructions and Ingredients or Get random recipes.
 
