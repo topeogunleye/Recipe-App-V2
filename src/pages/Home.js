@@ -33,6 +33,13 @@ const Home = () => {
   const currentPosts =
     data.meals && data.meals.slice(indexOfFirstPost, indexOfLastPost);
 
+    // Refresh page
+    // Empty will Fetch the default results on the Homepage
+    const empty = ''
+    const refresh = () => {
+      doFetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${empty}`)
+    }
+
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -78,7 +85,7 @@ const Home = () => {
         className="bg-gray-500 text-white min-h-screen"
         style={{ background: ui, color: syntax }}
       >
-        <Navbar />
+        <Navbar refresh={refresh}/>
         <div className="m-auto lg:pl-32 max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8">
           <div
             className="absolute top-5 right-10
