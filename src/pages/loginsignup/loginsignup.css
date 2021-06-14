@@ -1,5 +1,9 @@
 /* Sign In / Sign Up */
 
+.logo.login {
+  top: 10%;
+}
+
 .login-splash {
   display: grid;
   place-items: center;
