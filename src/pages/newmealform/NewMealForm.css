@@ -89,6 +89,12 @@
   /* z-index: 1000; */
   transition: all 0.5s;
 }
+
+@media screen and (min-width: 1024px) {
+  .add-recipe-window {
+    margin-left: 300px !important;
+  }
+}
 .add-recipe-window .btn--close-modal {
   font-family: inherit;
   color: inherit;
