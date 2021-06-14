@@ -30,7 +30,7 @@ const Categories = ({ ref = 'scroller' }) => {
         style={{ background: ui, color: syntax }}
         className="min-h-screen pb-1"
       >
-        <div className="max-w-3xl mx-auto text-center mb-2">
+        <div className="max-w-3xl mx-auto lg:pl-32 text-center mb-2">
           <h3 className="text-lg">Categories</h3>
           <div className="category">
             {isError && <div>Something went wrong ...</div>}
