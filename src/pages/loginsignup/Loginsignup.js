@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import './loginsignup.css';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
+import logo from '../../logo.png'
 
 const Loginsignup = () => {
   const theme = useContext(DarkModeContext);
@@ -19,16 +20,20 @@ const Loginsignup = () => {
           className="cursor-pointer focus:outline-none"
           id="random"
         />
+      
       </div>
       <div
         className="new-login h-screen mx-auto container xl:w-screen"
         style={{ background: ui, color: syntax }}
       >
+      <div className="font-black text-2xl logo-signature mx-auto logo login">
+      <img src={logo} alt="logo" className="w-20" />
+    </div>
         <div
           className="login-splash grid place-items-center relative"
           style={{ background: ui, color: syntax }}
         >
-          <div className="font-black text-2xl my-16 logo-signature">Recipa</div>
+       
           <h1 className="new-login text-4xl font-light">
             Your recipes are waiting
           </h1>
