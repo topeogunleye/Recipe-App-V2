@@ -9,7 +9,7 @@ import * as HiIcons from 'react-icons/hi';
 import MealItem from '../components/meal/Meal';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
-import SkeletonHeader from '../skeletons/SkeletonHeader';
+import SkeletonHome from '../skeletons/SkeletonHome';
 
 const CategoryInfo = () => {
   const history = useHistory();
@@ -78,7 +78,7 @@ const CategoryInfo = () => {
           {isLoading ? (
             // <div>Loading ...</div>
             [1, 2, 3, 4, 5].map((n) => (
-              <SkeletonHeader Key={n} theme={loaderTheme} />
+              <SkeletonHome Key={n} theme={loaderTheme} />
             ))
           ) : (
             <div id="meals" className="meals">
