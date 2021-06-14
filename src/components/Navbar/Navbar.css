@@ -65,12 +65,13 @@ a.button-primary {
   display: inline-block;
 }
 
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 1280px) {
   .nav-menu {
     left: 0;
     transition: 350ms;
     z-index: 1;
     display: inline-block;
+    width: 216px;
   }
 }
 
