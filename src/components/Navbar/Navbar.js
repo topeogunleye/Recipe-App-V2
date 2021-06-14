@@ -31,7 +31,7 @@ let useClickOutside = (handler) => {
   return domNode;
 };
 
-function Navbar() {
+function Navbar({refresh}) {
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, icon, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
@@ -55,7 +55,7 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <Link to="/">
-          <div className="font-black text-2xl logo-signature mx-auto logo main">
+          <div className="font-black text-2xl logo-signature mx-auto logo main" onClick={refresh}>
             <img src={logo} alt="logo" className="w-20 lg:ml-28" />
           </div>
           </Link>
@@ -80,7 +80,7 @@ function Navbar() {
             >
               <div className="mt-4 mb-8">
               <Link to="/">
-                <div className="font-black text-2xl logo-signature mx-auto mt-4 logo">
+                <div className="font-black text-2xl logo-signature mx-auto mt-4 logo" onClick={refresh}>
                   <img src={logo} alt="logo" className="w-20" />
                 </div>
                 </Link>
