@@ -54,8 +54,8 @@ function Navbar() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <div className="font-black text-2xl logo-signature mx-auto logo">
-            <img src={logo} alt="logo" className="w-20" />
+          <div className="font-black text-2xl logo-signature mx-auto logo main">
+            <img src={logo} alt="logo" className="w-20 lg:ml-28" />
           </div>
         </div>
         <nav
