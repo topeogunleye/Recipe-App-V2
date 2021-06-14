@@ -79,7 +79,7 @@ const Home = () => {
         style={{ background: ui, color: syntax }}
       >
         <Navbar />
-        <div className="m-auto lg:pl-24 max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8">
+        <div className="m-auto lg:pl-32 max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8">
           <div
             className="absolute top-5 right-10
           "
