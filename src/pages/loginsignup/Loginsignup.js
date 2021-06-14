@@ -26,9 +26,12 @@ const Loginsignup = () => {
         className="new-login h-screen mx-auto container xl:w-screen"
         style={{ background: ui, color: syntax }}
       >
+      <Link to="/">
       <div className="font-black text-2xl logo-signature mx-auto logo login">
       <img src={logo} alt="logo" className="w-20" />
     </div>
+    </Link>
+
         <div
           className="login-splash grid place-items-center relative"
           style={{ background: ui, color: syntax }}
