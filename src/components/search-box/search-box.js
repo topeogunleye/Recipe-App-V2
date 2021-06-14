@@ -16,7 +16,7 @@ const SearchBox = ({ query, handleChange, handleSubmit }) => {
             type="text"
             value={query}
             onChange={handleChange}
-            className="border rounded-l sm:w-full text-black"
+            className="border rounded-l w-full sm:w-72 text-black"
             style={{ background: bg, color: syntax }}
           />
 
