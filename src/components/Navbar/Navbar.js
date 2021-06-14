@@ -54,9 +54,11 @@ function Navbar() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <Link to="/">
           <div className="font-black text-2xl logo-signature mx-auto logo main">
             <img src={logo} alt="logo" className="w-20 lg:ml-28" />
           </div>
+          </Link>
         </div>
         <nav
           className={sidebar ? 'nav-menu active' : 'nav-menu'}
@@ -77,9 +79,11 @@ function Navbar() {
               onClick={() => toggleAuth()}
             >
               <div className="mt-4 mb-8">
+              <Link to="/">
                 <div className="font-black text-2xl logo-signature mx-auto mt-4 logo">
                   <img src={logo} alt="logo" className="w-20" />
                 </div>
+                </Link>
               </div>
               <Link
                 to="/loginsignup/"
