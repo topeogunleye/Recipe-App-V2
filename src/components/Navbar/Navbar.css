@@ -12,6 +12,10 @@
   transform: translate(-50%, -50%);
 }
 
+.logo.main {
+  top: 6%;
+}
+
 .signupbox {
   position: absolute;
   top: 50%;
