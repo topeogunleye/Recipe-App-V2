@@ -1,7 +1,7 @@
 import Shimmer from './Shimmer';
 import SkeletonElement from './SkeletonElement';
 
-const SkeletonHome = ({ theme }) => {
+const SkeletonMeal = ({ theme }) => {
   const themeClass = theme || 'light';
 
   return (
@@ -25,4 +25,4 @@ const SkeletonHome = ({ theme }) => {
   );
 };
 
-export default SkeletonHome;
+export default SkeletonMeal;
