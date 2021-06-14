@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { Fragment, useState, useContext } from 'react';
 import useFetchMealDbApi from '../components/useFetchMealDbApi';
 import Pagination from '../components/pagination/Pagination';
-import SkeletonHome from '../skeletons/SkeletonHome';
+import SkeletonMeal from '../skeletons/SkeletonMeal';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
 import Navbar from '../components/Navbar/Navbar';
 import * as FaIcons from 'react-icons/fa';
@@ -110,7 +110,7 @@ const Home = () => {
 
           {isLoading ? (
             [1, 2, 3, 4, 5].map((n) => (
-              <SkeletonHome key={n} theme={loaderTheme} />
+              <SkeletonMeal key={n} theme={loaderTheme} />
             ))
           ) : (
             <div id="meals" className="meals">
