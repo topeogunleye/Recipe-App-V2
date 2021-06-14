@@ -31,7 +31,7 @@ const Categories = ({ ref = 'scroller' }) => {
         className="min-h-screen pb-1"
       >
         <div className="max-w-3xl mx-auto lg:pl-32 text-center mb-2">
-          <h3 className="text-lg">Categories</h3>
+          <h3 className="text-lg lg:-ml-2">Categories</h3>
           <div className="category">
             {isError && <div>Something went wrong ...</div>}
             {isLoading
