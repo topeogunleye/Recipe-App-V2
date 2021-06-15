@@ -4,17 +4,11 @@ import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import './loginsignup.css';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import logo from '../../logo.png'
-import { facebookProvider, githubProvider, googleProvider } from '../../config/authMethods';
-import socialMediaAuth from '../../service/auth';
 
 const Loginsignup = () => {
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, icon, isDark } = theme.mode;
 
-  const handleOnclick = async(provider) => {
-    const res = await socialMediaAuth(provider);
-    console.log(res)
-  }
 
   return (
     <div className="w-screen " style={{ background: ui, color: syntax }}>
@@ -56,7 +50,6 @@ const Loginsignup = () => {
                 title="Connect with Facebook"
                 aria-label="Connect with Facebook"
                 className="button facebook btn-facebook"
-                onClick={() => handleOnclick(facebookProvider)}
               >
                 <span>Connect with Facebook</span>
               </button>
@@ -66,7 +59,6 @@ const Loginsignup = () => {
                 title="Connect with Google"
                 aria-label="Connect with Google"
                 className="button google btn-google"
-                onClick={() => handleOnclick(googleProvider)}
               >
                 <span>Connect with Google</span>
               </button>
@@ -76,7 +68,6 @@ const Loginsignup = () => {
                 title="Connect with Github"
                 aria-label="Connect with Github"
                 className="button github btn-github"
-                onClick={() => handleOnclick(githubProvider)}
               >
                 <span>Connect with Github</span>
               </button>
