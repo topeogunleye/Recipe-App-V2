@@ -31,7 +31,7 @@ let useClickOutside = (handler) => {
   return domNode;
 };
 
-function Navbar({refresh}) {
+function Navbar({ refresh }) {
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, icon, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
@@ -55,9 +55,12 @@ function Navbar({refresh}) {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <Link to="/">
-          <div className="font-black text-2xl logo-signature mx-auto logo main" onClick={refresh}>
-            <img src={logo} alt="logo" className="w-20 lg:ml-28" />
-          </div>
+            <div
+              className="font-black text-2xl logo-signature mx-auto logo main"
+              onClick={refresh}
+            >
+              <img src={logo} alt="logo" className="w-20 lg:ml-28" />
+            </div>
           </Link>
         </div>
         <nav
@@ -79,14 +82,17 @@ function Navbar({refresh}) {
               onClick={() => toggleAuth()}
             >
               <div className="mt-4 mb-8">
-              <Link to="/">
-                <div className="font-black text-2xl logo-signature mx-auto mt-4 logo" onClick={refresh}>
-                  <img src={logo} alt="logo" className="w-20" />
-                </div>
+                <Link to="/">
+                  <div
+                    className="font-black text-2xl logo-signature mx-auto mt-4 logo"
+                    onClick={refresh}
+                  >
+                    <img src={logo} alt="logo" className="w-20" />
+                  </div>
                 </Link>
               </div>
               <Link
-                to="/auth/login"
+                to="/loginsignup/"
                 className="button-primary signin-button mx-auto mb-12 mt-4 "
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
