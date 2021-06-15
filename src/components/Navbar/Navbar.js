@@ -97,7 +97,6 @@ function Navbar({ refresh }) {
                 id="nav-desktop-signin-button"
                 title="Sign Up / Log in"
                 aria-label="Sign Up / Log in"
-                href="/login#signup"
               >
                 Sign Up / Log In
               </Link>
