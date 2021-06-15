@@ -10,6 +10,7 @@ import { DarkModeContext } from '../contexts/DarkModeProvider';
 import SearchBox from '../components/search-box/search-box';
 import MealItem from '../components/meal/Meal';
 import logo from '../logo.png';
+import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -115,7 +116,7 @@ const Home = () => {
           ) : (
             <div id="meals" className="meals">
               {currentPosts &&
-                currentPosts.map((meal) => <MealItem meal={meal} />)}
+                currentPosts.map((meal) => <MealItem meal={meal} key={uuidv4()} />)}
             </div>
           )}
         </div>
