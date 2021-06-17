@@ -1,6 +1,12 @@
 import { useParams } from 'react-router';
 import useFetchMealDbApi from '../useFetchMealDbApi';
-import { useState, useEffect, useContext } from 'react';
+import {
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+  useReducer,
+} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
@@ -9,10 +15,13 @@ import { HomeIcon, BookmarkIcon } from '@heroicons/react/solid';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import './mealinfo.css';
+import { ReactComponent as Logo } from '../../icons.svg';
 
 const MealInfo = () => {
   const { mealID } = useParams();
   const [ingredients, setIngredients] = useState('');
+  const [bookmarks, setBookmarks] = useState([]);
+  const [bookmarked, setBookmarked] = useState(false);
   const history = useHistory();
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
@@ -22,6 +31,21 @@ const MealInfo = () => {
       doFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`),
     [doFetch, mealID, data]
   );
+
+  const addBookmark = function (recipe) {
+    // Add bookmark
+    bookmarks.push(recipe);
+    
+    // Mark current recipe as bookmark
+    if ( data && recipe.idMeal === data.meals[0].idMeal) {
+      data.meals[0].bookmarked = true;
+      setBookmarked(true);
+    }
+
+    data && console.log(data.meals[0])
+    console.log(bookmarks)
+  };
+
 
   function createIngredientsArray(meal) {
     const ingredientsData = [];
@@ -122,6 +146,15 @@ const MealInfo = () => {
                 <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none pb-20">
                   {data.meals[0].strInstructions}
                 </p>
+
+                <button
+                  className={bookmarked ? 'bg-white text-gray-900 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2': 'bg-gray-900 text-white absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2' }
+                  onClick={() => addBookmark(data.meals && data.meals[0])}
+                  title={bookmarked ? 'Remove From Bookmarks' : 'Add To Bookmarks'}
+                  aria-label={bookmarked ? 'Remove From Bookmarks' : 'Add To Bookmarks'}
+                >
+                  <BookmarkIcon className={bookmarked ? 'home-icon h-10 w-10 text-gray-900' : 'home-icon h-10 w-10 text-white'} />
+                </button>
               </div>
 
               <Link to="/">
