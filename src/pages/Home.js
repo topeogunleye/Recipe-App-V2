@@ -12,6 +12,7 @@ import MealItem from '../components/meal/Meal';
 import logo from '../logo.png';
 import { v4 as uuidv4 } from 'uuid';
 
+
 const Home = () => {
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
