@@ -23,6 +23,12 @@ export const SidebarData = [
     icon: <FaIcons.FaEdit />,
     cName: 'nav-text',
   },
+  {
+    title: 'Bookmarks',
+    path: '/Bookmarks/',
+    icon: <FaIcons.FaBookmark />,
+    cName: 'nav-text',
+  },
   // {
   //   title: 'Team',
   //   path: '/team',
