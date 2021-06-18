@@ -18,12 +18,7 @@ const MealInfo = () => {
   const [bookmarked, setBookmarked] = useState(false);
   const history = useHistory();
 
-  // useEffect(() => {
-  //    setBookmarks(bookmarks)
-  // },[bookmarks])
-
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
-
   let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
   useEffect(
@@ -32,27 +27,25 @@ const MealInfo = () => {
     [doFetch, mealID, data]
   );
 
+
   const persistBookmarks = function () {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   };
 
+
   const addBookmark = function (recipe) {
     // Add bookmark
-    bookmarks.push(recipe)
+    bookmarks.push(recipe);
 
-    
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = true;
-      setBookmarked(true);
+      setBookmarked(data.meals[0].bookmarked);
     }
 
     persistBookmarks();
-    
-    console.log(bookmarks);
   };
 
-  
   // Set Bookmark to true of false
   if (bookmarked === true) {
     data.meals[0].bookmarked = true;
@@ -63,20 +56,21 @@ const MealInfo = () => {
   const deleteBookmark = function (recipe) {
     // Delete bookmark
     const index = bookmarks.findIndex((el) => el.idMeal === recipe.idMeal);
-    console.log(index);
     bookmarks.splice(index, 1);
 
     // Mark current recipe as NOT bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = false;
-      setBookmarked(false);
+      setBookmarked(data.meals[0].bookmarked);
     }
 
     persistBookmarks();
-    console.log(bookmarks);
   };
 
 
+  useEffect(() => {
+    console.log(bookmarked)
+  },[bookmarked, data])
 
   function createIngredientsArray(meal) {
     const ingredientsData = [];
@@ -180,7 +174,7 @@ const MealInfo = () => {
 
                 <button
                   className={
-                    data.meals[0].bookmarked
+                    data.meals[0].bookmarked === true
                       ? ' text-gray-900 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
                       : ' text-white absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
                   }
