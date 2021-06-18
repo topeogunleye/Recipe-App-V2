@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
   const [query, setQuery] = useState('');
+  const [bookmarks, setBookmarks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
 
