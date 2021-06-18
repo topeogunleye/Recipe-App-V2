@@ -3,7 +3,7 @@ import { useState, useContext, createContext } from 'react';
 const BookmarkContext = createContext({});
 
 const BookmarkProvider = (props) => {
-  const [bookmarks, setBookmarks] = useState([]);
+  let [bookmarks, setBookmarks] = useState([]);
 
   return (
     <BookmarkContext.Provider value={{bookmarks, setBookmarks}}>
