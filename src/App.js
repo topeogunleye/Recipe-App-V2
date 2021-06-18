@@ -8,6 +8,7 @@ import NewMealForm from './pages/newmealform/NewMealForm';
 import Loginsignup from './pages/loginsignup/Loginsignup';
 import { DarkModeProvider } from './contexts/DarkModeProvider';
 import AuthContextProvider from './contexts/AuthContext';
+import { BookmarkProvider } from './contexts/BookmarkContext';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div className="App">
         <DarkModeProvider>
           <AuthContextProvider>
+          <BookmarkProvider>
             <div className="content">
               <Switch>
                 <Route exact path="/">
@@ -40,6 +42,7 @@ function App() {
                 </Route>
               </Switch>
             </div>
+            </BookmarkProvider>
           </AuthContextProvider>
         </DarkModeProvider>
       </div>
