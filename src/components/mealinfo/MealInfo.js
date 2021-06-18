@@ -1,12 +1,6 @@
 import { useParams } from 'react-router';
 import useFetchMealDbApi from '../useFetchMealDbApi';
-import {
-  useState,
-  useEffect,
-  useContext,
-  useCallback,
-  useReducer,
-} from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
@@ -30,7 +24,7 @@ const MealInfo = () => {
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
-  const { bookmarks, setBookmarks } = useContext(BookmarkContext)
+  const { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
   useEffect(
     () =>
@@ -38,47 +32,46 @@ const MealInfo = () => {
     [doFetch, mealID, data]
   );
 
-  const persistBookmarks = function() {
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
-  }
+  const persistBookmarks = function () {
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  };
 
   const addBookmark = function (recipe) {
     // Add bookmark
     bookmarks.push(recipe);
-    
+
     // Mark current recipe as bookmark
-    if ( data && recipe.idMeal === data.meals[0].idMeal) {
+    if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = true;
       setBookmarked(true);
     }
 
-    persistBookmarks()
-    console.log(bookmarks)
+    persistBookmarks();
+    console.log(bookmarks);
   };
 
   // Set Bookmark to true of false
-  if (bookmarked === true ) {
-     data.meals[0].bookmarked = true;
+  if (bookmarked === true) {
+    data.meals[0].bookmarked = true;
   } else if (data && bookmarked === false) {
-     data.meals[0].bookmarked = false;
+    data.meals[0].bookmarked = false;
   }
 
-  const deleteBookmark = function(recipe) {
+  const deleteBookmark = function (recipe) {
     // Delete bookmark
-    const index = bookmarks.findIndex(el => el.idMeal === recipe.idMeal )
-    console.log(index)
-    bookmarks.splice(index, 1)
+    const index = bookmarks.findIndex((el) => el.idMeal === recipe.idMeal);
+    console.log(index);
+    bookmarks.splice(index, 1);
 
     // Mark current recipe as NOT bookmark
-    if ( data && recipe.idMeal === data.meals[0].idMeal) {
+    if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = false;
       setBookmarked(false);
     }
 
-    persistBookmarks()
-    console.log(bookmarks)
-  }
-
+    persistBookmarks();
+    console.log(bookmarks);
+  };
 
   function createIngredientsArray(meal) {
     const ingredientsData = [];
@@ -181,12 +174,34 @@ const MealInfo = () => {
                 </p>
 
                 <button
-                  className={data.meals[0].bookmarked ? 'bg-white text-gray-900 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2': 'bg-gray-900 text-white absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2' }
-                  onClick={ data.meals[0].bookmarked === false ? () => addBookmark(data.meals && data.meals[0]) : () => deleteBookmark(data.meals && data.meals[0]) }
-                  title={data.meals[0].bookmarked ? 'Remove From Bookmarks' : 'Add To Bookmarks'}
-                  aria-label={data.meals[0].bookmarked ? 'Remove From Bookmarks' : 'Add To Bookmarks'}
+                  className={
+                    data.meals[0].bookmarked
+                      ? 'bg-white text-gray-900 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
+                      : 'bg-gray-900 text-white absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
+                  }
+                  onClick={
+                    data.meals[0].bookmarked === false
+                      ? () => addBookmark(data.meals && data.meals[0])
+                      : () => deleteBookmark(data.meals && data.meals[0])
+                  }
+                  title={
+                    data.meals[0].bookmarked
+                      ? 'Remove From Bookmarks'
+                      : 'Add To Bookmarks'
+                  }
+                  aria-label={
+                    data.meals[0].bookmarked
+                      ? 'Remove From Bookmarks'
+                      : 'Add To Bookmarks'
+                  }
                 >
-                  <BookmarkIcon className={data.meals[0].bookmarked ? 'home-icon h-10 w-10 text-gray-900' : 'home-icon h-10 w-10 text-white'} />
+                  <BookmarkIcon
+                    className={
+                      data.meals[0].bookmarked
+                        ? 'home-icon h-10 w-10 text-gray-900'
+                        : 'home-icon h-10 w-10 text-white'
+                    }
+                  />
                 </button>
               </div>
 
