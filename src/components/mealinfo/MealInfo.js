@@ -15,7 +15,6 @@ import { HomeIcon, BookmarkIcon } from '@heroicons/react/solid';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import './mealinfo.css';
-import { ReactComponent as Logo } from '../../icons.svg';
 import { BookmarkContext } from '../../contexts/BookmarkContext';
 
 const MealInfo = () => {
