@@ -24,7 +24,7 @@ const MealInfo = () => {
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
-  const { bookmarks, setBookmarks } = useContext(BookmarkContext);
+  let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
   useEffect(
     () =>
@@ -38,10 +38,8 @@ const MealInfo = () => {
 
   const addBookmark = function (recipe) {
     // Add bookmark
-    if (!bookmarks.includes(recipe, 0)) {
-      bookmarks.push(recipe)
-    } 
-    
+    bookmarks.push(recipe)
+
     
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
@@ -50,9 +48,11 @@ const MealInfo = () => {
     }
 
     persistBookmarks();
+    
     console.log(bookmarks);
   };
 
+  
   // Set Bookmark to true of false
   if (bookmarked === true) {
     data.meals[0].bookmarked = true;
@@ -75,6 +75,8 @@ const MealInfo = () => {
     persistBookmarks();
     console.log(bookmarks);
   };
+
+
 
   function createIngredientsArray(meal) {
     const ingredientsData = [];
@@ -179,8 +181,8 @@ const MealInfo = () => {
                 <button
                   className={
                     data.meals[0].bookmarked
-                      ? 'bg-white text-gray-900 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
-                      : 'bg-gray-900 text-white absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
+                      ? ' text-gray-900 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
+                      : ' text-white absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
                   }
                   onClick={
                     data.meals[0].bookmarked === true
