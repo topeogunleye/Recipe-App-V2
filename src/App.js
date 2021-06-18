@@ -9,6 +9,7 @@ import Loginsignup from './pages/loginsignup/Loginsignup';
 import { DarkModeProvider } from './contexts/DarkModeProvider';
 import AuthContextProvider from './contexts/AuthContext';
 import { BookmarkProvider } from './contexts/BookmarkContext';
+import BookMarkView from './pages/bookmark/bookmarkView';
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
                 </Route>
                 <Route exact path="/loginsignup/">
                   <Loginsignup />
+                </Route>
+                <Route exact path="/Bookmarks/">
+                  <BookMarkView/>
                 </Route>
               </Switch>
             </div>
