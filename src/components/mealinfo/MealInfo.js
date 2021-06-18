@@ -38,8 +38,11 @@ const MealInfo = () => {
 
   const addBookmark = function (recipe) {
     // Add bookmark
-    bookmarks.push(recipe);
-
+    if (!bookmarks.includes(recipe, 0)) {
+      bookmarks.push(recipe)
+    } 
+    
+    
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = true;
@@ -180,9 +183,9 @@ const MealInfo = () => {
                       : 'bg-gray-900 text-white absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
                   }
                   onClick={
-                    data.meals[0].bookmarked === false
-                      ? () => addBookmark(data.meals && data.meals[0])
-                      : () => deleteBookmark(data.meals && data.meals[0])
+                    data.meals[0].bookmarked === true
+                      ? () => deleteBookmark(data.meals && data.meals[0])
+                      : () => addBookmark(data.meals && data.meals[0])
                   }
                   title={
                     data.meals[0].bookmarked
