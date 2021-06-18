@@ -78,7 +78,7 @@ const CategoryInfo = () => {
           {isLoading ? (
             // <div>Loading ...</div>
             [1, 2, 3, 4, 5].map((n) => (
-              <SkeletonMeal Key={n} theme={loaderTheme} />
+              <SkeletonMeal key={n} theme={loaderTheme} />
             ))
           ) : (
             <div id="meals" className="meals">
