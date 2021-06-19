@@ -27,6 +27,9 @@ const MealInfo = () => {
     [doFetch, mealID, data]
   );
 
+
+  const [dataFromApi, setDataFromApi] = useState(data)
+
   let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
   const persistBookmarks = function () {
@@ -34,6 +37,8 @@ const MealInfo = () => {
   };
 
   const addBookmark = function (recipe) {
+    console.log(dataFromApi)
+
     // Add bookmark
     bookmarks.push(recipe);
 
@@ -70,6 +75,7 @@ const MealInfo = () => {
       )
     ) {
       data.meals[0].bookmarked = true;
+
       // setBookmarked(true)
     } else {
       data.meals[0].bookmarked = false;
@@ -207,8 +213,8 @@ const MealInfo = () => {
                 <button
                   className={
                     data.meals[0].bookmarked
-                      ? ' text-gray-900 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
-                      : ' text-gray-500 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
+                      ? ' text-gray-900 bg-gray-500 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
+                      : ' text-white bg-gray-500 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
                   }
                   onClick={
                     data.meals[0].bookmarked === true
