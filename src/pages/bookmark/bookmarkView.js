@@ -43,6 +43,7 @@ const BookMarkView = () => {
           />
         </div>
         <h1 className="text-lg lg:-ml-2">Bookmarks</h1>
+        {!storedBookmarks && <div>No Boomarks Yet</div>}
         <div id="meals" className="meals">
 
           {uniqueBookmarks &&

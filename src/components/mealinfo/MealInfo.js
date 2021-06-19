@@ -15,11 +15,11 @@ const MealInfo = () => {
   const { mealID } = useParams();
   const [ingredients, setIngredients] = useState('');
   // const [bookmarks, setBookmarks] = useState([]);
-  const [bookmarked, setBookmarked] = useState(false);
+  const [bookmarked, setBookmarked] = useState('')
+
   const history = useHistory();
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
-  let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
   useEffect(
     () =>
@@ -27,11 +27,11 @@ const MealInfo = () => {
     [doFetch, mealID, data]
   );
 
+  let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
   const persistBookmarks = function () {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   };
-
 
   const addBookmark = function (recipe) {
     // Add bookmark
@@ -39,38 +39,69 @@ const MealInfo = () => {
 
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
+      setBookmarked(true)
+      // data.meals[0].bookmarked = true;
+    }
+
+    if (bookmarked === true) {
       data.meals[0].bookmarked = true;
-      setBookmarked(data.meals[0].bookmarked);
+    } else if (bookmarked === false) {
+      data.meals[0].bookmarked = false;
+
     }
 
     persistBookmarks();
+    
   };
 
-  // Set Bookmark to true of false
-  if (bookmarked === true) {
-    data.meals[0].bookmarked = true;
-  } else if (data && bookmarked === false) {
-    data.meals[0].bookmarked = false;
-  }
+  // Check if the loaded recipe has the same id
+  // with a recipe in the bookmarked state
+
+  const [storedBookmarksCheck, setStoredBookmarksCheck] = useState([]);
+
+  useEffect(() => {
+    setStoredBookmarksCheck(JSON.parse(localStorage.getItem('bookmarks')));
+  }, [bookmarks]);
+
+  const checkBookmark = () => {
+    if (
+      storedBookmarksCheck.some(
+        (bookmark) => bookmark.idMeal === data.meals[0].idMeal
+      )
+    ) {
+      data.meals[0].bookmarked = true;
+      // setBookmarked(true)
+    } else {
+      data.meals[0].bookmarked = false;
+      // setBookmarked(false)
+    }
+  };
 
   const deleteBookmark = function (recipe) {
+    setIngredients('')
+    console.log(storedBookmarksCheck);
+
     // Delete bookmark
     const index = bookmarks.findIndex((el) => el.idMeal === recipe.idMeal);
     bookmarks.splice(index, 1);
 
     // Mark current recipe as NOT bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
-      data.meals[0].bookmarked = false;
-      setBookmarked(data.meals[0].bookmarked);
+      // data.meals[0].bookmarked = false;
+      setBookmarked(false)
     }
 
+    if (bookmarked === false) {
+      data.meals[0].bookmarked = false;
+    } else if (bookmarked === true) {
+      data.meals[0].bookmarked = true;
+
+    }
+
+
     persistBookmarks();
+    
   };
-
-
-  useEffect(() => {
-    console.log(bookmarked)
-  },[bookmarked, data])
 
   function createIngredientsArray(meal) {
     const ingredientsData = [];
@@ -110,6 +141,7 @@ const MealInfo = () => {
         : ingredients &&
           data && (
             <div className="max-w-7xl mx-auto relative min-h-screen">
+              {checkBookmark()}
               <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto md:mb-8 mt-0">
                 <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
                   <div className="recipe-details">
@@ -174,13 +206,15 @@ const MealInfo = () => {
 
                 <button
                   className={
-                    data.meals[0].bookmarked === true
+                    data.meals[0].bookmarked
                       ? ' text-gray-900 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
-                      : ' text-white absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
+                      : ' text-gray-500 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
                   }
                   onClick={
                     data.meals[0].bookmarked === true
+                    
                       ? () => deleteBookmark(data.meals && data.meals[0])
+                  
                       : () => addBookmark(data.meals && data.meals[0])
                   }
                   title={
@@ -196,7 +230,7 @@ const MealInfo = () => {
                 >
                   <BookmarkIcon
                     className={
-                      data.meals[0].bookmarked
+                      data.meals[0].bookmarked === true
                         ? 'home-icon h-10 w-10 text-gray-900'
                         : 'home-icon h-10 w-10 text-white'
                     }
