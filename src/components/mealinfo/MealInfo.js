@@ -14,21 +14,18 @@ import { BookmarkContext } from '../../contexts/BookmarkContext';
 const MealInfo = () => {
   const { mealID } = useParams();
   const [ingredients, setIngredients] = useState('');
-  // const [bookmarks, setBookmarks] = useState([]);
   const [bookmarked, setBookmarked] = useState('')
-
   const history = useHistory();
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
+
   useEffect(
     () =>
       doFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`),
-    [doFetch, mealID, data]
+    [doFetch, mealID, data, data.meal[0].bookmarked]
   );
 
-
-  const [dataFromApi, setDataFromApi] = useState(data)
 
   let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
@@ -37,25 +34,18 @@ const MealInfo = () => {
   };
 
   const addBookmark = function (recipe) {
-    console.log(dataFromApi)
+    // console.log(dataFromApi)
 
     // Add bookmark
     bookmarks.push(recipe);
 
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
-      setBookmarked(true)
-      // data.meals[0].bookmarked = true;
-    }
-
-    if (bookmarked === true) {
       data.meals[0].bookmarked = true;
-    } else if (bookmarked === false) {
-      data.meals[0].bookmarked = false;
-
     }
 
     persistBookmarks();
+
     
   };
 
@@ -70,16 +60,13 @@ const MealInfo = () => {
 
   const checkBookmark = () => {
     if (
-      storedBookmarksCheck.some(
+      storedBookmarksCheck && storedBookmarksCheck.some(
         (bookmark) => bookmark.idMeal === data.meals[0].idMeal
       )
     ) {
       data.meals[0].bookmarked = true;
-
-      // setBookmarked(true)
     } else {
       data.meals[0].bookmarked = false;
-      // setBookmarked(false)
     }
   };
 
@@ -93,17 +80,9 @@ const MealInfo = () => {
 
     // Mark current recipe as NOT bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
-      // data.meals[0].bookmarked = false;
-      setBookmarked(false)
-    }
-
-    if (bookmarked === false) {
       data.meals[0].bookmarked = false;
-    } else if (bookmarked === true) {
-      data.meals[0].bookmarked = true;
-
+      // setBookmarked(false)
     }
-
 
     persistBookmarks();
     
