@@ -23,7 +23,7 @@ const MealInfo = () => {
   useEffect(
     () =>
       doFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`),
-    [doFetch, mealID, data, data.meal[0].bookmarked]
+    [doFetch, mealID, data]
   );
 
 
