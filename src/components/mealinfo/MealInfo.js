@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 import useFetchMealDbApi from '../useFetchMealDbApi';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
@@ -23,8 +23,10 @@ const MealInfo = () => {
   useEffect(
     () =>
       doFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`),
-    [doFetch, mealID, data]
+    [doFetch, mealID, data, bookmarked ]
   );
+
+
 
 
   let { bookmarks, setBookmarks } = useContext(BookmarkContext);
@@ -42,11 +44,12 @@ const MealInfo = () => {
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = true;
+      setBookmarked(true)
     }
+
 
     persistBookmarks();
     console.log(bookmarked)
-    
   };
 
   // Check if the loaded recipe has the same id
@@ -72,7 +75,6 @@ const MealInfo = () => {
   };
   
   const deleteBookmark = function (recipe) {
-    setIngredients('')
     console.log(storedBookmarksCheck);
 
     // Delete bookmark
@@ -82,8 +84,9 @@ const MealInfo = () => {
     // Mark current recipe as NOT bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = false;
-      // setBookmarked(false)
+      setBookmarked(false)
     }
+
 
     persistBookmarks();
     console.log(bookmarked)
@@ -127,7 +130,7 @@ const MealInfo = () => {
         : ingredients &&
           data && (
             <div className="max-w-7xl mx-auto relative min-h-screen">
-              {checkBookmark()}
+            {checkBookmark()}
               <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto md:mb-8 mt-0">
                 <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
                   <div className="recipe-details">
