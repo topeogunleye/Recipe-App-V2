@@ -5,7 +5,6 @@ import { BookmarkContext } from '../../contexts/BookmarkContext';
 import Navbar from '../../components/Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
-import BOOKMARKS_DATA from './bookmarkData';
 
 const BookMarkView = () => {
   const [storedBookmarks, setStoredBookmarks] = useState(null);
