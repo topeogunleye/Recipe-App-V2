@@ -14,20 +14,16 @@ import { BookmarkContext } from '../../contexts/BookmarkContext';
 const MealInfo = () => {
   const { mealID } = useParams();
   const [ingredients, setIngredients] = useState('');
-  const [bookmarked, setBookmarked] = useState('')
+  const [bookmarked, setBookmarked] = useState('');
   const history = useHistory();
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
-
   useEffect(
     () =>
       doFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`),
-    [doFetch, mealID, data, bookmarked ]
+    [doFetch, mealID, data, bookmarked]
   );
-
-
-
 
   let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
@@ -44,12 +40,11 @@ const MealInfo = () => {
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = true;
-      setBookmarked(true)
+      setBookmarked(true);
     }
 
-
     persistBookmarks();
-    console.log(bookmarked)
+    console.log(bookmarked);
   };
 
   // Check if the loaded recipe has the same id
@@ -58,12 +53,19 @@ const MealInfo = () => {
   const [storedBookmarksCheck, setStoredBookmarksCheck] = useState([]);
 
   useEffect(() => {
+    if (storedBookmarksCheck && data) {
+    checkBookmark();
+    }
+  });
+
+  useEffect(() => {
     setStoredBookmarksCheck(JSON.parse(localStorage.getItem('bookmarks')));
   }, [bookmarks]);
 
   const checkBookmark = () => {
     if (
-      storedBookmarksCheck && storedBookmarksCheck.some(
+      storedBookmarksCheck &&
+      storedBookmarksCheck.some(
         (bookmark) => bookmark.idMeal === data.meals[0].idMeal
       )
     ) {
@@ -71,9 +73,8 @@ const MealInfo = () => {
     } else {
       data.meals[0].bookmarked = false;
     }
-  
   };
-  
+
   const deleteBookmark = function (recipe) {
     console.log(storedBookmarksCheck);
 
@@ -84,12 +85,11 @@ const MealInfo = () => {
     // Mark current recipe as NOT bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = false;
-      setBookmarked(false)
+      setBookmarked(false);
     }
 
-
     persistBookmarks();
-    console.log(bookmarked)
+    console.log(bookmarked);
   };
 
   function createIngredientsArray(meal) {
@@ -130,7 +130,6 @@ const MealInfo = () => {
         : ingredients &&
           data && (
             <div className="max-w-7xl mx-auto relative min-h-screen">
-            {checkBookmark()}
               <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto md:mb-8 mt-0">
                 <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
                   <div className="recipe-details">
@@ -174,7 +173,11 @@ const MealInfo = () => {
                       </h2>
                       <ul className="single-meal-ul w-11/12 mx-auto md:mx-0">
                         {ingredients.map((ing) => (
-                          <li className="single-meal-ul-li" key={uuidv4()} style={{ background: libg, color: lic }}>
+                          <li
+                            className="single-meal-ul-li"
+                            key={uuidv4()}
+                            style={{ background: libg, color: lic }}
+                          >
                             {ing}
                           </li>
                         ))}
@@ -201,9 +204,7 @@ const MealInfo = () => {
                   }
                   onClick={
                     data.meals[0].bookmarked === true
-                    
                       ? () => deleteBookmark(data.meals && data.meals[0])
-                  
                       : () => addBookmark(data.meals && data.meals[0])
                   }
                   title={
