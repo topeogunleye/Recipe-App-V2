@@ -9,7 +9,7 @@ export const LIGHT_THEME = {
   color: '#000000',
   isDark: false,
   libg: '#374151',
-  lic: '#fff',
+  lic: '#ffffff',
 };
 
 export const DARK_THEME = {
@@ -20,7 +20,7 @@ export const DARK_THEME = {
   opacity: '0.40',
   color: '#fafafa',
   isDark: true,
-  libg: '#fff',
+  libg: '#ffffff',
   li: '#111827'
 };
 
