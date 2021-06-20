@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 import useFetchMealDbApi from '../useFetchMealDbApi';
-import { useState, useEffect, useContext} from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
@@ -24,8 +24,9 @@ const MealInfo = () => {
     [doFetch, mealID, data]
   );
 
-  const [bookmarked, setBookmarked] = useState(data && data.meals[0].bookmarked);
-
+  const [bookmarked, setBookmarked] = useState(
+    data && data.meals[0].bookmarked
+  );
 
   let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
@@ -42,7 +43,7 @@ const MealInfo = () => {
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = true;
-      setBookmarked(data.meals[0].bookmarked);
+      setBookmarked(true)
     }
 
     persistBookmarks();
@@ -56,10 +57,9 @@ const MealInfo = () => {
 
   useEffect(() => {
     if (storedBookmarksCheck && data) {
-    checkBookmark();
-
+      checkBookmark();
     }
-  },);
+  });
 
   useEffect(() => {
     setStoredBookmarksCheck(JSON.parse(localStorage.getItem('bookmarks')));
@@ -80,6 +80,14 @@ const MealInfo = () => {
     }
   };
 
+  useEffect(() => {
+    if (data && data.meals[0].bookmarked === true) {
+      setBookmarked(true);
+    } else if (data && data.meals[0].bookmarked === false) {
+      setBookmarked(false);
+    }
+  }, [data]);
+
   const deleteBookmark = function (recipe) {
     console.log(storedBookmarksCheck);
 
@@ -90,7 +98,7 @@ const MealInfo = () => {
     // Mark current recipe as NOT bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = false;
-      setBookmarked(data.meals[0].bookmarked)
+      setBookmarked(false)
     }
 
     persistBookmarks();
