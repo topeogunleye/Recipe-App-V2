@@ -5,9 +5,11 @@ import { BookmarkContext } from '../../contexts/BookmarkContext';
 import Navbar from '../../components/Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
+import BOOKMARKS_DATA from './bookmarkData';
 
 const BookMarkView = () => {
-  const [storedBookmarks, setStoredBookmarks] = useState([]);
+  const [storedBookmarks, setStoredBookmarks] = useState(BOOKMARKS_DATA);
+  const [initData, setInitData] = useState();
 
   const { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
@@ -16,18 +18,11 @@ const BookMarkView = () => {
   }, [bookmarks]);
 
   // https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with-sets-3fep
-
-    const uniqueBookmarks = Array.from(
-      new Set(storedBookmarks.map((a) => a.idMeal))
-    ).map((idMeal) => {
-      return storedBookmarks.find((a) => a.idMeal === idMeal);
-    });
-  
-  // const uniqueBookmarks = Array.from(
-  //   new Set(storedBookmarks.map((a) => a.idMeal))
-  // ).map((idMeal) => {
-  //   return storedBookmarks.find((a) => a.idMeal === idMeal);
-  // });
+  const uniqueBookmarks = Array.from(
+    new Set(storedBookmarks.map((a) => a.idMeal))
+  ).map((idMeal) => {
+    return storedBookmarks.find((a) => a.idMeal === idMeal);
+  });
 
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, opacity, isDark } = theme.mode;
@@ -51,10 +46,15 @@ const BookMarkView = () => {
         </div>
         <h1 className="text-lg lg:-ml-2">Bookmarks</h1>
         {!uniqueBookmarks ? (
-          <div>No Boomarks Yet</div>
+          <div id="meals" className="meals">
+            {initData &&
+              initData.map((meal) => (
+                <MealItem meal={meal} key={uuidv4()} />
+              ))}
+          </div>
         ) : (
           <div id="meals" className="meals">
-            {uniqueBookmarks  &&
+            {uniqueBookmarks &&
               uniqueBookmarks.map((meal) => (
                 <MealItem meal={meal} key={uuidv4()} />
               ))}
