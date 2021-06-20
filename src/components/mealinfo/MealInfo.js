@@ -43,7 +43,7 @@ const MealInfo = () => {
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = true;
-      setBookmarked(true)
+      setBookmarked(true);
     }
 
     persistBookmarks();
@@ -98,7 +98,7 @@ const MealInfo = () => {
     // Mark current recipe as NOT bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = false;
-      setBookmarked(false)
+      setBookmarked(false);
     }
 
     persistBookmarks();
