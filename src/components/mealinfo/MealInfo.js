@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 import useFetchMealDbApi from '../useFetchMealDbApi';
-import { useState, useEffect, useContext, useCallback } from 'react';
+import { useState, useEffect, useContext} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
@@ -14,7 +14,6 @@ import { BookmarkContext } from '../../contexts/BookmarkContext';
 const MealInfo = () => {
   const { mealID } = useParams();
   const [ingredients, setIngredients] = useState('');
-  const [bookmarked, setBookmarked] = useState('');
   const history = useHistory();
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
@@ -22,8 +21,11 @@ const MealInfo = () => {
   useEffect(
     () =>
       doFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`),
-    [doFetch, mealID, data, bookmarked]
+    [doFetch, mealID, data]
   );
+
+  const [bookmarked, setBookmarked] = useState(data && data.meals[0].bookmarked);
+
 
   let { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
@@ -40,7 +42,7 @@ const MealInfo = () => {
     // Mark current recipe as bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = true;
-      setBookmarked(true);
+      setBookmarked(data.meals[0].bookmarked);
     }
 
     persistBookmarks();
@@ -55,8 +57,9 @@ const MealInfo = () => {
   useEffect(() => {
     if (storedBookmarksCheck && data) {
     checkBookmark();
+
     }
-  });
+  },);
 
   useEffect(() => {
     setStoredBookmarksCheck(JSON.parse(localStorage.getItem('bookmarks')));
@@ -85,7 +88,7 @@ const MealInfo = () => {
     // Mark current recipe as NOT bookmark
     if (data && recipe.idMeal === data.meals[0].idMeal) {
       data.meals[0].bookmarked = false;
-      setBookmarked(false);
+      setBookmarked(data.meals[0].bookmarked)
     }
 
     persistBookmarks();
