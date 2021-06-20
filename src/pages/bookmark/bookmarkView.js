@@ -8,7 +8,7 @@ import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import BOOKMARKS_DATA from './bookmarkData';
 
 const BookMarkView = () => {
-  const [storedBookmarks, setStoredBookmarks] = useState(BOOKMARKS_DATA);
+  const [storedBookmarks, setStoredBookmarks] = useState(null);
   const [initData, setInitData] = useState();
 
   const { bookmarks, setBookmarks } = useContext(BookmarkContext);

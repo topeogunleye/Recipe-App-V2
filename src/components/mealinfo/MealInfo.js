@@ -73,8 +73,10 @@ const MealInfo = () => {
       )
     ) {
       data.meals[0].bookmarked = true;
+      // setBookmarked(true)
     } else {
       data.meals[0].bookmarked = false;
+      // setBookmarked(false)
     }
   };
 
