@@ -43,7 +43,7 @@ const RandomMeal = () => {
   }
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const { syntax, ui, bg, libg, lic, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
@@ -106,7 +106,11 @@ const RandomMeal = () => {
                       </h2>
                       <ul className="single-meal-ul w-11/12 mx-auto md:mx-0">
                         {ingredients.map((ing) => (
-                          <li className="single-meal-ul-li" key={uuidv4()}>
+                          <li
+                            className="single-meal-ul-li"
+                            key={uuidv4()}
+                            style={{ background: libg, color: lic }}
+                          >
                             {ing}
                           </li>
                         ))}
