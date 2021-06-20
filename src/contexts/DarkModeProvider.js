@@ -8,6 +8,8 @@ export const LIGHT_THEME = {
   opacity: '0.75',
   color: '#000000',
   isDark: false,
+  libg: '#374151',
+  lic: '#fff',
 };
 
 export const DARK_THEME = {
@@ -18,6 +20,8 @@ export const DARK_THEME = {
   opacity: '0.40',
   color: '#fafafa',
   isDark: true,
+  libg: '#fff',
+  li: '#111827'
 };
 
 const darkModeReducer = (_, isDark) => (isDark ? DARK_THEME : LIGHT_THEME);

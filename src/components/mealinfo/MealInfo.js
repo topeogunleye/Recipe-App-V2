@@ -45,7 +45,7 @@ const MealInfo = () => {
     }
 
     persistBookmarks();
-
+    console.log(bookmarked)
     
   };
 
@@ -68,8 +68,9 @@ const MealInfo = () => {
     } else {
       data.meals[0].bookmarked = false;
     }
+  
   };
-
+  
   const deleteBookmark = function (recipe) {
     setIngredients('')
     console.log(storedBookmarksCheck);
@@ -85,7 +86,7 @@ const MealInfo = () => {
     }
 
     persistBookmarks();
-    
+    console.log(bookmarked)
   };
 
   function createIngredientsArray(meal) {
@@ -109,7 +110,7 @@ const MealInfo = () => {
   }
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const { syntax, ui, bg, lic, libg, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
@@ -170,7 +171,7 @@ const MealInfo = () => {
                       </h2>
                       <ul className="single-meal-ul w-11/12 mx-auto md:mx-0">
                         {ingredients.map((ing) => (
-                          <li className="single-meal-ul-li" key={uuidv4()}>
+                          <li className="single-meal-ul-li" key={uuidv4()} style={{ background: libg, color: lic }}>
                             {ing}
                           </li>
                         ))}
