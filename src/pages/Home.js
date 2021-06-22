@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { Fragment, useState, useContext } from 'react';
+import React, { Fragment, useState, useContext, useEffect } from 'react';
 import useFetchMealDbApi from '../components/useFetchMealDbApi';
 import Pagination from '../components/pagination/Pagination';
 import SkeletonMeal from '../skeletons/SkeletonMeal';
@@ -11,23 +11,45 @@ import SearchBox from '../components/search-box/search-box';
 import MealItem from '../components/meal/Meal';
 import logo from '../logo.png';
 import { v4 as uuidv4 } from 'uuid';
-
+import axios from 'axios';
 
 const Home = () => {
+  const [data, setData] = useState({ meals: [] });
   const [query, setQuery] = useState('');
+
+  const [url, setUrl] = useState(
+    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+  );
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const fetchMeal = async () => {
+      setIsError(false);
+      setIsLoading(true);
+ 
+      try {
+      const result = await axios(url);
+ 
+      setData(result.data);
+    } catch (error) {
+      setIsError(true);
+    }
+
+      setIsLoading(false);
+    };
+
+    fetchMeal();
+
+  }, [url, query]);
+
+
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
 
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
-  const [
-    { data, isLoading, isError },
-    doFetch,
-  ] = useFetchMealDbApi(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
-    { meals: [] }
-  );
 
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
@@ -39,7 +61,8 @@ const Home = () => {
     // Empty will Fetch the default results on the Homepage
     const empty = ''
     const refresh = () => {
-      doFetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${empty}`)
+      setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${empty}`);
+
       setCurrentPage(1)
     }
 
@@ -73,9 +96,12 @@ const Home = () => {
   };
 
   const handleSubmit = (event) => {
-    doFetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
-    setCurrentPage(1)
+
+    setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+
     
+    setCurrentPage(1)
+
     event.preventDefault();
   };
 
