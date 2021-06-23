@@ -23,6 +23,16 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+  const handleSubmit = (event) => {
+
+    setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+
+    
+    setCurrentPage(1)
+
+    event.preventDefault();
+  };
+
   useEffect(() => {
     const fetchMeal = async () => {
       setIsError(false);
@@ -41,7 +51,7 @@ const Home = () => {
 
     fetchMeal();
 
-  }, [url, query]);
+  }, [url] );
 
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -95,15 +105,7 @@ const Home = () => {
     setQuery(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-
-    setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
-
-    
-    setCurrentPage(1)
-
-    event.preventDefault();
-  };
+ 
 
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, opacity, isDark } = theme.mode;
