@@ -140,7 +140,7 @@ function Navbar({ refresh }) {
                 <FaIcons.FaFacebook />
               </a>
               <a
-                href="https://twitter.com/temi_web
+                href="https://twitter.com/topeogunleye21
                 "
                 className="fa fa-twitter"
                 target="blank"
