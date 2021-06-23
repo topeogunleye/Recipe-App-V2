@@ -43,7 +43,7 @@ const BookMarkView = () => {
             id="random"
           />
         </div>
-        <h1 className="text-lg lg:-ml-2">Your Bookmarks</h1>
+        <h1 className="text-lg lg:-ml-2">My Bookmarks</h1>
         {!storedBookmarks ? (
           <div id="meals" className="py-2">
           No bookmarks yet. Find a nice recipe and bookmark it :)
