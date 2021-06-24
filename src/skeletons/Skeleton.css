@@ -214,5 +214,5 @@
 }
 
 .Meal-Info-p {
-  @apply w-9/12 h-56 sm:h-72 xl:w-11/12 mx-auto;
+  @apply w-11/12 min-h-screen sm:h-72 lg:w-10/12 xl:w-11/12 mx-auto;
 }
