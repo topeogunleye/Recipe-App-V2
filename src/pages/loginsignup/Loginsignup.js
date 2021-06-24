@@ -4,6 +4,7 @@ import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import './loginsignup.css';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import logo from '../../logo.png'
+import DarkToggle from '../../components/theme-toggle/DarkToggle';
 
 const Loginsignup = () => {
   const theme = useContext(DarkModeContext);
@@ -16,7 +17,7 @@ const Loginsignup = () => {
           "
         style={{ background: ui, color: syntax }}
       >
-        <ThemeToggle
+        <DarkToggle
           className="cursor-pointer focus:outline-none"
           id="random"
         />
