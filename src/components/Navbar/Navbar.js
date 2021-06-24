@@ -10,6 +10,8 @@ import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { AuthContext } from '../../contexts/AuthContext';
 import logo from '../../logo.png';
+import ThemeToggle from '../theme-toggle/ThemeToggle';
+import DarkToggle from '../theme-toggle/DarkToggle';
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -51,7 +53,7 @@ function Navbar({ refresh }) {
     <>
       <IconContext.Provider value={{ color: syntax }}>
         <div className="navbar" style={{ background: ui, color: syntax }}>
-          <Link to="#" className="menu-bars">
+          <Link to="#" className="menu-bars ml-4 md:ml-8 text-2xl sm:text-3xl">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <Link to="/">
@@ -81,7 +83,8 @@ function Navbar({ refresh }) {
               className="w-full grid place-items-start "
               onClick={() => toggleAuth()}
             >
-              <div className="mt-4 mb-8">
+              <div className="mt-4 mb-8 flex justify-items-center items-center">
+              
                 <Link to="/">
                   <div
                     className="font-black text-2xl logo-signature mx-auto mt-4 logo"
@@ -90,6 +93,9 @@ function Navbar({ refresh }) {
                     <img src={logo} alt="logo" className="w-20" />
                   </div>
                 </Link>
+                <div className="xl:hidden mt-6">
+                <DarkToggle/>
+              </div>
               </div>
               <Link
                 to="/loginsignup/"
