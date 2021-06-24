@@ -10,6 +10,7 @@ import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import './mealinfo.css';
 import { BookmarkContext } from '../../contexts/BookmarkContext';
+import Navbar from '../Navbar/Navbar';
 
 const MealInfo = () => {
   const { mealID } = useParams();
@@ -135,6 +136,7 @@ const MealInfo = () => {
       className="min-h-screen md:pt-1"
       style={{ background: ui, color: syntax }}
     >
+    <Navbar/>
       {isError && <div>Something went wrong ...</div>}
       {isLoading
         ? [1, 2, 3, 4, 5].map((n) => (
@@ -143,7 +145,7 @@ const MealInfo = () => {
         : ingredients &&
           data && (
             <div className="max-w-7xl mx-auto relative min-h-screen">
-              <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto md:mb-8 mt-0">
+              <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl lg:pl-44 xl:max-w-5xl mx-auto xl:pl-32  md:mb-8 mt-0">
                 <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
                   <div className="recipe-details">
                     <div className="primary-info-text">
@@ -197,64 +199,65 @@ const MealInfo = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="recipe-details-image w-full mobile-div">
+                  <div className="recipe-details-image w-full mobile-div relative">
                     <img
                       alt={data.meals.strMeal}
                       src={data.meals[0].strMealThumb}
-                      className="recipe-image max-w-full rounded-b-lg md:rounded-lg mobile"
+                      className="recipe-image w-11/12 mx-auto md:max-w-full rounded-lg md:rounded-lg mobile"
                     />
+                    <button
+                    className={
+                      data.meals[0].bookmarked
+                        ? ' text-gray-900 absolute top-1 right-3 sm:top-1 sm:right-3 rounded-full focus:outline-none p-2'
+                        : ' text-gray-400 absolute top-1 right-3 sm:top-1 sm:right-3 rounded-full focus:outline-none p-2'
+                    }
+                    onClick={
+                      data.meals[0].bookmarked === true
+                        ? () => deleteBookmark(data.meals && data.meals[0])
+                        : () => addBookmark(data.meals && data.meals[0])
+                    }
+                    title={
+                      data.meals[0].bookmarked
+                        ? 'Remove From Bookmarks'
+                        : 'Add To Bookmarks'
+                    }
+                    aria-label={
+                      data.meals[0].bookmarked
+                        ? 'Remove From Bookmarks'
+                        : 'Add To Bookmarks'
+                    }
+                  >
+                    <BookmarkIcon
+                      className={
+                        data.meals[0].bookmarked === true
+                          ? 'home-icon h-10 w-10 text-gray-900'
+                          : 'home-icon h-10 w-10 text-gray-300'
+                      }
+                    />
+                  </button>
                   </div>
                 </div>
-                <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none pb-20">
+                <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none pb-20 pt-10">
                   {data.meals[0].strInstructions}
                 </p>
 
-                <button
-                  className={
-                    data.meals[0].bookmarked
-                      ? ' text-gray-900 bg-gray-500 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
-                      : ' text-white bg-gray-500 absolute top-1 left-1 sm:top-0 sm:left-5 rounded-full focus:outline-none p-2'
-                  }
-                  onClick={
-                    data.meals[0].bookmarked === true
-                      ? () => deleteBookmark(data.meals && data.meals[0])
-                      : () => addBookmark(data.meals && data.meals[0])
-                  }
-                  title={
-                    data.meals[0].bookmarked
-                      ? 'Remove From Bookmarks'
-                      : 'Add To Bookmarks'
-                  }
-                  aria-label={
-                    data.meals[0].bookmarked
-                      ? 'Remove From Bookmarks'
-                      : 'Add To Bookmarks'
-                  }
-                >
-                  <BookmarkIcon
-                    className={
-                      data.meals[0].bookmarked === true
-                        ? 'home-icon h-10 w-10 text-gray-900'
-                        : 'home-icon h-10 w-10 text-white'
-                    }
-                  />
-                </button>
+                
               </div>
 
-              <Link to="/">
+              {/*<Link to="/">
                 <button
-                  className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 rounded-sm"
+                  className="home-btn absolute top-1 left-1 sm:top-1 sm:left-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 rounded-sm"
                   style={{ background: bg, color: syntax }}
                 >
                   <HomeIcon className="home-icon h-5 w-5 hover:text-black" />
                 </button>
-              </Link>
-              <div className="absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2">
+                  </Link> */}
+             {/* <div className="absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2">
                 <ThemeToggle
                   className="cursor-pointer focus:outline-none"
                   id="random"
                 />
-              </div>
+                  </div>*/}
             </div>
           )}
     </div>
