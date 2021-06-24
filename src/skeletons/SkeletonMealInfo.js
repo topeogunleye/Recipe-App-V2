@@ -6,7 +6,7 @@ const SkeletonMealInfo = ({ theme }) => {
 
   return (
     <div className={`skeleton-wrapper ${themeClass}`}>
-      <div className=" max-w-4xl md:max-w-2xl lg:max-w-4xl lg:pl-44 xl:max-w-5xl mx-auto xl:pl-32  md:mb-8 mt-0 skeleton-article items-center md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
+      <div className=" max-w-4xl md:max-w-2xl lg:max-w-4xl mx-auto skeleton-article items-center md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
         <div className="recipe-details flex flex-col">
           <SkeletonElement
             type="title"
@@ -43,7 +43,7 @@ const SkeletonMealInfo = ({ theme }) => {
 
         <SkeletonElement type="imageMealInfo" />
       </div>
-      <div className="lg:pl-44 xl:max-w-5xl mx-auto xl:pl-32  md:mb-8 mt-0">
+      <div className="">
         <SkeletonElement type="Meal-Info-p" />
       </div>
       <Shimmer />
