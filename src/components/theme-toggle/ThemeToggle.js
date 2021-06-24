@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import { useTheme } from 'next-themes';
 
 const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false);
