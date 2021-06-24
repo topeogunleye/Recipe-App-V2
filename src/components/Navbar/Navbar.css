@@ -13,7 +13,7 @@
 }
 
 .logo.main {
-  top: 6%;
+  top: 7%;
 }
 
 .signupbox {
@@ -51,8 +51,8 @@ a.button-primary {
 }
 
 .menu-bars {
-  margin-left: 2rem;
-  font-size: 2rem;
+  /* margin-left: 2rem;
+  font-size: 2rem; */
   background: none;
 }
 
