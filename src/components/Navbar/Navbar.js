@@ -81,7 +81,6 @@ function Navbar({ refresh }) {
             </li> */}
             <div
               className="w-full grid place-items-start "
-              onClick={() => toggleAuth()}
             >
               <div className="mt-4 mb-8 flex justify-items-center items-center">
               
@@ -120,9 +119,9 @@ function Navbar({ refresh }) {
           </ul>
 
           <div className="dev-info absolute bottom-0">
-            <div className="w-60 text-center my-6">
+            {/* <div className="w-60 text-center my-6">
               {isAuthenticated ? 'Logged in' : 'Logged out'}
-            </div>
+          </div> */}
             <p className="text-xs ml-8 ">
               <FaIcons.FaCopyright className="inline-block" /> 2021 by Temitope
               Ogunleye
