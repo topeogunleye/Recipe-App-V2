@@ -93,6 +93,12 @@
     width: 208px;
     height: 212px;
   }
+
+  .imageMealInfo {
+    width: 92vw;
+    height: 62vh;
+  }
+  
 }
 
 @media screen and (min-width: 425px) {
