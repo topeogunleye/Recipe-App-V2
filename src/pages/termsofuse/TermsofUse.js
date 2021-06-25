@@ -299,7 +299,7 @@ const TermsofUse = () => {
         <p>
           Please visit our policy for{' '}
           <a
-            href="https://help.Recipa.com/hc/en-us/articles/360051872151-What-is-your-return-policy-"
+            href="https://help.Recipa.org/hc/en-us/articles/360051872151-What-is-your-return-policy-"
             target="_blank"
           >
             Returns &amp; Exchanges
@@ -923,8 +923,8 @@ const TermsofUse = () => {
           In the event that you intend to commence an arbitration or a court
           proceeding, you must first notify Recipa by contacting us at the
           following address, with a copy also sent to{' '}
-          <a href="mailto:support@Recipa.com" target="_blank">
-            support@Recipa.com
+          <a href="mailto:support@Recipa.org" target="_blank">
+            support@Recipa.org
           </a>
           : ATTN: Legal Counsel; Recipa, Inc.; 883 E. San Carlos Ave., San
           Carlos, CA 94070 (<strong>Notice</strong>) and attempt to resolve your
@@ -969,16 +969,16 @@ const TermsofUse = () => {
         <p>
           If you have any questions about these Terms, or about Recipa in
           general, please contact{' '}
-          <a href="mailto:terms@Recipa.com" target="_blank">
-            terms@Recipa.com
+          <a href="mailto:terms@Recipa.org" target="_blank">
+            terms@Recipa.org
           </a>
           .
         </p>
         <p>
           If you have any questions about your Recipa subscription, please
           contact us at{' '}
-          <a href="mailto:support@Recipa.com" target="_blank">
-            support@Recipa.com
+          <a href="mailto:support@Recipa.org" target="_blank">
+            support@Recipa.org
           </a>
           . However, if you have questions about payment for your Recipa Pro
           Account and you signed up through an App Provider, you must contact
@@ -987,8 +987,8 @@ const TermsofUse = () => {
         <p>
           If you have any questions about a Recipa Smart Product, please contact
           us at{' '}
-          <a href="mailto:support@Recipa.com" target="_blank">
-            support@Recipa.com
+          <a href="mailto:support@Recipa.org" target="_blank">
+            support@Recipa.org
           </a>
           .
         </p>
