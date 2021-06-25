@@ -1,0 +1,98 @@
+.app-content {
+    overflow: auto;
+    position: relative;
+    flex: 1;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.app-content > div {
+  width: 100%;
+}
+
+.policy {
+  color: #4a4a4a;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 66px 0 80px;
+  text-align: justify;
+  background: #fff;
+  position: relative;
+}
+
+.p2-text, .payment-method .card-num-cards-info .last-four, .payment-method .card-num-cards-info .expire-date, .pro-sticky-header .sticky-header-subtitle, .text-input-wrapper.small-input .text-input::placeholder, .pro-recipe-modal .pro-video-content .pro-account-creation-benefits h3 {
+  font-size: 16px;
+  line-height: 1.625;
+}
+
+.policy .policy-content {
+  width: 90vw;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.policy h1, .policy h2, .policy h3, .policy h4 {
+  text-align: left;
+  line-height: 1.2;
+}
+
+.policy h1, .policy h2, .policy h3, .policy h4, .policy p, .policy address {
+  margin: 0.7em 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: bold;
+}
+
+
+element.style {
+}
+.policy h1, .policy h2, .policy h3, .policy h4 {
+    text-align: left;
+    line-height: 1.2;
+}
+.policy h1, .policy h2, .policy h3, .policy h4, .policy p, .policy address {
+    margin: 0.7em 0;
+}
+h1 {
+    font-size: 2em;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+}
+h1 {
+    font-size: 2em;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6, strong {
+    font-weight: bold;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 1em;
+    vertical-align: baseline;
+}
+user agent stylesheet
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
