@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 
-const ThemeToggle = () => {
+const ThemeToggleLogin = () => {
   const [mounted, setMounted] = useState(false);
   const setTheme = (darkMode) => {
     const isDark = darkMode.mode.isDark;
@@ -54,5 +54,5 @@ const ThemeToggle = () => {
   );
 };
 
-export default ThemeToggle;
+export default ThemeToggleLogin;
 

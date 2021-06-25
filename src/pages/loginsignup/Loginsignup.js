@@ -3,10 +3,14 @@ import React, { useContext } from 'react';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import './loginsignup.css';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
-import logo from '../../logo.png'
+import logo from '../../logo.png';
 import DarkToggle from '../../components/theme-toggle/DarkToggle';
-import { signInWithGithub, signInWithGoogle } from '../../firebase/firebase.utils';
+import {
+  signInWithGithub,
+  signInWithGoogle,
+} from '../../firebase/firebase.utils';
 import { signInWithTwitter } from '../../firebase/firebase.utils';
+import ThemeToggleLogin from '../../components/theme-toggle/ThemeToggleLogin';
 
 const Loginsignup = () => {
   const theme = useContext(DarkModeContext);
@@ -19,31 +23,32 @@ const Loginsignup = () => {
           "
         style={{ background: ui, color: syntax }}
       >
-        <DarkToggle
+        <ThemeToggleLogin
           className="cursor-pointer focus:outline-none"
           id="random"
         />
-      
       </div>
       <div
         className="new-login h-screen mx-auto container xl:w-screen"
         style={{ background: ui, color: syntax }}
       >
-      <Link to="/">
-      <div className="font-black text-2xl logo-signature mx-auto logo login">
-      <img src={logo} alt="logo" className="w-20" />
-    </div>
-    </Link>
+        <Link to="/">
+          <div className="font-black text-2xl logo-signature mx-auto logo login">
+            <img src={logo} alt="logo" className="w-20" />
+          </div>
+        </Link>
 
         <div
           className="login-splash grid place-items-center relative"
           style={{ background: ui, color: syntax }}
         >
-       
           <h1 className="new-login text-4xl font-light">
             Your recipes are waiting
           </h1>
-          <h2 className="login-splash-subheading pb-6" style={{ color: syntax }}>
+          <h2
+            className="login-splash-subheading pb-6"
+            style={{ color: syntax }}
+          >
             Connect to customize your recipe discovery.
           </h2>
           <ul className="login-buttons container">
