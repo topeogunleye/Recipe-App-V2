@@ -5,6 +5,8 @@ import './loginsignup.css';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import logo from '../../logo.png'
 import DarkToggle from '../../components/theme-toggle/DarkToggle';
+import { signInWithGithub, signInWithGoogle } from '../../firebase/firebase.utils';
+import { signInWithTwitter } from '../../firebase/firebase.utils';
 
 const Loginsignup = () => {
   const theme = useContext(DarkModeContext);
@@ -59,6 +61,7 @@ const Loginsignup = () => {
                 title="Connect with Google"
                 aria-label="Connect with Google"
                 className="button google btn-google"
+                onClick={signInWithGoogle}
               >
                 <span>Connect with Google</span>
               </button>
@@ -68,17 +71,19 @@ const Loginsignup = () => {
                 title="Connect with Github"
                 aria-label="Connect with Github"
                 className="button github btn-github"
+                onClick={signInWithGithub}
               >
                 <span>Connect with Github</span>
               </button>
             </li>
             <li className>
               <button
-                title="Connect with Email"
-                aria-label="Connect with Email"
-                className="button email btn-email"
+                title="Connect with Twitter"
+                aria-label="Connect with Twitter"
+                className="button twitter btn-twitter"
+                onClick={signInWithTwitter}
               >
-                <span>Connect with Email</span>
+                <span>Connect with Twitter</span>
               </button>
             </li>
           </ul>
