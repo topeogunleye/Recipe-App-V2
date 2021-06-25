@@ -99,7 +99,7 @@ ul {
 .login-splash .login-buttons li .google,
 .registered-user .login-buttons li .google,
 .new-registered-user .login-buttons li .google {
-  background-image: url(https://x.yummlystatic.com/web/auth/google.png);
+  background-image: url(../../Google-G-logo.png);
   /* background-color: #fff; */
   color: #000;
 }
@@ -116,8 +116,7 @@ ul {
 .login-splash .login-buttons li .twitter,
 .registered-user .login-buttons li .twitter,
 .new-registered-user .login-buttons li .twitter {
-  background: url(../../Twitter-social-icons-circle-blue.png) 8px 50%
-    no-repeat;
+  background: url(../../Twitter-social-icons-circle-blue.png) 8px 50% no-repeat;
   background-size: 2em;
   text-align: left;
   padding: 12px 1.5em;
