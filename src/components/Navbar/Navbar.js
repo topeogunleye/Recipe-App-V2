@@ -11,7 +11,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { AuthContext } from '../../contexts/AuthContext';
 import logo from '../../logo.png';
 import ThemeToggle from '../theme-toggle/ThemeToggle';
-import DarkToggle from '../theme-toggle/DarkToggleSideBar';
+import DarkToggleSideBar from '../theme-toggle/DarkToggleSideBar';
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -93,7 +93,7 @@ function Navbar({ refresh }) {
                   </div>
                 </Link>
                 <div className="xl:hidden mt-6">
-                <DarkToggle/>
+                <DarkToggleSideBar/>
               </div>
               </div>
               <Link

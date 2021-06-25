@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 
 
-const DarkToggle = () => {
+const DarkToggleSideBar = () => {
   const [mounted, setMounted] = useState(false);
   const setTheme = (darkMode) => {
     const isDark = darkMode.mode.isDark;
@@ -55,4 +55,4 @@ const DarkToggle = () => {
   );
 };
 
-export default DarkToggle;
+export default DarkToggleSideBar;
