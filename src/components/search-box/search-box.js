@@ -16,12 +16,13 @@ const SearchBox = ({ query, handleChange, handleSubmit }) => {
             type="text"
             value={query}
             onChange={handleChange}
-            className="border rounded-l w-full sm:w-72 text-black"
+            className="border rounded-full w-full sm:w-72 text-black focus:outline-none"
             style={{ background: bg, color: syntax }}
+            placeholder="Search For Recipes"
           />
 
           <button
-            className="search-btn border rounded-r"
+            className="search-btn border rounded-full focus:outline-none"
             type="submit"
             style={{ background: bg, color: syntax }}
           >
@@ -30,7 +31,7 @@ const SearchBox = ({ query, handleChange, handleSubmit }) => {
         </form>
         <Link to={'/RandomMeal/'}>
           <button
-            className="random-btn border rounded cursor-pointer ml-2.5"
+            className="random-btn border rounded-full cursor-pointer ml-2.5"
             id="random"
             style={{ background: bg, color: syntax }}
             title="Get Random Recipes"
