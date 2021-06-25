@@ -150,8 +150,8 @@ const PrivacyNotice = () => {
           </a>
           <p>
             You can contact us by sending us an email at{' '}
-            <a href="mailto:privacy@Recipa.com" target="_blank">
-              privacy@Recipa.com
+            <a href="mailto:privacy@Recipa.orh" target="_blank">
+              privacy@Recipa.org
             </a>
             , using the information provided in the{' '}
             <a href="#contact-us">Contact Us</a> section below, or the
@@ -949,8 +949,8 @@ const PrivacyNotice = () => {
           <p>
             If you have any questions about this Privacy Notice, please contact
             us via email at{' '}
-            <a href="mailto:privacy@Recipa.com" target="_blank">
-              privacy@Recipa.com
+            <a href="mailto:privacy@Recipa.org" target="_blank">
+              privacy@Recipa.org
             </a>
             , or please write to us at the following address:
           </p>
