@@ -43,7 +43,7 @@ const Loginsignup = () => {
           <h1 className="new-login text-4xl font-light">
             Your recipes are waiting
           </h1>
-          <h2 className="login-splash-subheading" style={{ color: syntax }}>
+          <h2 className="login-splash-subheading pb-6" style={{ color: syntax }}>
             Connect to customize your recipe discovery.
           </h2>
           <ul className="login-buttons container">
