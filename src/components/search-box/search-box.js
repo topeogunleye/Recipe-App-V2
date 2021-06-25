@@ -16,13 +16,13 @@ const SearchBox = ({ query, handleChange, handleSubmit }) => {
             type="text"
             value={query}
             onChange={handleChange}
-            className="border rounded-full w-full sm:w-72 text-black focus:outline-none"
+            className="border rounded-l-full w-full sm:w-80 text-black focus:outline-none"
             style={{ background: bg, color: syntax }}
             placeholder="Search For Recipes"
           />
 
           <button
-            className="search-btn border rounded-full focus:outline-none"
+            className="search-btn border rounded-r-full focus:outline-none"
             type="submit"
             style={{ background: bg, color: syntax }}
           >
