@@ -11,7 +11,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { AuthContext } from '../../contexts/AuthContext';
 import logo from '../../logo.png';
 import ThemeToggle from '../theme-toggle/ThemeToggle';
-import DarkToggle from '../theme-toggle/DarkToggle';
+import DarkToggle from '../theme-toggle/DarkToggleSideBar';
 
 let useClickOutside = (handler) => {
   let domNode = useRef();

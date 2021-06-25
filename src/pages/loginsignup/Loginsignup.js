@@ -4,7 +4,7 @@ import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import './loginsignup.css';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import logo from '../../logo.png';
-import DarkToggle from '../../components/theme-toggle/DarkToggle';
+import DarkToggle from '../../components/theme-toggle/DarkToggleSideBar';
 import {
   signInWithGithub,
   signInWithGoogle,

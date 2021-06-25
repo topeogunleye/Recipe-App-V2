@@ -12,7 +12,7 @@ import MealItem from '../components/meal/Meal';
 import logo from '../logo.png';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import DarkToggle from '../components/theme-toggle/DarkToggle';
+import DarkToggle from '../components/theme-toggle/DarkToggleSideBar';
 
 const Home = () => {
   const [data, setData] = useState({ meals: [] });
