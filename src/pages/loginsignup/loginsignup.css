@@ -113,10 +113,10 @@ ul {
 .login-splash .login-buttons li .github,
 .registered-user .login-buttons li .github,
 .new-registered-user .login-buttons li .github,
-.login-splash .login-buttons li .email,
-.registered-user .login-buttons li .email,
-.new-registered-user .login-buttons li .email {
-  background: url(https://x.yummlystatic.com/web/auth/email.png) 8px 50%
+.login-splash .login-buttons li .twitter,
+.registered-user .login-buttons li .twitter,
+.new-registered-user .login-buttons li .twitter {
+  background: url(../../Twitter-social-icons-circle-blue.png) 8px 50%
     no-repeat;
   background-size: 2em;
   text-align: left;
@@ -136,7 +136,7 @@ ul {
 .login-splash .login-buttons li .facebook,
 .registered-user .login-buttons li .facebook,
 .new-registered-user .login-buttons li .facebook {
-  background-image: url(https://x.yummlystatic.com/web/auth/facebook.png);
+  background-image: url(../../Facebook-social-icons-circle-blue.png);
   background-color: #3b5998;
   color: #fff;
 }
@@ -145,7 +145,7 @@ ul {
 .login-splash .login-buttons li .google,
 .registered-user .login-buttons li .google,
 .new-registered-user .login-buttons li .google {
-  background-image: url(https://x.yummlystatic.com/web/auth/google.png);
+  background-image: url(../../Google-G-logo.png);
   background-color: #fff;
   color: #000;
 }
@@ -160,11 +160,11 @@ ul {
   color: #fff;
 }
 
-/* Email Button */
-.login-splash .login-buttons li .email,
-.registered-user .login-buttons li .email,
-.new-registered-user .login-buttons li .email {
-  background-color: #3a9691;
+/* twitter Button */
+.login-splash .login-buttons li .twitter,
+.registered-user .login-buttons li .twitter,
+.new-registered-user .login-buttons li .twitter {
+  background-color: #00acce;
   color: #fff;
 }
 
