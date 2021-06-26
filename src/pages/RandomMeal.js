@@ -4,9 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../skeletons/SkeletonMealInfo';
 import { Link } from 'react-router-dom';
-import { HomeIcon } from '@heroicons/react/solid';
+import { BookmarkIcon } from '@heroicons/react/solid';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
+import { BookmarkContext } from '../contexts/BookmarkContext';
+import Navbar from '../components/Navbar/Navbar';
 
 const RandomMeal = () => {
   const [ingredients, setIngredients] = useState('');
@@ -18,6 +20,87 @@ const RandomMeal = () => {
     () => doFetch(`https://www.themealdb.com/api/json/v1/1/random.php`),
     [doFetch, data]
   );
+
+  const [bookmarked, setBookmarked] = useState(
+    data && data.meals[0].bookmarked
+  );
+
+  let { bookmarks, setBookmarks } = useContext(BookmarkContext);
+
+  const persistBookmarks = function () {
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  };
+
+  const addBookmark = function (recipe) {
+    // console.log(dataFromApi)
+
+    // Add bookmark
+    bookmarks.push(recipe);
+
+    // Mark current recipe as bookmark
+    if (data && recipe.idMeal === data.meals[0].idMeal) {
+      data.meals[0].bookmarked = true;
+      setBookmarked(true);
+    }
+
+    persistBookmarks();
+    console.log(bookmarked);
+  };
+
+  // Check if the loaded recipe has the same id
+  // with a recipe in the bookmarked state
+
+  const [storedBookmarksCheck, setStoredBookmarksCheck] = useState([]);
+
+  useEffect(() => {
+    if (storedBookmarksCheck && data) {
+      checkBookmark();
+    }
+  });
+
+  useEffect(() => {
+    setStoredBookmarksCheck(JSON.parse(localStorage.getItem('bookmarks')));
+  }, [bookmarks]);
+
+  const checkBookmark = () => {
+    if (
+      storedBookmarksCheck &&
+      storedBookmarksCheck.some(
+        (bookmark) => bookmark.idMeal === data.meals[0].idMeal
+      )
+    ) {
+      data.meals[0].bookmarked = true;
+      // setBookmarked(true)
+    } else {
+      data.meals[0].bookmarked = false;
+      // setBookmarked(false)
+    }
+  };
+
+  useEffect(() => {
+    if (data && data.meals[0].bookmarked === true) {
+      setBookmarked(true);
+    } else if (data && data.meals[0].bookmarked === false) {
+      setBookmarked(false);
+    }
+  }, [data]);
+
+  const deleteBookmark = function (recipe) {
+    console.log(storedBookmarksCheck);
+
+    // Delete bookmark
+    const index = bookmarks.findIndex((el) => el.idMeal === recipe.idMeal);
+    bookmarks.splice(index, 1);
+
+    // Mark current recipe as NOT bookmark
+    if (data && recipe.idMeal === data.meals[0].idMeal) {
+      data.meals[0].bookmarked = false;
+      setBookmarked(false);
+    }
+
+    persistBookmarks();
+    console.log(bookmarked);
+  };
 
   function createIngredientsArray(meal) {
     const ingredientsData = [];
@@ -52,6 +135,7 @@ const RandomMeal = () => {
       style={{ background: ui, color: syntax }}
       className="min-h-screen md:pt-1"
     >
+      <Navbar />
       {isError && <div className="min-h-screen">Something went wrong ...</div>}
       {isLoading
         ? [1, 2, 3, 4, 5].map((n) => (
@@ -59,18 +143,15 @@ const RandomMeal = () => {
           ))
         : ingredients &&
           data && (
-            <div
-              className="max-w-7xl mx-auto relative min-h-screen"
-              style={{ background: ui, color: syntax }}
-            >
-              <div className="max-w-full md:max-w-2xl lg:max-w-4xl mx-auto md:my-8 ">
+            <div className="max-w-7xl mx-auto relative min-h-screen">
+              <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl lg:pl-44 xl:max-w-5xl mx-auto xl:pl-32  md:mb-8 mt-0">
                 <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
                   <div className="recipe-details">
                     <div className="primary-info-text">
                       <div className="primary-info-left-wrapper">
-                        <h1 className="recipe-title font-bold text-xl md:text-4xl  mt-0 ml-2 mb-4 w-80 md:mb-8 font-sans">
+                        <h2 className="recipe-title font-bold text-xl md:text-4xl mt-0 ml-2 mb-4 sm:w-full md:mb-8 font-sans w-80">
                           {data.meals[0].strMeal}
-                        </h1>
+                        </h2>
                       </div>
                     </div>
                     <div className="summary-item-wrapper flex relative justify-center md:justify-start">
@@ -117,32 +198,47 @@ const RandomMeal = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="recipe-details-image w-full">
+                  <div className="recipe-details-image w-full mobile-div relative">
                     <img
-                      alt="Cranberry Orange Muffins"
+                      alt={data.meals.strMeal}
                       src={data.meals[0].strMealThumb}
-                      className="recipe-image max-w-full rounded-b-lg md:rounded-lg"
+                      className="recipe-image w-11/12 mx-auto md:max-w-full rounded-lg md:rounded-lg mobile"
                     />
+                    <button
+                      className={
+                        data.meals[0].bookmarked
+                          ? ' text-gray-900 absolute top-1 right-3 sm:top-1 sm:right-3 rounded-full focus:outline-none p-2'
+                          : ' text-gray-400 absolute top-1 right-3 sm:top-1 sm:right-3 rounded-full focus:outline-none p-2'
+                      }
+                      onClick={
+                        data.meals[0].bookmarked === true
+                          ? () => deleteBookmark(data.meals && data.meals[0])
+                          : () => addBookmark(data.meals && data.meals[0])
+                      }
+                      title={
+                        data.meals[0].bookmarked
+                          ? 'Remove From Bookmarks'
+                          : 'Add To Bookmarks'
+                      }
+                      aria-label={
+                        data.meals[0].bookmarked
+                          ? 'Remove From Bookmarks'
+                          : 'Add To Bookmarks'
+                      }
+                    >
+                      <BookmarkIcon
+                        className={
+                          data.meals[0].bookmarked === true
+                            ? 'home-icon h-10 w-10 text-gray-900'
+                            : 'home-icon h-10 w-10 text-gray-300'
+                        }
+                      />
+                    </button>
                   </div>
                 </div>
-                <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none pb-20">
+                <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none pb-20 pt-10">
                   {data.meals[0].strInstructions}
                 </p>
-              </div>
-
-              <Link to="/">
-                <button
-                  className="home-btn absolute top-1 right-1 sm:top-0 sm:right-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 bg-gray-600 sm:bg-gray-500 rounded-sm"
-                  style={{ background: bg, color: syntax }}
-                >
-                  <HomeIcon className="home-icon h-5 w-5  hover:text-black" />
-                </button>
-              </Link>
-              <div className="absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2">
-                <ThemeToggle
-                  className="cursor-pointer focus:outline-none"
-                  id="random"
-                />
               </div>
             </div>
           )}

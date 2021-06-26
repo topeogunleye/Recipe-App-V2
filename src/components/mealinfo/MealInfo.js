@@ -136,7 +136,7 @@ const MealInfo = () => {
       className="min-h-screen md:pt-1"
       style={{ background: ui, color: syntax }}
     >
-    <Navbar/>
+      <Navbar />
       {isError && <div>Something went wrong ...</div>}
       {isLoading
         ? [1, 2, 3, 4, 5].map((n) => (
@@ -206,58 +206,41 @@ const MealInfo = () => {
                       className="recipe-image w-11/12 mx-auto md:max-w-full rounded-lg md:rounded-lg mobile"
                     />
                     <button
-                    className={
-                      data.meals[0].bookmarked
-                        ? ' text-gray-900 absolute top-1 right-3 sm:top-1 sm:right-3 rounded-full focus:outline-none p-2'
-                        : ' text-gray-400 absolute top-1 right-3 sm:top-1 sm:right-3 rounded-full focus:outline-none p-2'
-                    }
-                    onClick={
-                      data.meals[0].bookmarked === true
-                        ? () => deleteBookmark(data.meals && data.meals[0])
-                        : () => addBookmark(data.meals && data.meals[0])
-                    }
-                    title={
-                      data.meals[0].bookmarked
-                        ? 'Remove From Bookmarks'
-                        : 'Add To Bookmarks'
-                    }
-                    aria-label={
-                      data.meals[0].bookmarked
-                        ? 'Remove From Bookmarks'
-                        : 'Add To Bookmarks'
-                    }
-                  >
-                    <BookmarkIcon
                       className={
-                        data.meals[0].bookmarked === true
-                          ? 'home-icon h-10 w-10 text-gray-900'
-                          : 'home-icon h-10 w-10 text-gray-300'
+                        data.meals[0].bookmarked
+                          ? ' text-gray-900 absolute top-1 right-3 sm:top-1 sm:right-3 rounded-full focus:outline-none p-2'
+                          : ' text-gray-400 absolute top-1 right-3 sm:top-1 sm:right-3 rounded-full focus:outline-none p-2'
                       }
-                    />
-                  </button>
+                      onClick={
+                        data.meals[0].bookmarked === true
+                          ? () => deleteBookmark(data.meals && data.meals[0])
+                          : () => addBookmark(data.meals && data.meals[0])
+                      }
+                      title={
+                        data.meals[0].bookmarked
+                          ? 'Remove From Bookmarks'
+                          : 'Add To Bookmarks'
+                      }
+                      aria-label={
+                        data.meals[0].bookmarked
+                          ? 'Remove From Bookmarks'
+                          : 'Add To Bookmarks'
+                      }
+                    >
+                      <BookmarkIcon
+                        className={
+                          data.meals[0].bookmarked === true
+                            ? 'home-icon h-10 w-10 text-gray-900'
+                            : 'home-icon h-10 w-10 text-gray-300'
+                        }
+                      />
+                    </button>
                   </div>
                 </div>
                 <p className="single-meal-p w-11/12 m-auto md:mt-6 list-none pb-20 pt-10">
                   {data.meals[0].strInstructions}
                 </p>
-
-                
               </div>
-
-              {/*<Link to="/">
-                <button
-                  className="home-btn absolute top-1 left-1 sm:top-1 sm:left-1  hover:bg-white  py-2 px-4 sm:px-2 lg:px-4 rounded-sm"
-                  style={{ background: bg, color: syntax }}
-                >
-                  <HomeIcon className="home-icon h-5 w-5 hover:text-black" />
-                </button>
-                  </Link> */}
-             {/* <div className="absolute top-14 right-1 sm:right-1 xl:top-14 xl:right-2">
-                <ThemeToggle
-                  className="cursor-pointer focus:outline-none"
-                  id="random"
-                />
-                  </div>*/}
             </div>
           )}
     </div>
