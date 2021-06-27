@@ -11,8 +11,9 @@ import {
 } from '../../firebase/firebase.utils';
 import { signInWithTwitter } from '../../firebase/firebase.utils';
 import ThemeToggleLogin from '../../components/theme-toggle/ThemeToggleLogin';
+import { googleSignInStart } from '../../redux/user/user.actions';
 
-const Loginsignup = () => {
+const Loginsignup = ({googleSignInStart}) => {
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, icon, isDark } = theme.mode;
 
@@ -76,7 +77,7 @@ const Loginsignup = () => {
                 title="Connect with Github"
                 aria-label="Connect with Github"
                 className="button github btn-github"
-                onClick={signInWithGithub}
+                onClick={googleSignInStart}
               >
                 <span>Connect with Github</span>
               </button>
