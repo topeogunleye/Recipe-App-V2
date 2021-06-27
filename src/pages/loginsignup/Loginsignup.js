@@ -11,7 +11,6 @@ import {
 } from '../../firebase/firebase.utils';
 import { signInWithTwitter } from '../../firebase/firebase.utils';
 import ThemeToggleLogin from '../../components/theme-toggle/ThemeToggleLogin';
-import { googleSignInStart } from '../../redux/user/user.actions';
 
 const Loginsignup = () => {
   const theme = useContext(DarkModeContext);
