@@ -77,7 +77,7 @@ const Loginsignup = ({googleSignInStart}) => {
                 title="Connect with Github"
                 aria-label="Connect with Github"
                 className="button github btn-github"
-                onClick={googleSignInStart}
+                onClick={signInWithGithub}
               >
                 <span>Connect with Github</span>
               </button>
