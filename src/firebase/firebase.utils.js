@@ -15,6 +15,13 @@ const config = {
   measurementId: "G-MGM1995Z12"
 };
 
+export const createUserProfileDocument = async (userAuth, additonalData) => {
+  if(!userAuth) return;
+  
+  console.log(firestore.doc('users/128hhttfn'))
+
+}
+
 firebase.initializeApp(config)
 
 
