@@ -12,6 +12,8 @@ import { AuthContext } from '../../contexts/AuthContext';
 import logo from '../../logo.png';
 import ThemeToggle from '../theme-toggle/ThemeToggle';
 import DarkToggleSideBar from '../theme-toggle/DarkToggleSideBar';
+import { auth } from '../../firebase/firebase.utils';
+import profileImage from '../../profileImage.jpg'
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -34,6 +36,15 @@ let useClickOutside = (handler) => {
 };
 
 function Navbar({ refresh }) {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      console.log(user);
+    });
+  }, []);
+
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, icon, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
@@ -48,6 +59,26 @@ function Navbar({ refresh }) {
   });
 
   const [signedIn, setSignedIn] = useState(false);
+  const [photoURL, setPhotoUrl] = useState(null)
+  const [displayName, setDisplayName] = useState(null)
+  const [email, setEmail] = useState(null)
+  const [emailVerified, setEmailVerified] = useState(null)
+
+  const user = auth.currentUser;
+
+  if (user !== null) {
+    // The user object has basic properties such as display name, email, etc.
+    const displayName = user.displayName;
+    const email = user.email;
+    const photoURL = user.photoURL;
+    const emailVerified = user.emailVerified;
+  
+    // The user's ID, unique to the Firebase project. Do NOT use
+    // this value to authenticate with your backend server, if
+    // you have one. Use User.getToken() instead.
+    const uid = user.uid;
+  }
+
 
   return (
     <>
@@ -71,19 +102,8 @@ function Navbar({ refresh }) {
           ref={domNode}
         >
           <ul className="nav-menu-items">
-            {/* <li
-              className="navbar-toggle"
-              style={{ background: bg, color: syntax }}
-            >
-              <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </Link>
-            </li> */}
-            <div
-              className="w-full grid place-items-start "
-            >
+            <div className="w-full grid place-items-start ">
               <div className="mt-4 mb-8 flex justify-items-center items-center">
-              
                 <Link to="/">
                   <div
                     className="font-black text-2xl logo-signature mx-auto mt-4 logo"
@@ -93,18 +113,22 @@ function Navbar({ refresh }) {
                   </div>
                 </Link>
                 <div className="xl:hidden mt-6">
-                <DarkToggleSideBar/>
+                  <DarkToggleSideBar />
+                </div>
               </div>
-              </div>
-              <Link
-                to="/loginsignup/"
-                className="button-primary signin-button mx-auto mb-12 mt-4 "
-                id="nav-desktop-signin-button"
-                title="Sign Up / Log in"
-                aria-label="Sign Up / Log in"
-              >
-                Sign Up / Log In
-              </Link>
+              {currentUser ? (
+                <div className="mx-auto my-auto"><img src={user && user.photoURL} alt="" className="w-14 mx-auto my-5 rounded-full"/><div>{user && user.displayName}</div></div>
+              ) : (
+                <Link
+                  to="/loginsignup/"
+                  className="button-primary signin-button mx-auto mb-12 mt-4 "
+                  id="nav-desktop-signin-button"
+                  title="Sign Up / Log in"
+                  aria-label="Sign Up / Log in"
+                >
+                  Sign Up / Log In
+                </Link>
+              )}
             </div>
             {SidebarData.map((item, index) => {
               return (
@@ -119,9 +143,17 @@ function Navbar({ refresh }) {
           </ul>
 
           <div className="dev-info absolute bottom-0">
-            {/* <div className="w-60 text-center my-6">
-              {isAuthenticated ? 'Logged in' : 'Logged out'}
-          </div> */}
+            <div className="w-60 text-center my-6">
+              {currentUser ? (
+                <div className="option" onClick={() => auth.signOut()}>
+                  SIGN OUT
+                </div>
+              ) : (
+                <Link className="option" to="loginsignup/">
+                  SIGN IN
+                </Link>
+              )}
+            </div>
             <p className="text-xs ml-8 ">
               <FaIcons.FaCopyright className="inline-block" /> 2021 by Temitope
               Ogunleye
