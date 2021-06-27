@@ -58,12 +58,6 @@ function Navbar({ refresh }) {
     setSidebar(false);
   });
 
-  const [signedIn, setSignedIn] = useState(false);
-  const [photoURL, setPhotoUrl] = useState(null)
-  const [displayName, setDisplayName] = useState(null)
-  const [email, setEmail] = useState(null)
-  const [emailVerified, setEmailVerified] = useState(null)
-
   const user = auth.currentUser;
 
   return (
