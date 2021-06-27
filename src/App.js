@@ -11,24 +11,29 @@ import AuthContextProvider from './contexts/AuthContext';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import BookMarkView from './pages/bookmark/bookmarkView';
 import PrivacyNotice from './pages/privacynotice/PrivacyNotice'
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { useState, useEffect } from 'react';
 import TermsofUse from './pages/termsofuse/TermsofUse';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [unsubscribeFromAuth, setUnsubscribeFromAuth] = useState(null);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+   setUnsubscribeFromAuth( auth.onAuthStateChanged(async user => {
+      createUserProfileDocument(user)
       setCurrentUser(user);
-
       console.log(user);
-    });
+
+      return () => {
+        setUnsubscribeFromAuth();
+        console.log(user)
+      }
+    }));
   }, []);
 
-  useEffect(() => {
-    
-  })
+  
+
 
   return (
     <Router>
