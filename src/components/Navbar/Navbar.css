@@ -143,3 +143,8 @@ a.button-primary {
   text-decoration: none;
   padding: 8px;
 }
+
+.option {
+  padding: 10px 15px;
+  cursor: pointer;
+}
