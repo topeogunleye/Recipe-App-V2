@@ -97,7 +97,7 @@ function Navbar({ refresh }) {
                 </div>
               </div>
               {currentUser ? (
-                <div className="mx-auto my-auto"><img src={user && user.photoURL} alt="" className="w-14 mx-auto my-5 rounded-full"/><div>{user && user.displayName}</div></div>
+                <div className="mx-auto my-auto cursor-pointer"><img src={user && user.photoURL} alt="" className="w-14 mx-auto my-5 rounded-full"/><div>{user && user.displayName}</div></div>
               ) : (
                 <Link
                   to="/loginsignup/"
