@@ -16,6 +16,10 @@
   min-height: 100vh;
 }
 
+.alert{
+  background:#79c879;
+}
+
 .btn {
   background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
   border-radius: 100px;
