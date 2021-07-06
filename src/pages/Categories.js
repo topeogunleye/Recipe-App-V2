@@ -15,10 +15,6 @@ const Categories = ({ ref = 'scroller' }) => {
     { categories: [] }
   );
 
-  if (data) {
-    console.log(data);
-  }
-
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, icon, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
