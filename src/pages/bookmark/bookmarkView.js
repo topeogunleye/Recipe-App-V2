@@ -5,10 +5,15 @@ import { BookmarkContext } from '../../contexts/BookmarkContext';
 import Navbar from '../../components/Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
+import { auth } from '../../firebase/firebase.utils';
+import firebase from "firebase/app";
+import 'firebase/firestore'
+import 'firebase/auth'
 
 const BookMarkView = () => {
   const [storedBookmarks, setStoredBookmarks] = useState(null);
   const [initData, setInitData] = useState();
+
 
   const { bookmarks, setBookmarks } = useContext(BookmarkContext);
 
@@ -17,12 +22,28 @@ const BookMarkView = () => {
   }, [bookmarks]);
 
   // https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with-sets-3fep
-    const uniqueBookmarks =  storedBookmarks && Array.from(
-      new Set(storedBookmarks.map((a) => a.idMeal))
-    ).map((idMeal) => {
+  const uniqueBookmarks =
+    storedBookmarks &&
+    Array.from(new Set(storedBookmarks.map((a) => a.idMeal))).map((idMeal) => {
       return storedBookmarks.find((a) => a.idMeal === idMeal);
     });
- 
+
+  const [userID, setUserID] = useState(null);
+  const [userData, setUserData] = useState({name: 'Tope'})
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUserID(user.uid);
+    });
+  }, []);
+
+  if (userID) {
+    console.log(userID);
+  }
+
+  // setUserData({lastLoginTime: new Date()})
+  firebase.firestore().doc(`/Users/${userID}`).set(userData)
+
   const theme = useContext(DarkModeContext);
   const { syntax, ui, bg, opacity, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
@@ -46,11 +67,11 @@ const BookMarkView = () => {
         <h1 className="text-lg lg:-ml-2">My Bookmarks</h1>
         {!storedBookmarks ? (
           <div id="meals" className="py-2">
-          No bookmarks yet. Find a nice recipe and bookmark it :)
+            No bookmarks yet. Find a nice recipe and bookmark it :)
           </div>
         ) : (
           <div id="meals" className="meals">
-            {storedBookmarks && 
+            {storedBookmarks &&
               uniqueBookmarks.map((meal) => (
                 <MealItem meal={meal} key={uuidv4()} />
               ))}
