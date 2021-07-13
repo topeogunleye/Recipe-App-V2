@@ -17,7 +17,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-          aria-label="Toggle Dark Mode"
+          aria-label="Toggle Dark Mode "
           type="button"
           className="hidden xl:block w-10 h-10 p-3 bg-gray-200 rounded dark:bg-gray-800 focus:outline-none"
           onClick={() => setTheme(theme)}
