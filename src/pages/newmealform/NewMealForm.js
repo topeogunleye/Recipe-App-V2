@@ -119,53 +119,53 @@ const NewMealForm = () => {
     ingredients6
   ) {
       // Add new document to collection users
-      // db.collection('users')
-      //   .add({
-      //     title: title,
-      //     source: source,
-      //     image: image,
-      //     publisher: publisher,
-      //     cookingTime: cookingTime,
-      //     servings: servings,
-      //     ingredients1: ingredients1,
-      //     ingredients2: ingredients2,
-      //     ingredients3: ingredients3,
-      //     ingredients4: ingredients4,
-      //     ingredients5: ingredients5,
-      //     ingredients6: ingredients6,
-      //   })
-      //   .then((docRef) => {
-      //     console.log('Document written with ID: ', docRef.id);
-      //   })
-      //   .catch((error) => {
-      //     console.error('Error adding document: ', error);
-      //   });
+      db.collection('recipes')
+        .add({
+          title: title,
+          source: source,
+          image: image,
+          publisher: publisher,
+          cookingTime: cookingTime,
+          servings: servings,
+          ingredients1: ingredients1,
+          ingredients2: ingredients2,
+          ingredients3: ingredients3,
+          ingredients4: ingredients4,
+          ingredients5: ingredients5,
+          ingredients6: ingredients6,
+        })
+        .then((docRef) => {
+          console.log('Document written with ID: ', docRef.id);
+        })
+        .catch((error) => {
+          console.error('Error adding document: ', error);
+        });
 
   //   // Add a new document in collection "users"
     // .collection('recipes').add
     // .collection('users').doc(userID).set
     // .collection('users').doc(userID).collection('recipes').add
 
-    db.collection('users').doc(userID).collection('recipes').add({
-        title: title,
-        source: source,
-        image: image,
-        publisher: publisher,
-        cookingTime: cookingTime,
-        servings: servings,
-        ingredients1: ingredients1,
-        ingredients2: ingredients2,
-        ingredients3: ingredients3,
-        ingredients4: ingredients4,
-        ingredients5: ingredients5,
-        ingredients6: ingredients6,
-      },{ merge: true })
-      .then(() => {
-        console.log('Document successfully written!');
-      })
-      .catch((error) => {
-        console.error('Error writing document: ', error);
-      });
+    // db.collection('recipes').doc(userID).collection('recipes').add({
+    //     title: title,
+    //     source: source,
+    //     image: image,
+    //     publisher: publisher,
+    //     cookingTime: cookingTime,
+    //     servings: servings,
+    //     ingredients1: ingredients1,
+    //     ingredients2: ingredients2,
+    //     ingredients3: ingredients3,
+    //     ingredients4: ingredients4,
+    //     ingredients5: ingredients5,
+    //     ingredients6: ingredients6,
+    //   },{ merge: true })
+    //   .then(() => {
+    //     console.log('Document successfully written!');
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error writing document: ', error);
+    //   });
    }
 
 
