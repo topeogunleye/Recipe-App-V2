@@ -99,7 +99,7 @@ const NewMealForm = () => {
    // Hide alert after 3 seconds
    setTimeout(function () {
     setAlert(null)
-  }, 3000);
+  }, 5000);
 
   }
 
