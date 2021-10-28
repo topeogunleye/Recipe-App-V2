@@ -63,7 +63,7 @@ function Navbar({ refresh }) {
   return (
     <>
       <IconContext.Provider value={{ color: syntax }}>
-        <div className="navbar" style={{ background: ui, color: syntax }}>
+        <div className="navbar transition-all duration-1000 ease-out" style={{ background: ui, color: syntax }}>
           <Link to="#" className="menu-bars ml-4 md:ml-8 text-2xl sm:text-3xl">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
