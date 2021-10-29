@@ -123,7 +123,7 @@ const Home = () => {
   return (
     <Fragment>
       <div
-        className="bg-gray-500 text-white min-h-screen"
+        className="bg-gray-500 text-white min-h-screen transition-colors ease-in-out"
         style={{ background: ui, color: syntax }}
       >
         <Navbar refresh={refresh} />
