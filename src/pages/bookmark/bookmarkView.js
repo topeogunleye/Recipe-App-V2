@@ -50,7 +50,7 @@ const BookMarkView = () => {
 
   return (
     <div
-      className="bg-gray-500 text-white min-h-screen"
+      className="bg-gray-500 text-white min-h-screen transition-all duration-1000 ease-out"
       style={{ background: ui, color: syntax }}
     >
       <Navbar />

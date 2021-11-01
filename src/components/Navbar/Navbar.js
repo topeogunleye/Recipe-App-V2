@@ -82,7 +82,7 @@ function Navbar({ refresh }) {
           ref={domNode}
         >
           <ul className="nav-menu-items mb-10 xs:mb-24 sm:mb-32">
-            <div className="w-full grid place-items-start ">
+            <div className="w-full grid place-items-start transition-all duration-1000 ease-out">
               <div className="mt-4 mb-8 flex justify-items-center items-center">
                 <Link to="/">
                   <div
@@ -122,7 +122,7 @@ function Navbar({ refresh }) {
             })}
           </ul>
 
-          <div className="dev-info">
+          <div className="dev-info transition-all duration-1000 ease-out">
             <div className="w-60 text-center my-6">
               {currentUser ? (
                 <div className="option" onClick={() => auth.signOut()}>

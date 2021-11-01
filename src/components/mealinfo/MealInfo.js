@@ -144,8 +144,8 @@ const MealInfo = () => {
           ))
         : ingredients &&
           data && (
-            <div className="max-w-7xl mx-auto relative min-h-screen">
-              <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl lg:pl-44 xl:max-w-5xl mx-auto xl:pl-32  md:mb-8 mt-0">
+            <div className="max-w-7xl mx-auto relative min-h-screen transition-all duration-1000 ease-out">
+              <div className="max-w-4xl md:max-w-2xl lg:max-w-4xl lg:pl-44 xl:max-w-5xl mx-auto xl:pl-32  md:mb-8 mt-0 transition-all duration-1000 ease-out">
                 <div className="recipe-summary wrapper md:mt-8 flex flex-col-reverse w-full align-center justify-between md:flex-row">
                   <div className="recipe-details">
                     <div className="primary-info-text">
