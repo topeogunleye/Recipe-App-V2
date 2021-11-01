@@ -20,11 +20,11 @@ const Categories = ({ ref = 'scroller' }) => {
   const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
-    <div className="">
+    <div className="transition-all duration-1000 ease-out">
       <Navbar />
       <div
         style={{ background: ui, color: syntax }}
-        className="min-h-screen pb-1"
+        className="min-h-screen pb-1 transition-all duration-1000 ease-out"
       >
         <div className=" lg:max-w-3xl xl:max-w-4xl  mx-auto lg:pl-32 text-center mb-2">
           <h3 className="text-lg lg:-ml-2">Categories</h3>

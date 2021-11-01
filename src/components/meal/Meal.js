@@ -8,7 +8,7 @@ const MealItem = ({ meal }) => {
   const { syntax, ui, bg, opacity, isDark } = theme.mode;
   return (
     <div
-      className="meal hover:shadow-lg"
+      className="meal hover:shadow-lg transition-all duration-1000 ease-out"
       key={meal.idMeal}
       style={{ background: bg, color: syntax }}
     >

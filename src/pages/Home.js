@@ -123,11 +123,11 @@ const Home = () => {
   return (
     <Fragment>
       <div
-        className="bg-gray-500 text-white min-h-screen transition-colors ease-in-out"
+        className="bg-gray-500 text-white min-h-screen transition-all duration-1000 ease-out"
         style={{ background: ui, color: syntax }}
       >
         <Navbar refresh={refresh} />
-        <div className="m-auto lg:pl-32 max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8">
+        <div className="m-auto lg:pl-32 max-w-md sm:max-w-lg md:max-w-5xl flex flex-col items-center justify-center text-center mb-8 transition-all duration-1000 ease-out">
           <div
             className="absolute top-5 right-10
           "
@@ -153,7 +153,7 @@ const Home = () => {
               <SkeletonMeal key={n} theme={loaderTheme} />
             ))
           ) : (
-            <div id="meals" className="meals">
+            <div id="meals" className="meals transition-all duration-1000 ease-out">
               {currentPosts &&
                 currentPosts.map((meal) => (
                   <MealItem meal={meal} key={uuidv4()} />

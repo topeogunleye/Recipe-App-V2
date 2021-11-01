@@ -17,7 +17,7 @@ const Loginsignup = () => {
   const { syntax, ui, bg, icon, isDark } = theme.mode;
 
   return (
-    <div className="w-screen " style={{ background: ui, color: syntax }}>
+    <div className="w-screen transition-all duration-1000 ease-out" style={{ background: ui, color: syntax }}>
       <div
         className="absolute top-5 right-10
           "
@@ -29,7 +29,7 @@ const Loginsignup = () => {
         />
       </div>
       <div
-        className="new-login h-screen mx-auto container xl:w-screen"
+        className="new-login h-screen mx-auto container xl:w-screen transition-all duration-1000 ease-out"
         style={{ background: ui, color: syntax }}
       >
         <Link to="/">
@@ -39,7 +39,7 @@ const Loginsignup = () => {
         </Link>
 
         <div
-          className="login-splash grid place-items-center relative"
+          className="login-splash grid place-items-center relative transition-all duration-1000 ease-out"
           style={{ background: ui, color: syntax }}
         >
           <h1 className="new-login text-4xl font-light">

@@ -173,7 +173,7 @@ const NewMealForm = () => {
     <div>
       <Navbar />
       <div
-        className="meal-form text-sm sm:text-base"
+        className="meal-form text-sm sm:text-base transition-all duration-1000 ease-out"
         style={{ background: ui, color: syntax }}
       >
         <div className="overlay hidden" />
