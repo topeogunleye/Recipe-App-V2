@@ -1,6 +1,6 @@
 ## Recipa | MealDB App
 
-Meal Finder App for users to get Meal Recipes Recommendation, Recipe Instructions and Ingredients or Get random recipes.
+Recipe searching web app where anyone can search for recipes, bookmark recipes and also add their own recipes.
 
 ## Project Specifications
 
