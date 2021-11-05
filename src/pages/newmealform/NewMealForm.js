@@ -10,7 +10,7 @@ import { auth } from '../../firebase/firebase.utils';
 
 const NewMealForm = () => {
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const { syntax, ui, bg } = theme.mode;
 
   // Initialize firebase database
   var db = firebase.firestore();
@@ -30,17 +30,6 @@ const NewMealForm = () => {
       setImageUrl(user.photoURL);
     });
   }, []);
-
-  function writeUserData(userId, name, email, imageUrl) {
-    firebase
-      .firestore()
-      .ref('users/' + userId)
-      .set({
-        username: name,
-        email: email,
-        profile_picture: imageUrl,
-      });
-  }
 
   const [title, setTitle] = useState('');
   const [source, setSource] = useState('');
