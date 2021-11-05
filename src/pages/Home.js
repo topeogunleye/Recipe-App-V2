@@ -19,21 +19,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-
-// Fetch Data with Native JavaScript Fetch
-  // const [data, setData] = useState(null);
-
-  // let fetchData = React.useCallback(async () => {
-  //   const result = await fetch(`api/data/get`);
-  //   const body = await result.json();
-  //   setData(body);
-  //   console.log(data)
-  // },[data])
-
-  // useEffect(() => {
-  //   fetchData();
-  // },[fetchData]);
-
   useEffect(() => {
     const fetchMeal = async () => {
       setIsError(false);
