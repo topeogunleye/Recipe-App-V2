@@ -1,19 +1,13 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import firebase from 'firebase';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import { AuthContext } from '../../contexts/AuthContext';
 import logo from '../../logo.png';
-import ThemeToggle from '../theme-toggle/ThemeToggle';
 import DarkToggleSideBar from '../theme-toggle/DarkToggleSideBar';
 import { auth } from '../../firebase/firebase.utils';
-import profileImage from '../../profileImage.jpg'
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
@@ -46,9 +40,7 @@ function Navbar({ refresh }) {
   }, []);
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
-  const loaderTheme = isDark ? 'dark' : 'light';
-  const { isAuthenticated, toggleAuth } = useContext(AuthContext);
+  const { syntax, ui, bg } = theme.mode;
 
   const [sidebar, setSidebar] = useState(false);
 
