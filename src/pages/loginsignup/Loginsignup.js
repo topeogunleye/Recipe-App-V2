@@ -2,9 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import './loginsignup.css';
-import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import logo from '../../logo.png';
-import DarkToggle from '../../components/theme-toggle/DarkToggleSideBar';
 import {
   signInWithGithub,
   signInWithGoogle,
@@ -14,7 +12,7 @@ import ThemeToggleLogin from '../../components/theme-toggle/ThemeToggleLogin';
 
 const Loginsignup = () => {
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const { syntax, ui } = theme.mode;
 
   return (
     <div className="w-screen transition-all duration-1000 ease-out" style={{ background: ui, color: syntax }}>
