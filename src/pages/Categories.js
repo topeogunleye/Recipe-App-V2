@@ -8,15 +8,14 @@ import Navbar from '../components/Navbar/Navbar';
 
 const Categories = ({ ref = 'scroller' }) => {
   const [
-    { data, isLoading, isError },
-    doFetch,
+    { data, isLoading, isError }
   ] = useFetchMealDbApi(
     `https://www.themealdb.com/api/json/v1/1/categories.php`,
     { categories: [] }
   );
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const { syntax, ui, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
