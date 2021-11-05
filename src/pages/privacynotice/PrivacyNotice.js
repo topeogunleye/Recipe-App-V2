@@ -504,7 +504,7 @@ const PrivacyNotice = () => {
             Canada LP, Temitope EMEA S.p.A., Temitope UK Appliance Limited). A
             more complete list of Temitope Corporation's brands and subsidiaries
             can be found by browsing{' '}
-            <a href="https://Temitopecorp.com" target="_blank">
+            <a href="https://Temitopecorp.com" target="_blank" rel="noreferrer">
               https://Temitopecorp.com
             </a>
             . All of these brands and entities are referred to within this
@@ -949,7 +949,7 @@ const PrivacyNotice = () => {
           <p>
             If you have any questions about this Privacy Notice, please contact
             us via email at{' '}
-            <a href="mailto:privacy@Recipa.org" target="_blank">
+            <a href="mailto:privacy@Recipa.org" target="_blank" rel="noreferrer">
               privacy@Recipa.org
             </a>
             , or please write to us at the following address:
@@ -977,6 +977,7 @@ const PrivacyNotice = () => {
             <a
               href="//privacy.truste.com/privacy-seal/validation?rid=e1d3da8b-b66b-4037-a274-20292dcd11e4"
               target="_blank"
+              rel="noreferrer"
             >
               <img
                 src="https://privacy-policy.truste.com/privacy-seal/seal?rid=e1d3da8b-b66b-4037-a274-20292dcd11e4"
