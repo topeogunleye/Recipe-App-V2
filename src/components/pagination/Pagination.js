@@ -21,8 +21,7 @@ const Pagination = ({
   }
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
-  const loaderTheme = isDark ? 'dark' : 'light';
+  const { syntax, ui, bg } = theme.mode;
 
   return (
     <div className="px-4 py-3 flex items-center justify-between border-t border-gray-600 sm:px-6">
