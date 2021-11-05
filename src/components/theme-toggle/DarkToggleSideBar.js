@@ -14,7 +14,7 @@ const DarkToggleSideBar = () => {
 
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark, lic } = theme.mode;
+  const { syntax, isDark} = theme.mode;
 
   return (
     <button
