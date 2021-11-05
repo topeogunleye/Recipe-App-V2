@@ -1,18 +1,13 @@
-import { Link } from 'react-router-dom';
 import React, { Fragment, useState, useContext, useEffect } from 'react';
-import useFetchMealDbApi from '../components/useFetchMealDbApi';
 import Pagination from '../components/pagination/Pagination';
 import SkeletonMeal from '../skeletons/SkeletonMeal';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
 import Navbar from '../components/Navbar/Navbar';
-import * as FaIcons from 'react-icons/fa';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
 import SearchBox from '../components/search-box/search-box';
 import MealItem from '../components/meal/Meal';
-import logo from '../logo.png';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import DarkToggle from '../components/theme-toggle/DarkToggleSideBar';
 
 const Home = () => {
   const [data, setData] = useState({ meals: [] });
@@ -94,7 +89,7 @@ const Home = () => {
   const handlePrevbtn = () => {
     setCurrentPage(currentPage - 1);
 
-    if ((currentPage - 1) % postsPerPage == 0) {
+    if ((currentPage - 1) % postsPerPage === 0) {
       setmaxPageNumberLimit(maxPageNumberLimit - postsPerPage);
       setminPageNumberLimit(minPageNumberLimit - postsPerPage);
     }
@@ -117,7 +112,7 @@ const Home = () => {
   };
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, opacity, isDark } = theme.mode;
+  const { syntax, ui, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
