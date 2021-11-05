@@ -150,7 +150,7 @@ const PrivacyNotice = () => {
           </a>
           <p>
             You can contact us by sending us an email at{' '}
-            <a href="mailto:privacy@Recipa.orh" target="_blank">
+            <a href="mailto:privacy@Recipa.orh" target="_blank" rel="noreferrer">
               privacy@Recipa.org
             </a>
             , using the information provided in the{' '}
