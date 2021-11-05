@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from 'react';
+import { useState, createContext } from 'react';
 
 const BookmarkContext = createContext({});
 
