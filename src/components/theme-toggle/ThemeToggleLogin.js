@@ -13,7 +13,7 @@ const ThemeToggleLogin = () => {
 
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark, lic } = theme.mode;
+  const { bg, isDark } = theme.mode;
 
   return (
     <button
