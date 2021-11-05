@@ -2,12 +2,9 @@ import { useParams } from 'react-router';
 import useFetchMealDbApi from '../useFetchMealDbApi';
 import { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useHistory } from 'react-router-dom';
 import SkeletonMealInfo from '../../skeletons/SkeletonMealInfo';
-import { Link } from 'react-router-dom';
-import { HomeIcon, BookmarkIcon } from '@heroicons/react/solid';
+import { BookmarkIcon } from '@heroicons/react/solid';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import './mealinfo.css';
 import { BookmarkContext } from '../../contexts/BookmarkContext';
 import Navbar from '../Navbar/Navbar';
@@ -15,7 +12,6 @@ import Navbar from '../Navbar/Navbar';
 const MealInfo = () => {
   const { mealID } = useParams();
   const [ingredients, setIngredients] = useState('');
-  const history = useHistory();
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
@@ -29,7 +25,7 @@ const MealInfo = () => {
     data && data.meals[0].bookmarked
   );
 
-  let { bookmarks, setBookmarks } = useContext(BookmarkContext);
+  let { bookmarks } = useContext(BookmarkContext);
 
   const persistBookmarks = function () {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
@@ -127,7 +123,7 @@ const MealInfo = () => {
   }
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, lic, libg, isDark } = theme.mode;
+  const { syntax, ui, lic, libg, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
 
   return (

@@ -301,6 +301,7 @@ const TermsofUse = () => {
           <a
             href="https://help.Recipa.org/hc/en-us/articles/360051872151-What-is-your-return-policy-"
             target="_blank"
+            rel="noreferrer"
           >
             Returns &amp; Exchanges
           </a>
@@ -903,7 +904,7 @@ const TermsofUse = () => {
           between the terms of this Arbitration provision and the AAA Rules the
           provisions of this provision shall apply. The AAA Rules, forms and
           information are available online at{' '}
-          <a href="https://www.adr.org" target="_blank">
+          <a href="https://www.adr.org" target="_blank" rel="noreferrer">
             www.adr.org
           </a>
           , or can be obtained by calling the AAA at 1-800-778-7879. Unless
@@ -923,7 +924,7 @@ const TermsofUse = () => {
           In the event that you intend to commence an arbitration or a court
           proceeding, you must first notify Recipa by contacting us at the
           following address, with a copy also sent to{' '}
-          <a href="mailto:support@Recipa.org" target="_blank">
+          <a href="mailto:support@Recipa.org" target="_blank" rel="noreferrer">
             support@Recipa.org
           </a>
           : ATTN: Legal Counsel; Recipa, Inc.; 883 E. San Carlos Ave., San
@@ -969,7 +970,7 @@ const TermsofUse = () => {
         <p>
           If you have any questions about these Terms, or about Recipa in
           general, please contact{' '}
-          <a href="mailto:terms@Recipa.org" target="_blank">
+          <a href="mailto:terms@Recipa.org" target="_blank" rel="noreferrer">
             terms@Recipa.org
           </a>
           .
@@ -977,7 +978,7 @@ const TermsofUse = () => {
         <p>
           If you have any questions about your Recipa subscription, please
           contact us at{' '}
-          <a href="mailto:support@Recipa.org" target="_blank">
+          <a href="mailto:support@Recipa.org" target="_blank" rel="noreferrer">
             support@Recipa.org
           </a>
           . However, if you have questions about payment for your Recipa Pro
@@ -987,7 +988,7 @@ const TermsofUse = () => {
         <p>
           If you have any questions about a Recipa Smart Product, please contact
           us at{' '}
-          <a href="mailto:support@Recipa.org" target="_blank">
+          <a href="mailto:support@Recipa.org" target="_blank" rel="noreferrer">
             support@Recipa.org
           </a>
           .

@@ -6,7 +6,7 @@ import './search-box.css';
 
 const SearchBox = ({ query, handleChange, handleSubmit }) => {
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, opacity, isDark } = theme.mode;
+  const { syntax, bg } = theme.mode;
 
   return (
     <div className="flex flex-col items-center sm:flex-row">

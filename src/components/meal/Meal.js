@@ -5,7 +5,7 @@ import './Meal.css';
 
 const MealItem = ({ meal }) => {
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, opacity, isDark } = theme.mode;
+  const { syntax, bg, } = theme.mode;
   return (
     <div
       className="meal hover:shadow-lg transition-all duration-1000 ease-out"

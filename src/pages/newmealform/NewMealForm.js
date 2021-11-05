@@ -10,7 +10,7 @@ import { auth } from '../../firebase/firebase.utils';
 
 const NewMealForm = () => {
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const { syntax, ui, bg } = theme.mode;
 
   // Initialize firebase database
   var db = firebase.firestore();
@@ -30,17 +30,6 @@ const NewMealForm = () => {
       setImageUrl(user.photoURL);
     });
   }, []);
-
-  function writeUserData(userId, name, email, imageUrl) {
-    firebase
-      .firestore()
-      .ref('users/' + userId)
-      .set({
-        username: name,
-        email: email,
-        profile_picture: imageUrl,
-      });
-  }
 
   const [title, setTitle] = useState('');
   const [source, setSource] = useState('');
@@ -140,32 +129,6 @@ const NewMealForm = () => {
         .catch((error) => {
           console.error('Error adding document: ', error);
         });
-
-  //   // Add a new document in collection "users"
-    // .collection('recipes').add
-    // .collection('users').doc(userID).set
-    // .collection('users').doc(userID).collection('recipes').add
-
-    // db.collection('recipes').doc(userID).collection('recipes').add({
-    //     title: title,
-    //     source: source,
-    //     image: image,
-    //     publisher: publisher,
-    //     cookingTime: cookingTime,
-    //     servings: servings,
-    //     ingredients1: ingredients1,
-    //     ingredients2: ingredients2,
-    //     ingredients3: ingredients3,
-    //     ingredients4: ingredients4,
-    //     ingredients5: ingredients5,
-    //     ingredients6: ingredients6,
-    //   },{ merge: true })
-    //   .then(() => {
-    //     console.log('Document successfully written!');
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error writing document: ', error);
-    //   });
    }
 
 

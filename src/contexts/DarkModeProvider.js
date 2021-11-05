@@ -1,4 +1,4 @@
-import React, { Context, createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
 
 export const LIGHT_THEME = {
   syntax: '#374151',
