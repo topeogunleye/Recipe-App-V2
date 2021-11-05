@@ -12,10 +12,8 @@ import 'firebase/auth'
 
 const BookMarkView = () => {
   const [storedBookmarks, setStoredBookmarks] = useState(null);
-  const [initData, setInitData] = useState();
 
-
-  const { bookmarks, setBookmarks } = useContext(BookmarkContext);
+  const { bookmarks } = useContext(BookmarkContext);
 
   useEffect(() => {
     setStoredBookmarks(JSON.parse(localStorage.getItem('bookmarks')));
@@ -29,7 +27,7 @@ const BookMarkView = () => {
     });
 
   const [userID, setUserID] = useState(null);
-  const [userData, setUserData] = useState({name: 'Tope'})
+  const [userData ] = useState({name: 'Tope'})
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -45,8 +43,7 @@ const BookMarkView = () => {
   firebase.firestore().doc(`/Users/${userID}`).set(userData)
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, opacity, isDark } = theme.mode;
-  const loaderTheme = isDark ? 'dark' : 'light';
+  const { syntax, ui } = theme.mode;
 
   return (
     <div
