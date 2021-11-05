@@ -1,18 +1,14 @@
 import { useParams } from 'react-router';
 import { useState, useEffect, useContext } from 'react';
 import useFetchMealDbApi from '../components/useFetchMealDbApi';
-import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
 import Pagination from '../components/pagination/Pagination';
 import Navbar from '../components/Navbar/Navbar';
-import * as HiIcons from 'react-icons/hi';
 import MealItem from '../components/meal/Meal';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
 import SkeletonMeal from '../skeletons/SkeletonMeal';
 
 const CategoryInfo = () => {
-  const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
 
@@ -62,7 +58,7 @@ const CategoryInfo = () => {
   };
 
   const theme = useContext(DarkModeContext);
-  const { syntax, ui, bg, icon, isDark } = theme.mode;
+  const { syntax, ui, isDark } = theme.mode;
   const loaderTheme = isDark ? 'dark' : 'light';
 
   return (
