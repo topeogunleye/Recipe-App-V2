@@ -1,6 +1,7 @@
 import { useState, useEffect, useReducer } from 'react';
 import axios from 'axios';
 
+// https://www.robinwieruch.de/react-hooks-fetch-data
 const dataFetchReducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_INIT':

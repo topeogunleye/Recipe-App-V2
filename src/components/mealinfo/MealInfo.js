@@ -32,8 +32,6 @@ const MealInfo = () => {
   };
 
   const addBookmark = function (recipe) {
-    // console.log(dataFromApi)
-
     // Add bookmark
     bookmarks.push(recipe);
 
@@ -44,7 +42,6 @@ const MealInfo = () => {
     }
 
     persistBookmarks();
-    console.log(bookmarked);
   };
 
   // Check if the loaded recipe has the same id
@@ -86,8 +83,6 @@ const MealInfo = () => {
   }, [data]);
 
   const deleteBookmark = function (recipe) {
-    console.log(storedBookmarksCheck);
-
     // Delete bookmark
     const index = bookmarks.findIndex((el) => el.idMeal === recipe.idMeal);
     bookmarks.splice(index, 1);
@@ -99,7 +94,6 @@ const MealInfo = () => {
     }
 
     persistBookmarks();
-    console.log(bookmarked);
   };
 
   function createIngredientsArray(meal) {

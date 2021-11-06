@@ -35,7 +35,6 @@ function Navbar({ refresh }) {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      console.log(user);
     });
   }, []);
 
