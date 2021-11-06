@@ -2,11 +2,10 @@ import { AiOutlineCloudUpload } from 'react-icons/ai';
 import './NewMealForm.css';
 import Navbar from '../../components/Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import { auth } from '../../firebase/firebase.utils';
 
 const NewMealForm = () => {
   const theme = useContext(DarkModeContext);
@@ -15,21 +14,7 @@ const NewMealForm = () => {
   // Initialize firebase database
   var db = firebase.firestore();
 
-  const [currentUser, setCurrentUser] = useState(null);
-  const [userID, setUserID] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [name, setName] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
-
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
-      setUserID(user.uid);
-      setEmail(user.email);
-      setName(user.displayName);
-      setImageUrl(user.photoURL);
-    });
-  }, []);
+ 
 
   const [title, setTitle] = useState('');
   const [source, setSource] = useState('');
@@ -37,12 +22,12 @@ const NewMealForm = () => {
   const [publisher, setPublisher] = useState('');
   const [cookingTime, setCookingTime] = useState('');
   const [servings, setServings] = useState('');
-  const [ingredients1, setIngredients1] = useState('');
-  const [ingredients2, setIngredients2] = useState('');
-  const [ingredients3, setIngredients3] = useState('');
+  const [ingredients1, setIngredients1] = useState('0.5,kg,Rice');
+  const [ingredients2, setIngredients2] = useState('1,,Avocado');
+  const [ingredients3, setIngredients3] = useState(',,salt');
   const [ingredients4, setIngredients4] = useState('');
   const [ingredients5, setIngredients5] = useState('');
-  const [ingredients6, setIngredients6] = useState(null);
+  const [ingredients6, setIngredients6] = useState('');
 
   const [alert, setAlert] = useState('');
 
@@ -152,7 +137,6 @@ const NewMealForm = () => {
               <h3 className="upload__heading">Recipe data</h3>
               <label>Title</label>
               <input
-                defaultValue="TEST23"
                 required
                 name="title"
                 type="text"
@@ -162,7 +146,6 @@ const NewMealForm = () => {
               />
               <label>URL</label>
               <input
-                defaultValue="TEST23"
                 required
                 name="sourceUrl"
                 type="text"
@@ -172,7 +155,6 @@ const NewMealForm = () => {
               />
               <label>Image URL</label>
               <input
-                defaultValue="TEST23"
                 required
                 name="image"
                 type="text"
@@ -182,7 +164,6 @@ const NewMealForm = () => {
               />
               <label>Publisher</label>
               <input
-                defaultValue="TEST23"
                 required
                 name="publisher"
                 type="text"
@@ -192,7 +173,6 @@ const NewMealForm = () => {
               />
               <label>Prep time</label>
               <input
-                defaultValue={23}
                 required
                 name="cookingTime"
                 type="number"
@@ -202,7 +182,6 @@ const NewMealForm = () => {
               />
               <label>Servings</label>
               <input
-                defaultValue={23}
                 required
                 name="servings"
                 type="number"
@@ -215,7 +194,6 @@ const NewMealForm = () => {
               <h3 className="upload__heading">Ingredients</h3>
               <label>Ingredient 1</label>
               <input
-                defaultValue="0.5,kg,Rice"
                 type="text"
                 required
                 name="ingredient-1"
@@ -226,7 +204,6 @@ const NewMealForm = () => {
               />
               <label>Ingredient 2</label>
               <input
-                defaultValue="1,,Avocado"
                 type="text"
                 name="ingredient-2"
                 placeholder="Format: 'Quantity,Unit,Description'"
@@ -236,7 +213,6 @@ const NewMealForm = () => {
               />
               <label>Ingredient 3</label>
               <input
-                defaultValue=",,salt"
                 type="text"
                 name="ingredient-3"
                 placeholder="Format: 'Quantity,Unit,Description'"
