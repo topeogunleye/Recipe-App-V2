@@ -7,6 +7,7 @@ import MealItem from '../components/meal/Meal';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
 import SkeletonMeal from '../skeletons/SkeletonMeal';
+import { v4 as uuidv4 } from 'uuid';
 
 const CategoryInfo = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -81,7 +82,7 @@ const CategoryInfo = () => {
               {data &&
                 data.meals
                   .slice(indexOfFirstPost, indexOfLastPost)
-                  .map((meal) => <MealItem meal={meal} />)}
+                  .map((meal) => <MealItem meal={meal} key={uuidv4()}/>)}
             </div>
           )}
         </div>
