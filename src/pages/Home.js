@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext, useEffect } from 'react';
+import { Fragment, useState, useContext } from 'react';
 import Pagination from '../components/pagination/Pagination';
 import SkeletonMeal from '../skeletons/SkeletonMeal';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
@@ -7,36 +7,15 @@ import { DarkModeContext } from '../contexts/DarkModeProvider';
 import SearchBox from '../components/search-box/search-box';
 import MealItem from '../components/meal/Meal';
 import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios';
+import useFetchMealDbApi from '../components/useFetchMealDbApi';
 
 const Home = () => {
-  const [data, setData] = useState({ meals: [] });
   const [query, setQuery] = useState('');
 
-  const [url, setUrl] = useState(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+  const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi(
+    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+    { meals: [] },
   );
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const fetchMeal = async () => {
-      setIsError(false);
-      setIsLoading(true);
-
-      try {
-        const result = await axios(url);
-
-        setData(result.data);
-      } catch (error) {
-        setIsError(true);
-      }
-
-      setIsLoading(false);
-    };
-
-    fetchMeal();
-  }, [url]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
@@ -51,10 +30,11 @@ const Home = () => {
     data.meals && data.meals.slice(indexOfFirstPost, indexOfLastPost);
 
   // Refresh page
-  // Empty will Fetch the default results on the Homepage
-  const empty = '';
-  const refresh = () => {
-    setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${empty}`);
+  // Query will Fetch the default results on the Homepage
+  const refresh = () => {    
+    doFetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+    );
 
     setCurrentPage(1);
   };
@@ -89,7 +69,11 @@ const Home = () => {
   };
 
   const handleSubmit = (event) => {
-    setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+    doFetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+    );
+
+    event.preventDefault();
 
     setCurrentPage(1);
 

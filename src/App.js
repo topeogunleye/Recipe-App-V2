@@ -23,11 +23,11 @@ function App() {
    setUnsubscribeFromAuth( auth.onAuthStateChanged(async user => {
       createUserProfileDocument(user)
       setCurrentUser(user);
-      console.log(user);
+      
 
       return () => {
         setUnsubscribeFromAuth();
-        console.log(user)
+        
       }
     }));
   }, []);

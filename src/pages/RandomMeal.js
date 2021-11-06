@@ -28,7 +28,6 @@ const RandomMeal = () => {
   };
 
   const addBookmark = function (recipe) {
-    // console.log(dataFromApi)
 
     // Add bookmark
     bookmarks.push(recipe);
@@ -40,12 +39,11 @@ const RandomMeal = () => {
     }
 
     persistBookmarks();
-    console.log(bookmarked);
+
   };
 
   // Check if the loaded recipe has the same id
   // with a recipe in the bookmarked state
-
   const [storedBookmarksCheck, setStoredBookmarksCheck] = useState([]);
 
   useEffect(() => {
@@ -82,7 +80,6 @@ const RandomMeal = () => {
   }, [data]);
 
   const deleteBookmark = function (recipe) {
-    console.log(storedBookmarksCheck);
 
     // Delete bookmark
     const index = bookmarks.findIndex((el) => el.idMeal === recipe.idMeal);
@@ -95,7 +92,6 @@ const RandomMeal = () => {
     }
 
     persistBookmarks();
-    console.log(bookmarked);
   };
 
   function createIngredientsArray(meal) {
@@ -113,10 +109,7 @@ const RandomMeal = () => {
     setIngredients(ingredientsData);
   }
 
-  console.log(ingredients);
-
   if (data && ingredients === '') {
-    console.log(data);
     const meal = data.meals[0];
     createIngredientsArray(meal);
   }

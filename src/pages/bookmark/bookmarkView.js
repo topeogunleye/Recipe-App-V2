@@ -35,9 +35,6 @@ const BookMarkView = () => {
     });
   }, []);
 
-  if (userID) {
-    console.log(userID);
-  }
 
   // setUserData({lastLoginTime: new Date()})
   firebase.firestore().doc(`/Users/${userID}`).set(userData)
