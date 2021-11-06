@@ -5,10 +5,6 @@ import { BookmarkContext } from '../../contexts/BookmarkContext';
 import Navbar from '../../components/Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
-import { auth } from '../../firebase/firebase.utils';
-import firebase from "firebase/app";
-import 'firebase/firestore'
-import 'firebase/auth'
 
 const BookMarkView = () => {
   const [storedBookmarks, setStoredBookmarks] = useState(null);
@@ -25,19 +21,6 @@ const BookMarkView = () => {
     Array.from(new Set(storedBookmarks.map((a) => a.idMeal))).map((idMeal) => {
       return storedBookmarks.find((a) => a.idMeal === idMeal);
     });
-
-  const [userID, setUserID] = useState(null);
-  const [userData ] = useState({name: 'Tope'})
-
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      setUserID(user.uid);
-    });
-  }, []);
-
-
-  // setUserData({lastLoginTime: new Date()})
-  firebase.firestore().doc(`/Users/${userID}`).set(userData)
 
   const theme = useContext(DarkModeContext);
   const { syntax, ui } = theme.mode;
