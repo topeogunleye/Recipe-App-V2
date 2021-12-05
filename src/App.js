@@ -1,5 +1,5 @@
 import Home from './pages/Home';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MealInfo from './components/mealinfo/MealInfo';
 import Categories from './pages/Categories';
 import CategoryInfo from './pages/CategoryInfo';
@@ -10,7 +10,7 @@ import { DarkModeProvider } from './contexts/DarkModeProvider';
 import AuthContextProvider from './contexts/AuthContext';
 import { BookmarkProvider } from './contexts/BookmarkContext';
 import BookMarkView from './pages/bookmark/bookmarkView';
-import PrivacyNotice from './pages/privacynotice/PrivacyNotice'
+import PrivacyNotice from './pages/privacynotice/PrivacyNotice';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { useState, useEffect } from 'react';
 import TermsofUse from './pages/termsofuse/TermsofUse';
@@ -20,20 +20,17 @@ function App() {
   const [unsubscribeFromAuth, setUnsubscribeFromAuth] = useState(null);
 
   useEffect(() => {
-   setUnsubscribeFromAuth( auth.onAuthStateChanged(async user => {
-      createUserProfileDocument(user)
-      setCurrentUser(user);
-      
+    setUnsubscribeFromAuth(
+      auth.onAuthStateChanged(async (user) => {
+        createUserProfileDocument(user);
+        setCurrentUser(user);
 
-      return () => {
-        setUnsubscribeFromAuth();
-        
-      }
-    }));
+        return () => {
+          setUnsubscribeFromAuth();
+        };
+      })
+    );
   }, []);
-
-  
-
 
   return (
     <Router>
@@ -42,38 +39,30 @@ function App() {
           <AuthContextProvider>
             <BookmarkProvider>
               <div className="content">
-                <Switch>
-                  <Route exact path="/">
-                    <Home />
-                  </Route>
-                  <Route exact path="/MealInfo/:mealID">
-                    <MealInfo />
-                  </Route>
-                  <Route exact path="/Categories">
-                    <Categories />
-                  </Route>
-                  <Route exact path="/CategoryInfo/:strCategory">
-                    <CategoryInfo />
-                  </Route>
-                  <Route exact path="/RandomMeal/">
-                    <RandomMeal />
-                  </Route>
-                  <Route exact path="/NewMealForm/">
-                    <NewMealForm />
-                  </Route>
-                  <Route exact path="/loginsignup/">
-                    <Loginsignup />
-                  </Route>
-                  <Route exact path="/privacy/">
-                    <PrivacyNotice />
-                  </Route>
-                  <Route exact path="/terms/">
-                    <TermsofUse/>
-                  </Route>
-                  <Route exact path="/Bookmarks/">
-                    <BookMarkView />
-                  </Route>
-                </Switch>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+
+                  <Route path="/MealInfo/:mealID" element={<MealInfo />} />
+
+                  <Route path="/Categories" element={<Categories />} />
+
+                  <Route
+                    path="/CategoryInfo/:strCategory"
+                    element={<CategoryInfo />}
+                  />
+
+                  <Route path="/RandomMeal/" element={<RandomMeal />} />
+
+                  <Route path="/NewMealForm/" element={<NewMealForm />} />
+
+                  <Route path="/loginsignup/" element={<Loginsignup />} />
+
+                  <Route path="/privacy/" element={<PrivacyNotice />} />
+
+                  <Route path="/terms/" element={<TermsofUse />} />
+
+                  <Route path="/Bookmarks/" element={<BookMarkView />} />
+                </Routes>
               </div>
             </BookmarkProvider>
           </AuthContextProvider>
