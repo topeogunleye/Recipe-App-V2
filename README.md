@@ -1,8 +1,3 @@
-- Use React and Tailwind CSS
-- Use React Hooks, useEffect and useReducer for fetch api
-- Use of [TheMealDB database](https://www.themealdb.com/api.php)
-- Clicking on Search button fetches & displays results from [TheMealDB database](https://www.themealdb.com/api.php)
-
 # Recipa | MealDB App
 
 Recipe searching web app where anyone can search for recipes, bookmark recipes and also add their own recipes.
