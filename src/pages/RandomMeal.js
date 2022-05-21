@@ -13,7 +13,7 @@ const RandomMeal = () => {
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
   useEffect(
-    () => doFetch(`https://www.themealdb.com/api/json/v2/9973533/random.php`),
+    () => doFetch(`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/random.php`),
     [doFetch, data]
   );
 

@@ -10,7 +10,7 @@ const Categories = ({ ref = 'scroller' }) => {
   const [
     { data, isLoading, isError }
   ] = useFetchMealDbApi(
-    `https://www.themealdb.com/api/json/v2/9973533/categories.php`,
+    `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/categories.php`,
     { categories: [] }
   );
 

@@ -11,7 +11,7 @@ const BookmarkedProvider = (props) => {
   const [{ data }, doFetch] = useFetchMealDbApi()
 useEffect(
   () =>
-    doFetch(`https://www.themealdb.com/api/json/v2/9973533/lookup.php?i=${storedBookmarked.idMeal}`),
+    doFetch(`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/lookup.php?i=${storedBookmarked.idMeal}`),
   [doFetch, data, storedBookmarked]
 );
 
