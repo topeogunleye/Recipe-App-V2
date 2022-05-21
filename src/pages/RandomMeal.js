@@ -13,7 +13,7 @@ const RandomMeal = () => {
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
   useEffect(
-    () => doFetch(`https://www.themealdb.com/api/json/v1/1/random.php`),
+    () => doFetch(`https://www.themealdb.com/api/json/v2/9973533/random.php`),
     [doFetch, data]
   );
 
@@ -57,18 +57,10 @@ const RandomMeal = () => {
   }, [bookmarks]);
 
   const checkBookmark = () => {
-    if (
-      storedBookmarksCheck &&
-      storedBookmarksCheck.some(
-        (bookmark) => bookmark.idMeal === data.meals[0].idMeal
-      )
-    ) {
-      data.meals[0].bookmarked = true;
-      // setBookmarked(true)
-    } else {
-      data.meals[0].bookmarked = false;
-      // setBookmarked(false)
-    }
+    data.meals[0].bookmarked = storedBookmarksCheck &&
+        storedBookmarksCheck.some(
+            (bookmark) => bookmark.idMeal === data.meals[0].idMeal
+        );
   };
 
   useEffect(() => {

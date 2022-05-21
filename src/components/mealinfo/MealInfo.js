@@ -17,7 +17,7 @@ const MealInfo = () => {
 
   useEffect(
     () =>
-      doFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`),
+      doFetch(`https://www.themealdb.com/api/json/v2/9973533/lookup.php?i=${mealID}`),
     [doFetch, mealID, data]
   );
 
@@ -33,15 +33,20 @@ const MealInfo = () => {
 
   const addBookmark = function (recipe) {
     // Add bookmark
-    bookmarks.push(recipe);
 
-    // Mark current recipe as bookmark
-    if (data && recipe.idMeal === data.meals[0].idMeal) {
-      data.meals[0].bookmarked = true;
-      setBookmarked(true);
+    // check if recipe is bookmarked before adding to bookmarks
+    if (!bookmarks.includes(recipe)) {
+      bookmarks.push(recipe);
+
+      // Mark current recipe as bookmark
+      if (data && recipe.idMeal === data.meals[0].idMeal) {
+        data.meals[0].bookmarked = true;
+        setBookmarked(true);
+      }
+
+      persistBookmarks();
     }
 
-    persistBookmarks();
   };
 
   // Check if the loaded recipe has the same id
@@ -60,18 +65,10 @@ const MealInfo = () => {
   }, [bookmarks]);
 
   const checkBookmark = () => {
-    if (
-      storedBookmarksCheck &&
-      storedBookmarksCheck.some(
-        (bookmark) => bookmark.idMeal === data.meals[0].idMeal
-      )
-    ) {
-      data.meals[0].bookmarked = true;
-      // setBookmarked(true)
-    } else {
-      data.meals[0].bookmarked = false;
-      // setBookmarked(false)
-    }
+    data.meals[0].bookmarked = storedBookmarksCheck &&
+        storedBookmarksCheck.some(
+            (bookmark) => bookmark.idMeal === data.meals[0].idMeal
+        );
   };
 
   useEffect(() => {

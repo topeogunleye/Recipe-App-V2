@@ -13,7 +13,7 @@ const Home = () => {
   const [query, setQuery] = useState('');
 
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+    `https://www.themealdb.com/api/json/v2/9973533/search.php?s=${query}`,
     { meals: [] },
   );
 
@@ -31,9 +31,10 @@ const Home = () => {
 
   // Refresh page
   // Query will Fetch the default results on the Homepage
-  const refresh = () => {    
+  const refresh = () => {
     doFetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+      `https://www.themealdb.com/api/json/v2/9973533
+/search.php?s=${query}`,
     );
 
     setCurrentPage(1);
@@ -70,7 +71,7 @@ const Home = () => {
 
   const handleSubmit = (event) => {
     doFetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+      `https://www.themealdb.com/api/json/v2/9973533/search.php?s=${query}`,
     );
 
     event.preventDefault();
@@ -101,7 +102,7 @@ const Home = () => {
               id="random"
             />
           </div>
-         
+
 
           <SearchBox
             query={query}
