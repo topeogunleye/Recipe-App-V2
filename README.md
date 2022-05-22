@@ -28,7 +28,7 @@ If you installed git you can clone the code to your machine, or download a ZIP o
 [Download the ZIP from this location](https://github.com/topeogunleye/Recipe-App-V2/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
 
 ```bash
-git clone https://github.com/topeogunleye/Recipe-App-V2.git
+git clone https://github.com/topeogunleye/Recipe-App-V2.git. 
 ```
 
 - Once the files are on your machine, open the _Recipe-App-V2_ folder in [Visual Studio Code](https://code.visualstudio.com/), and follow the steps in Installation & Set Up
