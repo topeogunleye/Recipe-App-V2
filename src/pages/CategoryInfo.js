@@ -23,7 +23,7 @@ const CategoryInfo = () => {
   useEffect(
     () =>
       doFetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${strCategory}`
+        `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?c=${strCategory}`
       ),
     [doFetch, strCategory, data]
   );

@@ -13,14 +13,15 @@ const BookMarkView = () => {
 
   useEffect(() => {
     setStoredBookmarks(JSON.parse(localStorage.getItem('bookmarks')));
+    console.log(bookmarks)
   }, [bookmarks]);
 
   // https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with-sets-3fep
-  const uniqueBookmarks =
-    storedBookmarks &&
-    Array.from(new Set(storedBookmarks.map((a) => a.idMeal))).map((idMeal) => {
-      return storedBookmarks.find((a) => a.idMeal === idMeal);
-    });
+  // const uniqueBookmarks =
+  //   storedBookmarks &&
+  //   Array.from(new Set(storedBookmarks.map((a) => a.idMeal))).map((idMeal) => {
+  //     return storedBookmarks.find((a) => a.idMeal === idMeal);
+  //   });
 
   const theme = useContext(DarkModeContext);
   const { syntax, ui } = theme.mode;
@@ -49,7 +50,7 @@ const BookMarkView = () => {
         ) : (
           <div id="meals" className="meals">
             {storedBookmarks &&
-              uniqueBookmarks.map((meal) => (
+              storedBookmarks.map((meal) => (
                 <MealItem meal={meal} key={uuidv4()} />
               ))}
           </div>
