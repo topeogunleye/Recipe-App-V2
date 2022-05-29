@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import { useContext } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import './search-box.css';
 
-const SearchBox = ({ query, handleChange, handleSubmit }) => {
+const SearchBox = ({ query, handleChange, handleSubmit, handleRandom }) => {
   const theme = useContext(DarkModeContext);
   const { syntax, bg } = theme.mode;
 
@@ -29,17 +28,16 @@ const SearchBox = ({ query, handleChange, handleSubmit }) => {
             <FaIcons.FaSearch className="h-5 w-5" />
           </button>
         </form>
-        <Link to={'/RandomMeal/'}>
           <button
             className="random-btn border rounded-full cursor-pointer ml-2.5"
             id="random"
             style={{ background: bg, color: syntax, borderColor: bg }}
             title="Get Random Recipes"
             aria-label="Get Random Recipes"
+            onClick={handleRandom}
           >
             <FaIcons.FaRandom className="h-5 w-5" />
           </button>
-        </Link>
       </div>
     </div>
   );
