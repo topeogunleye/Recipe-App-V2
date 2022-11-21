@@ -1,92 +1,184 @@
-# Recipa | MealDB App
+<a name="readme-top"></a>
 
-> Recipe searching web app where anyone can search for recipes, bookmark recipes and also add their own recipes.
+<div align="center">
 
-![demo](./src/videos/recipa-demo.gif)
+  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <br/>
 
-## Built With
-- [TheMealDB database API](https://www.themealdb.com/api.php)
-- jsx
-- Tailwindcss
-- Javascript
-- React
-- Hooks
+  <h3><b>Microverse README Template</b></h3>
 
-## Live Demo
+</div>
 
-[Live Demo Link](https://recipa.netlify.app/)
+# 📗 Table of Contents
 
-## Getting Started
-To get a local copy up and running, follow the steps in Setup below.
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
+- [📝 License](#license)
+
+# 📖 [Recipa] <a name="about-project"></a>
+
+> Describe your project in 1 or 2 sentences.
+
+**[Recipa]** is a recipe searching web app where anyone can search for recipes, bookmark recipes and also add their own recipes.
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://firebase.google.com/docs?gclid=Cj0KCQiA4OybBhCzARIsAIcfn9mbOMOriVhv6hNQKHvYJxaetT9hE-jzWjgOW69KgcHCdewCq_Nzv18aAm_1EALw_wcB&gclsrc=aw.ds">Firebase</a></li>
+  </ul>
+</details>
+
+### Key Features <a name="key-features"></a>
+
+- **[Skelenton Loaders]**
+- **[React Routers]**
+- **[Dark Mode]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://recipa.netlify.app)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
-Basic knowledge of HTML, CSS, and JavaScript.
+
+In order to run this project you need:
+
+
+- Create React App
+
+   ```sh
+   npm i create-react-app
+   ```
+   
 
 ### Setup
-If you installed git you can clone the code to your machine, or download a ZIP of all the files directly.
 
-[Download the ZIP from this location](https://github.com/topeogunleye/Recipe-App-V2/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
+Clone this repository to your desired folder:
 
-```bash
-git clone https://github.com/topeogunleye/Recipe-App-V2.git. 
+Example commands:
+
+```sh
+  cd my-folder
+  git clone git@github.com:topeogunleye/Recipe-App-V2.git
 ```
 
-- Once the files are on your machine, open the _Recipe-App-V2_ folder in [Visual Studio Code](https://code.visualstudio.com/), and follow the steps in Installation & Set Up
+### Install
 
-## 🛠 Installation & Set Up
+Install this project with:
 
-1. Install Node Modules
+- Install Node Modules
 
    ```sh
    npm install
    ```
 
-2. Start the development server
+### Usage
+
+To run the project, execute the following command:
+
+- Start the development server
 
    ```sh
    npm start
    ```
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Building and Running for Production
+## 👥 Authors <a name="authors"></a>
 
-1. Generate a full static production build
-
-   ```sh
-   npm run build
-   ```
-4. ## 🚀 Testing Application
-
-1. Test the items Counter and Comments Counter function
-
-   ```sh
-   npm test
-### Install
-
-The following tools help make easier to work with sample code.
-
-- [git](https://git-scm.com/downloads): A tool for managing source code
-- [Visual Studio Code](https://code.visualstudio.com/): A source code editor
-- [NVM](https://github.com/nvm-sh/nvm)
-
-## **Temitope Ogunleye**
+👤 **Temitope Ogunleye**
 
 - GitHub: [@topeogunleye](https://github.com/topeogunleye)
 - Twitter: [@tope_leye](https://twitter.com/tope_leye)
 - LinkedIn: [ogunleye](https://linkedin.com/in/ogunleye)
 
-## 🤝 Contributing
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **[new_feature_1]**
+- [ ] **[new_feature_2]**
+- [ ] **[new_feature_3]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/topeogunleye/Recipe-App-V2/issues).
 
-## Show your support
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Give a ⭐️ if you like this project!
+## ⭐️ Show your support <a name="support"></a>
+
+> Write a message to encourage readers to support your project
+
+If you like this project...
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> Give credit to everyone who inspired your codebase.
+
+I would like to thank the creators of [yummly](https://www.yummly.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ❓ FAQ <a name="faq"></a>
+
+> Add at least 2 questions new developers would ask when they decide to use your project.
+
+- **[Question_1]**
+
+  - [Answer_1]
+
+- **[Question_2]**
+
+  - [Answer_2]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## 📝 License
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./MIT.md) licensed.
+
+_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
