@@ -33,8 +33,6 @@
 
 # 📖 [Recipa] <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
 **[Recipa]** is a recipe searching web app where anyone can search for recipes, bookmark recipes and also add their own recipes.
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -146,23 +144,17 @@ Feel free to check the [issues page](https://github.com/topeogunleye/Recipe-App-
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project, please star it here on GitHub
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank the creators of [yummly](https://www.yummly.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
 
 - **[Question_1]**
 
