@@ -126,7 +126,7 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[new_feature_1]**
+- [ ] **[Sidebar for Adding Comments]**
 - [ ] **[new_feature_2]**
 - [ ] **[new_feature_3]**
 
