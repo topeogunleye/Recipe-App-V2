@@ -16,8 +16,8 @@ import { useState, useEffect } from 'react';
 import TermsofUse from './pages/termsofuse/TermsofUse';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [unsubscribeFromAuth, setUnsubscribeFromAuth] = useState(null);
+  const [, setCurrentUser] = useState(null);
+  const [, setUnsubscribeFromAuth] = useState(null);
 
   useEffect(() => {
     setUnsubscribeFromAuth(
