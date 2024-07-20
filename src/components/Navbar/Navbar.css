@@ -32,7 +32,6 @@
   border: none;
   border-radius: 3em;
   box-sizing: border-box;
-  /* position: relative; */
   font-size: 14px;
   text-decoration: none;
   text-transform: capitalize;
@@ -40,19 +39,15 @@
   text-align: center;
   cursor: pointer;
   transition: all 200ms ease;
-}
-a.button-primary {
-  line-height: 40px;
-}
-
-.button-primary {
   background-color: #3a9691;
   color: #fff;
 }
 
+a.button-primary {
+  line-height: 40px;
+}
+
 .menu-bars {
-  /* margin-left: 2rem;
-  font-size: 2rem; */
   background: none;
 }
 
@@ -60,7 +55,6 @@ a.button-primary {
   background-color: #060b26;
   width: 250px;
   height: 100vh;
-  display: flex;
   justify-content: center;
   position: fixed;
   top: 0;
@@ -129,7 +123,6 @@ a.button-primary {
 
 .social-media {
   width: 100%;
-  /* background: #f2f2f2; */
   display: flex;
   justify-content: center;
   font-size: 24px;
