@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
+import PropTypes from "prop-types";
 import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
@@ -178,5 +179,9 @@ function Navbar({ refresh }) {
     </>
   );
 }
+
+Navbar.propTypes = {
+  refresh: PropTypes.func.isRequired,
+};
 
 export default Navbar;
