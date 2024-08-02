@@ -1,20 +1,22 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
-import PropTypes from "prop-types";
+import React, {
+  useState, useEffect, useContext, useRef,
+} from 'react';
+import PropTypes from 'prop-types';
 import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './SidebarData';
-import './Navbar.css';
 import { IconContext } from 'react-icons';
+import SidebarData from './SidebarData';
+import './Navbar.css';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import logo from '../../logo.png';
 import DarkToggleSideBar from '../theme-toggle/DarkToggleSideBar';
 import { auth } from '../../firebase/firebase.utils';
 
-let useClickOutside = (handler) => {
-  let domNode = useRef();
+const useClickOutside = (handler) => {
+  const domNode = useRef();
 
   useEffect(() => {
-    let maybeHandler = (event) => {
+    const maybeHandler = (event) => {
       if (!domNode.current.contains(event.target)) {
         handler();
       }
@@ -46,7 +48,7 @@ function Navbar({ refresh }) {
 
   const showSidebar = () => setSidebar(!sidebar);
 
-  let domNode = useClickOutside(() => {
+  const domNode = useClickOutside(() => {
     setSidebar(false);
   });
 
@@ -55,17 +57,28 @@ function Navbar({ refresh }) {
   return (
     <>
       <IconContext.Provider value={{ color: syntax }}>
-        <div className="navbar transition-all duration-1000 ease-out" style={{ background: ui, color: syntax }}>
-          <Link to="#" className="menu-bars ml-4 md:ml-8 text-2xl sm:text-3xl">
+        <div
+          className="navbar transition-all duration-1000 ease-out"
+          style={{ background: ui, color: syntax }}
+        >
+          <button
+            type="button"
+            className="menu-bars ml-4 md:ml-8 text-2xl sm:text-3xl"
+            onClick={() => {}}
+            aria-label="Menu"
+          >
             <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
+          </button>
           <Link to="/">
-            <div
+            <button
+              type="button"
               className="font-black text-2xl logo-signature mx-auto logo main"
               onClick={refresh}
+              onKeyDown={refresh}
+              tabIndex={0}
             >
               <img src={logo} alt="logo" className="w-20 lg:ml-28" />
-            </div>
+            </button>
           </Link>
         </div>
         <nav
@@ -77,19 +90,29 @@ function Navbar({ refresh }) {
             <div className="w-full grid place-items-start transition-all duration-1000 ease-out">
               <div className="mt-4 mb-8 flex justify-items-center items-center">
                 <Link to="/">
-                  <div
+                  <button
+                    type="button"
                     className="font-black text-2xl logo-signature mx-auto mt-4 logo"
                     onClick={refresh}
+                    onKeyDown={refresh}
+                    tabIndex={0}
                   >
                     <img src={logo} alt="logo" className="w-20" />
-                  </div>
+                  </button>
                 </Link>
                 <div className="xl:hidden mt-6">
                   <DarkToggleSideBar />
                 </div>
               </div>
               {currentUser ? (
-                <div className="mx-auto my-auto cursor-pointer"><img src={user && user.photoURL} alt="" className="w-14 mx-auto my-5 rounded-full"/><div>{user && user.displayName}</div></div>
+                <div className="mx-auto my-auto cursor-pointer">
+                  <img
+                    src={user && user.photoURL}
+                    alt=""
+                    className="w-14 mx-auto my-5 rounded-full"
+                  />
+                  <div>{user && user.displayName}</div>
+                </div>
               ) : (
                 <Link
                   to="/loginsignup/"
@@ -102,24 +125,26 @@ function Navbar({ refresh }) {
                 </Link>
               )}
             </div>
-            {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span className="item-title">{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
+            {SidebarData.map((item) => (
+              <li key={item.id} className={item.cName}>
+                <Link to={item.path}>
+                  {item.icon}
+                  <span className="item-title">{item.title}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
 
           <div className="dev-info transition-all duration-1000 ease-out">
             <div className="w-60 text-center my-6">
               {currentUser ? (
-                <div className="option" onClick={() => auth.signOut()}>
+                <button
+                  type="button"
+                  className="option"
+                  onClick={() => auth.signOut()}
+                >
                   SIGN OUT
-                </div>
+                </button>
               ) : (
                 <Link className="option" to="loginsignup/">
                   SIGN IN
@@ -127,48 +152,48 @@ function Navbar({ refresh }) {
               )}
             </div>
             <p className="text-xs ml-8 ">
-              <FaIcons.FaCopyright className="inline-block" /> 2021 by Temitope
-              Ogunleye
+              <FaIcons.FaCopyright className="inline-block" />
+              2021 by Temitope Ogunleye
             </p>
 
             <div className="social-media">
               <a
-                href="https://github.com/topeogunleye
-                    "
+                href="https://github.com/topeogunleye"
                 className="fa fa-github"
                 target="blank"
+                aria-label="GitHub"
               >
                 <FaIcons.FaGithub />
               </a>
               <a
-                href="https://web.facebook.com/topeogunleye21
-                "
+                href="https://web.facebook.com/topeogunleye21"
                 className="fa fa-facebook"
                 target="blank"
+                aria-label="Facebook"
               >
                 <FaIcons.FaFacebook />
               </a>
               <a
-                href="https://twitter.com/topeogunleye21
-                "
+                href="https://twitter.com/topeogunleye21"
                 className="fa fa-twitter"
                 target="blank"
+                aria-label="Twitter"
               >
                 <FaIcons.FaTwitter />
               </a>
               <a
-                href="https://www.linkedin.com/in/ogunleye
-                "
+                href="https://www.linkedin.com/in/ogunleye"
                 className="fa fa-linkedin"
                 target="blank"
+                aria-label="LinkedIn"
               >
                 <FaIcons.FaLinkedin />
               </a>
               <a
-                href="https://www.instagram.com/topeogunleye1/
-                "
+                href="https://www.instagram.com/topeogunleye1/"
                 className="fa fa-instagram"
                 target="blank"
+                aria-label="Instagram"
               >
                 <FaIcons.FaInstagram />
               </a>
