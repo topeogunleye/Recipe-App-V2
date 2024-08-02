@@ -1,16 +1,9 @@
-import firebase from '../config/firebase-config'
+import firebase from '../config/firebase-config';
 
-const socialMediaAuth = (provider) => {
-  return firebase
+const socialMediaAuth = (provider) => firebase
   .auth()
   .signInWithPopup(provider)
-  .then((res) => {
-    return res.user;
-  })
-  .catch((er) => {
-    return er;
-  })
-}
-  
+  .then((res) => res.user)
+  .catch((er) => er);
 
-export default socialMediaAuth
+export default socialMediaAuth;
