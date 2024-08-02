@@ -14,9 +14,10 @@ const config = {
   measurementId: 'G-MGM1995Z12',
 };
 
-export const createUserProfileDocument = async (userAuth, additonalData) => {
-  if (!userAuth) return;
-
+export const createUserProfileDocument = async (userAuth) => {
+  if (!userAuth) {
+    // Handle the case when userAuth is falsy
+  }
 };
 
 firebase.initializeApp(config);
