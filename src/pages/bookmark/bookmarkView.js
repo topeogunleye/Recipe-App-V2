@@ -1,6 +1,6 @@
-import MealItem from '../../components/meal/Meal';
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect, useContext } from 'react';
+import MealItem from '../../components/meal/Meal';
 import { BookmarkContext } from '../../contexts/BookmarkContext';
 import Navbar from '../../components/Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
@@ -13,7 +13,6 @@ const BookMarkView = () => {
 
   useEffect(() => {
     setStoredBookmarks(JSON.parse(localStorage.getItem('bookmarks')));
-    console.log(bookmarks)
   }, [bookmarks]);
 
   // https://dev.to/marinamosti/removing-duplicates-in-an-array-of-objects-in-js-with-sets-3fep
@@ -49,8 +48,8 @@ const BookMarkView = () => {
           </div>
         ) : (
           <div id="meals" className="meals">
-            {storedBookmarks &&
-              storedBookmarks.map((meal) => (
+            {storedBookmarks
+              && storedBookmarks.map((meal) => (
                 <MealItem meal={meal} key={uuidv4()} />
               ))}
           </div>
