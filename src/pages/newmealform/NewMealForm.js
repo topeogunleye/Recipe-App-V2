@@ -1,10 +1,10 @@
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import './NewMealForm.css';
+import React, { useContext, useState } from 'react';
+import firebase from 'firebase/app';
 import Navbar from '../../components/Navbar/Navbar';
 import { DarkModeContext } from '../../contexts/DarkModeProvider';
-import React, { useContext, useState } from 'react';
 import ThemeToggle from '../../components/theme-toggle/ThemeToggle';
-import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 const NewMealForm = () => {
@@ -12,9 +12,7 @@ const NewMealForm = () => {
   const { syntax, ui, bg } = theme.mode;
 
   // Initialize firebase database
-  var db = firebase.firestore();
-
- 
+  const db = firebase.firestore();
 
   const [title, setTitle] = useState('');
   const [source, setSource] = useState('');
@@ -31,50 +29,31 @@ const NewMealForm = () => {
 
   const [alert, setAlert] = useState('');
 
+  const alertMessage = () => {
+    // Hide alert after 3 seconds
+    setTimeout(() => {
+      setAlert(null);
+    }, 5000);
+  };
 
   function submitForm(e) {
     e.preventDefault();
 
-    // Save message
-    saveMessage(
-      title,
-      source,
-      image,
-      publisher,
-      cookingTime,
-      servings,
-      ingredients1,
-      ingredients2,
-      ingredients3,
-      ingredients4,
-      ingredients5,
-      ingredients6
-    );
+    setTitle('');
+    setSource('');
+    setImage('');
+    setPublisher('');
+    setCookingTime('');
+    setServings('');
+    setIngredients1('');
+    setIngredients2('');
+    setIngredients3('');
+    setIngredients4('');
+    setIngredients5('');
+    setIngredients6('');
 
-    setTitle('')
-    setSource('')
-    setImage('')
-    setPublisher('')
-    setCookingTime('')
-    setServings('')
-    setIngredients1('')
-    setIngredients2('')
-    setIngredients3('')
-    setIngredients4('')
-    setIngredients5('')
-    setIngredients6('')
-
-    setAlert('set')
-    alertMessage()
-  }
-
-  const alertMessage = () =>{
-
-   // Hide alert after 3 seconds
-   setTimeout(function () {
-    setAlert(null)
-  }, 5000);
-
+    setAlert('set');
+    alertMessage();
   }
 
   // Save message to firebase
@@ -90,32 +69,41 @@ const NewMealForm = () => {
     ingredients3,
     ingredients4,
     ingredients5,
-    ingredients6
+    ingredients6,
   ) {
-      // Add new document to collection users
-      db.collection('recipes')
-        .add({
-          title: title,
-          source: source,
-          image: image,
-          publisher: publisher,
-          cookingTime: cookingTime,
-          servings: servings,
-          ingredients1: ingredients1,
-          ingredients2: ingredients2,
-          ingredients3: ingredients3,
-          ingredients4: ingredients4,
-          ingredients5: ingredients5,
-          ingredients6: ingredients6,
-        })
-        .then((docRef) => {
-          console.log('Document written with ID: ', docRef.id);
-        })
-        .catch((error) => {
-          console.error('Error adding document: ', error);
-        });
-   }
+    // Add new document to collection users
+    db.collection('recipes')
+      .add({
+        title,
+        source,
+        image,
+        publisher,
+        cookingTime,
+        servings,
+        ingredients1,
+        ingredients2,
+        ingredients3,
+        ingredients4,
+        ingredients5,
+        ingredients6,
+      });
+  }
 
+  // Save message
+  saveMessage(
+    title,
+    source,
+    image,
+    publisher,
+    cookingTime,
+    servings,
+    ingredients1,
+    ingredients2,
+    ingredients3,
+    ingredients4,
+    ingredients5,
+    ingredients6,
+  );
 
   return (
     <div>
@@ -129,128 +117,172 @@ const NewMealForm = () => {
           className="add-recipe-window "
           style={{ background: ui, color: syntax }}
         >
-          <button className="btn--close-modal"></button>
-          { alert ?
-          <div className="alert text-center p-2 text-white mb-2 block">Thank you!!. Adding of new meals takes three to five business days</div> : <div className="alert alert text-center p-2 text-white mb-2 hidden"></div>}
+          <button
+            className="btn--close-modal"
+            type="button"
+            aria-label="Close Modal"
+          />
+          {alert ? (
+            <div className="alert text-center p-2 text-white mb-2 block">
+              Thank you!!. Adding of new meals takes three to five business days
+            </div>
+          ) : (
+            <div className="alert alert text-center p-2 text-white mb-2 hidden" />
+          )}
           <form className="upload" onSubmit={submitForm}>
             <div className="upload__column">
               <h3 className="upload__heading">Recipe data</h3>
-              <label>Title</label>
-              <input
-                required
-                name="title"
-                type="text"
-                style={{ background: bg, color: syntax }}
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-              <label>URL</label>
-              <input
-                required
-                name="sourceUrl"
-                type="text"
-                style={{ background: bg, color: syntax }}
-                value={source}
-                onChange={(e) => setSource(e.target.value)}
-              />
-              <label>Image URL</label>
-              <input
-                required
-                name="image"
-                type="text"
-                style={{ background: bg, color: syntax }}
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-              />
-              <label>Publisher</label>
-              <input
-                required
-                name="publisher"
-                type="text"
-                style={{ background: bg, color: syntax }}
-                value={publisher}
-                onChange={(e) => setPublisher(e.target.value)}
-              />
-              <label>Prep time</label>
-              <input
-                required
-                name="cookingTime"
-                type="number"
-                style={{ background: bg, color: syntax }}
-                value={cookingTime}
-                onChange={(e) => setCookingTime(e.target.value)}
-              />
-              <label>Servings</label>
-              <input
-                required
-                name="servings"
-                type="number"
-                style={{ background: bg, color: syntax }}
-                value={servings}
-                onChange={(e) => setServings(e.target.value)}
-              />
+              <label htmlFor="title">
+                Title
+                <input
+                  required
+                  name="title"
+                  type="text"
+                  style={{ background: bg, color: syntax }}
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="sourceUrl">
+                URL
+                <input
+                  required
+                  name="sourceUrl"
+                  type="text"
+                  style={{ background: bg, color: syntax }}
+                  value={source}
+                  onChange={(e) => setSource(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="image">
+                Image URL
+                <input
+                  required
+                  name="image"
+                  type="text"
+                  style={{ background: bg, color: syntax }}
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="publisher">
+                Publisher
+                <input
+                  required
+                  name="publisher"
+                  type="text"
+                  style={{ background: bg, color: syntax }}
+                  value={publisher}
+                  onChange={(e) => setPublisher(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="cookingTime">
+                Prep time
+                <input
+                  required
+                  name="cookingTime"
+                  type="number"
+                  style={{ background: bg, color: syntax }}
+                  value={cookingTime}
+                  onChange={(e) => setCookingTime(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="servings">
+                Servings
+                <input
+                  required
+                  name="servings"
+                  type="number"
+                  style={{ background: bg, color: syntax }}
+                  value={servings}
+                  onChange={(e) => setServings(e.target.value)}
+                />
+              </label>
             </div>
             <div className="upload__column">
               <h3 className="upload__heading">Ingredients</h3>
-              <label>Ingredient 1</label>
-              <input
-                type="text"
-                required
-                name="ingredient-1"
-                placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: bg, color: syntax }}
-                value={ingredients1}
-                onChange={(e) => setIngredients1(e.target.value)}
-              />
-              <label>Ingredient 2</label>
-              <input
-                type="text"
-                name="ingredient-2"
-                placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: bg, color: syntax }}
-                value={ingredients2}
-                onChange={(e) => setIngredients2(e.target.value)}
-              />
-              <label>Ingredient 3</label>
-              <input
-                type="text"
-                name="ingredient-3"
-                placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: bg, color: syntax }}
-                value={ingredients3}
-                onChange={(e) => setIngredients3(e.target.value)}
-              />
-              <label>Ingredient 4</label>
-              <input
-                type="text"
-                name="ingredient-4"
-                placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: bg, color: syntax }}
-                value={ingredients4}
-                onChange={(e) => setIngredients4(e.target.value)}
-              />
-              <label>Ingredient 5</label>
-              <input
-                type="text"
-                name="ingredient-5"
-                placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: bg, color: syntax }}
-                value={ingredients5}
-                onChange={(e) => setIngredients5(e.target.value)}
-              />
-              <label>Ingredient 6</label>
-              <input
-                type="text"
-                name="ingredient-6"
-                placeholder="Format: 'Quantity,Unit,Description'"
-                style={{ background: bg, color: syntax }}
-                value={ingredients6}
-                onChange={(e) => setIngredients6(e.target.value)}
-              />
+              <label htmlFor="ingredient-1">
+                Ingredient 1
+                <input
+                  type="text"
+                  required
+                  name="ingredient-1"
+                  placeholder="Format: 'Quantity,Unit,Description'"
+                  style={{ background: bg, color: syntax }}
+                  value={ingredients1}
+                  onChange={(e) => setIngredients1(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="ingredient-2">
+                Ingredient 2
+                <input
+                  type="text"
+                  name="ingredient-2"
+                  placeholder="Format: 'Quantity,Unit,Description'"
+                  style={{ background: bg, color: syntax }}
+                  value={ingredients2}
+                  onChange={(e) => setIngredients2(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="ingredient-3">
+                Ingredient 3
+                <input
+                  type="text"
+                  name="ingredient-3"
+                  placeholder="Format: 'Quantity,Unit,Description'"
+                  style={{ background: bg, color: syntax }}
+                  value={ingredients3}
+                  onChange={(e) => setIngredients3(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="ingredient-4">
+                Ingredient 4
+                <input
+                  type="text"
+                  name="ingredient-4"
+                  placeholder="Format: 'Quantity,Unit,Description'"
+                  style={{ background: bg, color: syntax }}
+                  value={ingredients4}
+                  onChange={(e) => setIngredients4(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="ingredient-5">
+                Ingredient 5
+                <input
+                  type="text"
+                  name="ingredient-5"
+                  placeholder="Format: 'Quantity,Unit,Description'"
+                  style={{ background: bg, color: syntax }}
+                  value={ingredients5}
+                  onChange={(e) => setIngredients5(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="ingredient-6">
+                Ingredient 6
+                <input
+                  type="text"
+                  name="ingredient-6"
+                  placeholder="Format: 'Quantity,Unit,Description'"
+                  style={{ background: bg, color: syntax }}
+                  value={ingredients6}
+                  onChange={(e) => setIngredients6(e.target.value)}
+                />
+              </label>
             </div>
             <button
               className="btn upload__btn"
               style={{ background: bg, color: syntax }}
+              type="button"
             >
               <AiOutlineCloudUpload />
               <span>Upload</span>
