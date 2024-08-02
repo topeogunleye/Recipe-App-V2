@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
-import useFetchMealDbApi from '../components/useFetchMealDbApi';
 import { useContext } from 'react';
+import useFetchMealDbApi from '../components/useFetchMealDbApi';
 import SkeletonCategory from '../skeletons/SkeletonCategory';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
 import Navbar from '../components/Navbar/Navbar';
 
-const Categories = ({ ref = 'scroller' }) => {
+const Categories = () => {
   const [
-    { data, isLoading, isError }
+    { data, isLoading, isError },
   ] = useFetchMealDbApi(
     `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/categories.php`,
-    { categories: [] }
+    { categories: [] },
   );
 
   const theme = useContext(DarkModeContext);
@@ -30,12 +30,11 @@ const Categories = ({ ref = 'scroller' }) => {
           <div className="category">
             {isError && <div>Something went wrong ...</div>}
             {isLoading
-              ? // <div>Loading ...</div>
-                [1, 2, 3, 4, 5].map((n) => (
-                  <SkeletonCategory key={n} theme={loaderTheme} />
-                ))
-              : data.categories &&
-                data.categories.map((category) => (
+              ? [1, 2, 3, 4, 5].map((n) => (
+                <SkeletonCategory key={n} theme={loaderTheme} />
+              ))
+              : data.categories
+                && data.categories.map((category) => (
                   <span className="mx-auto" key={category.idCategory}>
                     <Link
                       to={`/CategoryInfo/${category.strCategory}`}
