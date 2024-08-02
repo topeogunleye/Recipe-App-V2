@@ -1,5 +1,6 @@
 import { useParams } from 'react-router';
 import { useState, useEffect, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import useFetchMealDbApi from '../components/useFetchMealDbApi';
 import Pagination from '../components/pagination/Pagination';
 import Navbar from '../components/Navbar/Navbar';
@@ -7,7 +8,6 @@ import MealItem from '../components/meal/Meal';
 import ThemeToggle from '../components/theme-toggle/ThemeToggle';
 import { DarkModeContext } from '../contexts/DarkModeProvider';
 import SkeletonMeal from '../skeletons/SkeletonMeal';
-import { v4 as uuidv4 } from 'uuid';
 
 const CategoryInfo = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,11 +21,10 @@ const CategoryInfo = () => {
   const [{ data, isLoading, isError }, doFetch] = useFetchMealDbApi();
 
   useEffect(
-    () =>
-      doFetch(
-        `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?c=${strCategory}`
-      ),
-    [doFetch, strCategory, data]
+    () => doFetch(
+      `https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?c=${strCategory}`,
+    ),
+    [doFetch, strCategory, data],
   );
 
   // Get current posts
@@ -79,10 +78,10 @@ const CategoryInfo = () => {
             ))
           ) : (
             <div id="meals" className="meals">
-              {data &&
-                data.meals
+              {data
+                && data.meals
                   .slice(indexOfFirstPost, indexOfLastPost)
-                  .map((meal) => <MealItem meal={meal} key={uuidv4()}/>)}
+                  .map((meal) => <MealItem meal={meal} key={uuidv4()} />)}
             </div>
           )}
         </div>
