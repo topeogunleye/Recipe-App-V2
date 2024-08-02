@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { createContext, useReducer, useEffect } from 'react';
 
 export const LIGHT_THEME = {
@@ -21,15 +22,14 @@ export const DARK_THEME = {
   color: '#fafafa',
   isDark: true,
   libg: '#ffffff',
-  li: '#111827'
+  li: '#111827',
 };
 
 const darkModeReducer = (_, isDark) => (isDark ? DARK_THEME : LIGHT_THEME);
 
 const DarkModeContext = createContext({});
 
-const initialState =
-  JSON.parse(localStorage.getItem('DarkMode')) || LIGHT_THEME;
+const initialState = JSON.parse(localStorage.getItem('DarkMode')) || LIGHT_THEME;
 
 const DarkModeProvider = ({ children }) => {
   const [mode, dispatch] = useReducer(darkModeReducer, initialState);
@@ -48,6 +48,14 @@ const DarkModeProvider = ({ children }) => {
       {children}
     </DarkModeContext.Provider>
   );
+};
+
+DarkModeProvider.propTypes = {
+  children: PropTypes.node,
+};
+
+DarkModeProvider.defaultProps = {
+  children: null,
 };
 
 export { DarkModeProvider, DarkModeContext };
