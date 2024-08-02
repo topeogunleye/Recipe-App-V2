@@ -1,0 +1,198 @@
+# Query: '
+# Including: TermsofUse.js
+# Excluding: .ts
+# ContextLines: 1
+
+90 results - 1 file
+
+src/pages/termsofuse/TermsofUse.js:
+     1: import './termsofuse.css';
+     2  
+
+    14          ingredients and cooking, through the Recipa website (the
+    15:         {' '}
+    16          <strong>Site</strong>
+
+    18          our iOS or Android apps, bookmark tool or the Yum button) (an
+    19:         {' '}
+    20          <strong>Application</strong>
+
+    23          ) (collectively the
+    24:         {' '}
+    25          <strong>Services</strong>
+
+    30          other materials appearing on the Services (collectively referred to as
+    31:         {' '}
+    32          <strong>Content</strong>
+
+    41          For our Recipa paid subscribers, please be sure to review the
+    42:         {' '}
+    43          <a href="#recipa-subscriptions">Recipa subscription terms</a>
+    44          .
+    45:         {' '}
+    46        </p>
+
+    92          ) and become a
+    93:         {' '}
+    94          <strong>Registered User</strong>
+    95:         {' '}
+    96          by either registering through our
+
+   136          Any personal information that you provide to Recipa is subject to our
+   137:         {' '}
+   138          <a href="/privacy">Privacy Notice</a>
+
+   205          <li>
+   206:           Always follow your Smart Product's instructions, Use &amp; Care
+   207            Guide, Quick Reference Guide, or other documentation.
+
+   210            When cooking, always follow recommended guidelines (such as from
+   211:           your country's food authorities), and be sure to check your food for
+   212            doneness before eating. Consuming undercooked foods (such as meats,
+
+   225            accidents, damage, fire, injury, or other hazards.
+   226:           {' '}
+   227          </li>
+
+   245          and you agree to not attempt to access or use the Smart Product or
+   246:         interfere with anyone else's access to or use of the Smart Product.
+   247        </p>
+
+   263          price or availability of an item has been confirmed. "MSRP" prices are
+   264:         the Manufacturer's Suggested Retail Price, which may differ from the
+   265          other online or retailer prices in your area. In some cases,
+
+   321          Please visit our policy for
+   322:         {' '}
+   323          <a
+
+   369          from your network device manufacturers. This includes ensuring that
+   370:         your router's firmware and software are fully up-to-date with all
+   371          available updates and patches.
+
+   471              A Recipa subscription is an
+   472:             {' '}
+   473              <strong>automatically renewing</strong>
+   474:             {' '}
+   475              premium paid subscription
+
+   494            <p>
+   495:             To avoid being billed for the next month's fee, you must cancel
+   496              your subscription at least 24 hours before the end of your current
+
+   499              subscription, visit your
+   500:             {' '}
+   501              <a href="/settings" target="_blank">
+
+   503              </a>
+   504:             {' '}
+   505              page.
+
+   509              the last day of your monthly subscription period. To access
+   510:             Recipa's subscriber-only features after you cancel your
+   511              subscription, you will need to purchase a new subscription, at
+
+   534            <p>
+   535:             We may offer various types of subscriptions or access to Recipa's
+   536              subscriber-only features. Some subscription plans may have
+
+   539              your Recipa subscription on the
+   540:             {' '}
+   541              <a href="/settings" target="_blank">
+
+   543              </a>
+   544:             {' '}
+   545              page of your Recipa Account.
+   546:             {' '}
+   547            </p>
+
+   564              payment information to these entities, in accordance with our
+   565:             {' '}
+   566              <a href="/privacy" target="_blank">
+
+   574              To cancel your Recipa subscription, go to your
+   575:             {' '}
+   576              <a href="/settings" target="_blank">
+
+   578              </a>
+   579:             {' '}
+   580              on the Recipa Site or Application and follow the instructions for
+
+   603              violates these Terms, is improper, involves fraud or misuse, or
+   604:             harms or interferes with our or any other person's interests.
+   605            </p>
+
+   618              Subscription fees for Recipa are
+   619:             {' '}
+   620              <u>nonrefundable</u>
+
+   662          Recipa respects copyright law and expects its users to do the same. It
+   663:         is Recipa's policy to terminate in appropriate circumstances, account
+   664          holders who repeatedly infringe or are believed to be repeatedly
+   665:         infringing the rights of copyright holders. Please see Recipa's
+   666:         {' '}
+   667          <a href="/copyright" target="_blank">
+
+   669          </a>
+   670:         {' '}
+   671          for further information.
+
+   689          otherwise transmit Content that: (i) is an advertisement or
+   690:         endorsement of a product or service without Recipa's express written
+   691          permission; (ii) is useless or of no value to others; (iii) is
+
+   703          the Services: (i) attempt to access, tamper with, or use non-public
+   704:         areas of the Services, Recipa's computer systems, or the technical
+   705:         delivery systems of Recipa's providers; (ii) gather and use
+   706:         information, such as other users' names, real names, email addresses,
+   707          or other information available through the Services to transmit any
+
+   780          Google Play or other app store or distribution platform (each an
+   781:         {' '}
+   782          <strong>App Provider</strong>
+
+   804          provided to you on an
+   805:         {' '}
+   806          <strong>AS IS</strong>
+   807:         {' '}
+   808          and on an
+   809:         {' '}
+   810          <strong>AS AVAILABLE</strong>
+   811:         {' '}
+   812          basis. Without limiting the foregoing,
+
+   844          (including illness) that you or anyone else experiences as a result of
+   845:         consuming food prepared utilizing the Service's recipes or features.
+   846          You also agree that Recipa is not responsible or liable for any harm
+
+   966          information are available online at
+   967:         {' '}
+   968          <a href="https://www.adr.org" target="_blank" rel="noreferrer">
+
+   987          following address, with a copy also sent to
+   988:         {' '}
+   989          <a href="mailto:support@Recipa.org" target="_blank" rel="noreferrer">
+
+  1022          </strong>
+  1023:         {' '}
+  1024          You expressly waive any right you may have to bring or participate in
+
+  1027          Entities. Further, unless both you and Recipa agree in writing, the
+  1028:         arbitrator may not consolidate your claim with another person's claim,
+  1029          and may not otherwise preside over any form of a representative or
+
+  1031          bring an individual action in small claims court for disputes within
+  1032:         that court's jurisdiction.
+  1033        </p>
+
+  1037          general, please contact
+  1038:         {' '}
+  1039          <a href="mailto:terms@Recipa.org" target="_blank" rel="noreferrer">
+
+  1046          contact us at
+  1047:         {' '}
+  1048          <a href="mailto:support@Recipa.org" target="_blank" rel="noreferrer">
+
+  1057          us at
+  1058:         {' '}
+  1059          <a href="mailto:support@Recipa.org" target="_blank" rel="noreferrer">
