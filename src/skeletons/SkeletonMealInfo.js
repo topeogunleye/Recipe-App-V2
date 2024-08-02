@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Shimmer from './Shimmer';
 import SkeletonElement from './SkeletonElement';
 
@@ -51,8 +52,12 @@ const SkeletonMealInfo = ({ theme }) => {
   );
 };
 
+SkeletonMealInfo.propTypes = {
+  theme: PropTypes.string,
+};
+
+SkeletonMealInfo.defaultProps = {
+  theme: undefined,
+};
+
 export default SkeletonMealInfo;
-/* <SkeletonElement type="mealInfo" />
-        <SkeletonElement type="mealInfo" />
-        <SkeletonElement type="textBig" />
-        < */
