@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Shimmer from './Shimmer';
 import SkeletonElement from './SkeletonElement';
 
@@ -6,7 +7,7 @@ const SkeletonCategory = ({ theme }) => {
 
   return (
     <div className={`wrapper ${themeClass}`}>
-      <div className="grid-cols-1	gap-5 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid-cols-1 gap-5 mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <div className="grid place-items-center mx-0.5">
           <SkeletonElement type="catImg" />
           <SkeletonElement type="catName" />
@@ -59,6 +60,14 @@ const SkeletonCategory = ({ theme }) => {
       <Shimmer />
     </div>
   );
+};
+
+SkeletonCategory.propTypes = {
+  theme: PropTypes.string,
+};
+
+SkeletonCategory.defaultProps = {
+  theme: 'light',
 };
 
 export default SkeletonCategory;
