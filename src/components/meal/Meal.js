@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import { useContext } from 'react';
+import { DarkModeContext } from '../../contexts/DarkModeProvider';
 import './Meal.css';
 
 const MealItem = ({ meal }) => {
   const theme = useContext(DarkModeContext);
-  const { syntax, bg, } = theme.mode;
+  const { syntax, bg } = theme.mode;
   return (
     <div
       className="meal hover:shadow-lg transition-all duration-1000 ease-out"
@@ -24,14 +25,26 @@ const MealItem = ({ meal }) => {
         </div>
       </Link>
 
-      {/* <button
-                      className="home-btn absolute top-1 left-1 sm:top-0 am:left-2 hover:bg-white  py-2 px-2 rounded-sm"
-                      style={{ background: bg, color: syntax }}
-                    >
-                      <BookmarkIcon className="home-icon h-5 w-5  hover:text-black" />
-                    </button> */}
     </div>
   );
+};
+
+MealItem.propTypes = {
+  meal: PropTypes.shape({
+    idMeal: PropTypes.string,
+    strCategory: PropTypes.string,
+    strMeal: PropTypes.string,
+    strMealThumb: PropTypes.string,
+  }),
+};
+
+MealItem.defaultProps = {
+  meal: {
+    idMeal: '',
+    strCategory: '',
+    strMeal: '',
+    strMealThumb: '',
+  },
 };
 
 export default MealItem;
