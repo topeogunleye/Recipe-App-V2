@@ -6,8 +6,8 @@ import logo from '../../logo.png';
 import {
   signInWithGithub,
   signInWithGoogle,
+  signInWithTwitter,
 } from '../../firebase/firebase.utils';
-import { signInWithTwitter } from '../../firebase/firebase.utils';
 import ThemeToggleLogin from '../../components/theme-toggle/ThemeToggleLogin';
 
 const Loginsignup = () => {
@@ -15,7 +15,10 @@ const Loginsignup = () => {
   const { syntax, ui } = theme.mode;
 
   return (
-    <div className="w-screen transition-all duration-1000 ease-out" style={{ background: ui, color: syntax }}>
+    <div
+      className="w-screen transition-all duration-1000 ease-out"
+      style={{ background: ui, color: syntax }}
+    >
       <div
         className="absolute top-5 right-10
           "
@@ -55,6 +58,7 @@ const Loginsignup = () => {
                 title="Connect with Facebook"
                 aria-label="Connect with Facebook"
                 className="button facebook btn-facebook"
+                type="button" // Add the type attribute with the value "button"
               >
                 <span>Connect with Facebook</span>
               </button>
@@ -65,6 +69,7 @@ const Loginsignup = () => {
                 aria-label="Connect with Google"
                 className="button google btn-google"
                 onClick={signInWithGoogle}
+                type="button"
               >
                 <span>Connect with Google</span>
               </button>
@@ -75,6 +80,7 @@ const Loginsignup = () => {
                 aria-label="Connect with Github"
                 className="button github btn-github"
                 onClick={signInWithGithub}
+                type="button"
               >
                 <span>Connect with Github</span>
               </button>
@@ -85,6 +91,7 @@ const Loginsignup = () => {
                 aria-label="Connect with Twitter"
                 className="button twitter btn-twitter"
                 onClick={signInWithTwitter}
+                type="button"
               >
                 <span>Connect with Twitter</span>
               </button>
@@ -92,41 +99,47 @@ const Loginsignup = () => {
           </ul>
           <div className="legalese ">
             <span className="text-wrapper">
-              By connecting, you agree to our{' '}
-              <a
-                href="/terms"
-                title="Terms of Use"
-                aria-label="Terms of Use"
-                target="_blank"
-                rel="noopener"
+              By connecting, you agree to our
+              {' '}
+              <button
+                className="link-button"
+                onClick={() => window.open('/terms', '_blank')}
+                type="button"
               >
                 Terms of Use
-              </a>{' '}
-              and{' '}
-              <a
-                href="/privacy"
-                title="Privacy Notice"
-                aria-label="Privacy Notice"
-                target="_blank"
-                rel="noopener"
+              </button>
+              {' '}
+              and
+              {' '}
+              <button
+                className="link-button"
+                onClick={() => window.open('/privacy', '_blank')}
+                type="button"
               >
                 Privacy Notice
-              </a>
+              </button>
             </span>
           </div>
         </div>
       </div>
-      <Link
-        to="/"
+      <button
         className="close-link"
-        role="button"
-        href="#"
+        onClick={() => {
+          window.location.href = '/';
+        }}
         title="Close &amp; Use Recipa"
         aria-label="Close &amp; Use Recipa"
-        style={{ color: syntax }}
+        style={{
+          color: syntax,
+          textDecoration: 'underline',
+          border: 'none',
+          background: 'none',
+          cursor: 'pointer',
+        }}
+        type="button"
       >
         Close &amp; Use Recipa
-      </Link>
+      </button>
     </div>
   );
 };
