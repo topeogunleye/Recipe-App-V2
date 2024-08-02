@@ -1,5 +1,6 @@
-import Home from './pages/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Home from './pages/Home';
 import MealInfo from './components/mealinfo/MealInfo';
 import Categories from './pages/Categories';
 import CategoryInfo from './pages/CategoryInfo';
@@ -12,12 +13,11 @@ import { BookmarkProvider } from './contexts/BookmarkContext';
 import BookMarkView from './pages/bookmark/bookmarkView';
 import PrivacyNotice from './pages/privacynotice/PrivacyNotice';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { useState, useEffect } from 'react';
 import TermsofUse from './pages/termsofuse/TermsofUse';
 
 function App() {
-  const [, setCurrentUser] = useState(null);
-  const [, setUnsubscribeFromAuth] = useState(null);
+  const setCurrentUser = useState(null);
+  const setUnsubscribeFromAuth = useState(null);
 
   useEffect(() => {
     setUnsubscribeFromAuth(
@@ -28,9 +28,9 @@ function App() {
         return () => {
           setUnsubscribeFromAuth();
         };
-      })
+      }),
     );
-  }, []);
+  }, [setCurrentUser, setUnsubscribeFromAuth]);
 
   return (
     <Router>
